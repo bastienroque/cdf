@@ -1,0 +1,51 @@
+{
+  "tag": "Chroniques & Éditorial",
+  "title": "Articles de Blog",
+  "subtitle": "Gérez les articles, critiques culinaires, essais historiques et annonces.",
+  "newPost": "Nouvel Article",
+  "newPostPage": {
+    "tag": "Brouillon d'Article",
+    "title": "Nouvel Article de Blog",
+    "subtitle": "Rédigez et publiez un nouvel article avec formatage Markdown, tags et image de couverture.",
+    "backLink": "Retour au Blog"
+  },
+  "editPostPage": {
+    "tag": "Conseil Éditorial",
+    "title": "Modifier l'Article de Blog",
+    "subtitle": "Révisez le contenu de l'article, mettez à jour le média de couverture, gérez les tags ou basculez l'état de publication.",
+    "backLink": "Retour au Blog"
+  },
+  "form": {
+    "titleLabel": "Titre de l'Article",
+    "titlePlaceholder": "ex: L'Histoire Secrète de la Sauce de Porto",
+    "contentLabel": "Contenu (Markdown)",
+    "contentPlaceholder": "Rédigez le contenu de l'article en Markdown...",
+    "coverLabel": "Image de Couverture",
+    "uploadCover": "Télécharger l'image de couverture",
+    "uploading": "Téléchargement...",
+    "tagsLabel": "Tags",
+    "tagPlaceholder": "Tapez un tag et appuyez sur Entrée.",
+    "localeLabel": "Langue Cible",
+    "locales": {
+      "pt": "Portugais",
+      "en": "Anglais",
+      "fr": "Français"
+    },
+    "publishLabel": "Publier Immédiatement",
+    "submitCreate": "Créer l'Article",
+    "submitUpdate": "Enregistrer les Modifications",
+    "submitting": "Enregistrement..."
+  },
+  "table": {
+    "headers": {
+      "title": "Titre de l'Article",
+      "locale": "Langue",
+      "status": "Statut de Publication"
+    },
+    "empty": "Aucun article n'a été ajouté.",
+    "actions": {
+      "confirmDelete": "Supprimer \"{title}\" ? Cette action est irréversible."
+    }
+  },
+  "empty": "Aucun article ou publication trouvé dans le répertoire du blog."
+}

@@ -1,0 +1,23 @@
+{
+  "tag": "Entrer en Contact",
+  "title": "Contactez-nous",
+  "subtitle": "Vous avez une question, un commentaire ou une recommandation de taverne ? Envoyez-nous un message.",
+  "form": {
+    "header": "Envoyer un Message",
+    "name": "Nom Complet",
+    "namePlaceholder": "Votre nom",
+    "email": "Adresse E-mail",
+    "emailPlaceholder": "votre.email@exemple.com",
+    "subject": "Sujet",
+    "subjectPlaceholder": "Quel est l'objet de votre message ?",
+    "message": "Message",
+    "messagePlaceholder": "Écrivez votre message ici...",
+    "submit": "Envoyer le Message",
+    "submitting": "Envoi en cours...",
+    "turnstileRequired": "Veuillez compléter le contrôle de sécurité avant de soumettre."
+  },
+  "success": {
+    "title": "Message Envoyé",
+    "description": "Merci de nous avoir contactés. Votre message a bien été délivré et nous vous répondrons dans les plus brefs délais."
+  }
+}

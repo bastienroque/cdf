@@ -1,0 +1,12 @@
+{
+  "verifiedTag": "Verified Sanctuary",
+  "coordinatesHeader": "Sanctuary Coordinates",
+  "noPhone": "No heraldic phone listed",
+  "visitPortal": "Visit Official Realm Portal",
+  "noWebsite": "No online portal available",
+  "decreesHeader": "Knight Decrees & Reviews",
+  "recordsBadge": "{count, plural, =1 {# Record} other {# Records}}",
+  "noDecrees": "No decrees recorded for this tavern yet.",
+  "officialDecree": "Official Decree",
+  "communityScroll": "Community Scroll"
+}

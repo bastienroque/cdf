@@ -1,26 +1,116 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* ==================================================================
+     Brand tokens — the actual palette. Rarely referenced directly by
+     components; everything below aliases onto these.
+     ================================================================== */
+  --color-brand-red: #a61c24;
+  --color-brand-gold: #e6a115;
+  --color-brand-dark: #1a1d20;
+  --color-brand-steel: #8e949a;
+  --color-brand-light: #fdfbf7;
+
+  /* ==================================================================
+     Semantic roles — decided once, reference these day to day:
+
+       brand-light  -> background   (primary page background)
+       brand-dark   -> foreground   (primary text, high-contrast surfaces)
+       brand-red    -> action       (primary buttons, links, badges)
+       brand-gold   -> accent       (ratings, highlights, official badges)
+       brand-steel  -> muted        (secondary text, borders, disabled)
+     ================================================================== */
+  --color-background: var(--color-brand-light);
+  --color-foreground: var(--color-brand-dark);
+  --color-action: var(--color-brand-red);
+  --color-accent: var(--color-brand-gold);
+
+  /* ==================================================================
+     shadcn/ui-expected pairs — wired to the brand palette so Button,
+     Input, Card, Badge (and every future shadcn component) render
+     correctly out of the box, no per-component overrides needed.
+     ================================================================== */
+  --color-primary: var(--color-brand-red);
+  --color-primary-foreground: var(--color-brand-light);
+
+  /* Neutral, deliberately NOT brand-colored — gold/accent is reserved
+     for ratings + official badges, not overloaded as a button color */
+  --color-secondary: #f0ece3;
+  --color-secondary-foreground: var(--color-brand-dark);
+
+  /* Muted surface (light neutral) vs. muted text (steel) — two
+     different jobs, kept as a proper pair rather than one shared token */
+  --color-muted: #f0ece3;
+  --color-muted-foreground: var(--color-brand-steel);
+
+  /* Deliberately a different red from brand-red — destructive actions
+     must read as visually distinct from primary actions */
+  --color-destructive: #dc2626;
+  --color-destructive-foreground: var(--color-brand-light);
+
+  --color-border: #e5e0d5;
+  --color-input: #e5e0d5;
+
+  --color-ring: var(--color-brand-gold);
+
+  --color-card: var(--color-brand-light);
+  --color-card-foreground: var(--color-brand-dark);
+
+  --color-popover: var(--color-brand-light);
+  --color-popover-foreground: var(--color-brand-dark);
+
+  /* ==================================================================
+     Fonts — role-based names, not literal font names, so swapping a
+     typeface later is a one-line change here, not a find-and-replace.
+     ================================================================== */
+  --font-display: var(--font-fraunces-serif);
+  --font-body: var(--font-gabarito-sans);
+
+  --text-h1: 2.25rem;
+  --text-h1--line-height: 1.1;
+  --text-h1--letter-spacing: -0.02em;
+
+  --text-h2: 1.75rem;
+  --text-h2--line-height: 1.15;
+  --text-h2--letter-spacing: -0.01em;
+
+  --text-h3: 1.25rem;
+  --text-h3--line-height: 1.3;
+
+  --text-body: 1rem;
+  --text-body--line-height: 1.6;
+
+  --text-ui: 0.875rem;
+  --text-ui--line-height: 1.4;
+  --text-ui--letter-spacing: 0.01em;
+
+  --text-caption: 0.75rem;
+  --text-caption--line-height: 1.4;
+  --text-caption--letter-spacing: 0.02em;
+
+  --text-quote: 1.5rem;
+  --text-quote--line-height: 1.3;
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.font-display {
+  font-optical-sizing: auto;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.focus-ring {
+  outline: none;
+  --tw-ring-color: var(--color-accent);
+}
+.focus-ring:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px var(--color-background),
+    0 0 0 4px var(--color-accent);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.leaflet-container a {
+  color: #1a1d20 !important;
 }

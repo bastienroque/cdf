@@ -1,0 +1,18 @@
+{
+  "tag": "Controlo de Acessos",
+  "title": "Gestão de Utilizadores",
+  "subtitle": "Ver contas registadas, gerir funções administrativas e inspecionar datas de adesão.",
+  "table": {
+    "headers": {
+      "user": "Utilizador",
+      "role": "Função",
+      "joined": "Data de Adesão",
+      "actions": "Ações"
+    }
+  },
+  "roles": {
+    "admin": "Administrador",
+    "user": "Membro"
+  },
+  "empty": "Nenhum utilizador registado encontrado."
+}

@@ -1,0 +1,51 @@
+{
+  "navTrigger": "Menu Admin",
+  "links": {
+    "dashboard": "Painel",
+    "restaurants": "Restaurantes",
+    "reviews": "Avaliações",
+    "blog": "Blog",
+    "events": "Eventos"
+  },
+  "dashboard": {
+    "subtitle": "Administradores do Codex • Visão Geral do Reino",
+    "title": "Painel & Centro de Comando",
+    "publicBreakdown": "Ver perspetiva pública",
+    "pendingReviewsTitle": "Avaliações Pendentes de Moderação",
+    "viewAllReviews": "Ver Todas as Avaliações",
+    "noPendingReviews": "Sem avaliações pendentes de moderação. Tudo limpo!",
+    "translationSummaryTitle": "Estado de Localização",
+    "pendingLocalizations": "Itens Pendentes",
+    "translationDesc": "Mantenha os nomes do catálogo de ingredientes e etiquetas sincronizados em português, inglês e francês.",
+    "catalogHubTitle": "Centro de Tradução de Ingredientes e Etiquetas",
+    "catalogHubSubtitle": "Gerir nomes em português, inglês e francês para itens dinâmicos.",
+    "noCatalogItems": "Ainda não existem itens de catálogo registados.",
+    "completeStatus": "Concluído",
+    "pendingStatus": "Tradução Pendente",
+    "sections": {
+      "restaurants": "Restaurantes",
+      "restaurantsDesc": "Número total de restaurantes registados",
+      "reviews": "Avaliações & Moderação",
+      "reviewsDesc": "Total de avaliações submetidas",
+      "users": "Utilizadores & Cargos",
+      "usersDesc": "Total de contas registadas",
+      "cities": "Cidades",
+      "citiesDesc": "Cidades únicas cobertas",
+      "apiUsage": "Uso de API (Este Mês)",
+      "apiDisclaimer": "Estimativas rastreadas internamente, não verificadas pelo fornecedor",
+      "contact": "Comunicações"
+    },
+    "labels": {
+      "total": "Total de Contas",
+      "admins": "Administradores",
+      "googlePlaces": "Chamadas Google Places",
+      "resend": "Emails Resend Enviados",
+      "turnstile": "Verificações de Segurança Turnstile",
+      "unread": "Mensagens Não Lidas",
+      "apiTelemetryTitle": "Telemetria de Uso da API",
+      "apiTelemetryDesc": "Monitorizar chamadas de serviços externos e integrações de rastreio.",
+      "totalCalls": "Total de Chamadas",
+      "noApiUsage": "Ainda não foi registado nenhum uso de API."
+    }
+  }
+}

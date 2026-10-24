@@ -1,0 +1,15 @@
+{
+  "tag": "Inquéritos e Divulgação",
+  "title": "Mensagens de Contacto",
+  "subtitle": "Inspecione inquéritos de utilizadores, marque mensagens como lidas ou remova comunicações resolvidas.",
+  "table": {
+    "headers": {
+      "status": "Estado",
+      "sender": "Nome",
+      "email": "Email",
+      "subject": "Assunto",
+      "date": "Recebido"
+    }
+  },
+  "empty": "Nenhuma mensagem de contacto recebida."
+}

@@ -1,0 +1,51 @@
+{
+  "tag": "Diretório de Estabelecimentos",
+  "title": "Restaurantes",
+  "subtitle": "Gerir listas de restaurantes, estado de revisão, localizações e escalões de preço.",
+  "newRestaurant": "Novo Restaurante",
+  "newRestaurantPage": {
+    "tag": "Criação de Diretório",
+    "title": "Novo Restaurante",
+    "subtitle": "Adicione um novo estabelecimento ao diretório com coordenadas geográficas, contactos e escalão de preço.",
+    "backLink": "Voltar aos Restaurantes"
+  },
+  "editRestaurantPage": {
+    "tag": "Editor de Diretório",
+    "title": "Editar Restaurante",
+    "subtitle": "Atualize detalhes, coordenadas, fotografias e estado de publicação deste estabelecimento.",
+    "backLink": "Voltar aos Restaurantes"
+  },
+  "form": {
+    "nameAddressLabel": "Nome e morada do restaurante",
+    "phoneLabel": "Telefone",
+    "phonePlaceholder": "Não encontrado na pesquisa — adicione manualmente se conhecido",
+    "websiteLabel": "Website",
+    "websitePlaceholder": "Não encontrado na pesquisa — adicione manualmente se conhecido",
+    "priceRangeLabel": "Escalão de preço",
+    "photosLabel": "Fotografias ({current}/{max})",
+    "removePhoto": "Remover fotografia",
+    "statusLabel": "Estado",
+    "statusDraft": "Rascunho",
+    "statusPublished": "Publicado",
+    "saveChanges": "Guardar alterações",
+    "createRestaurant": "Criar restaurante"
+  },
+  "table": {
+    "headers": {
+      "name": "Nome",
+      "city": "Cidade",
+      "price": "Nível de Preço",
+      "status": "Estado"
+    },
+    "status": {
+      "published": "Publicado",
+      "draft": "Rascunho"
+    },
+    "actions": {
+      "edit": "Editar",
+      "delete": "Eliminar",
+      "confirmDelete": "Eliminar \"{name}\"? Esta ação não pode ser revertida."
+    },
+    "empty": "Nenhum restaurante encontrado no diretório."
+  }
+}

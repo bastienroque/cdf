@@ -1,0 +1,5 @@
+{
+  "tag": "Realm Cartography",
+  "title": "Tavern Map",
+  "subtitle": "{count, plural, =1 {# Sanctuary Plotted Across the Realm} other {# Sanctuaries Plotted Across the Realm}}"
+}

@@ -1,0 +1,18 @@
+{
+  "tag": "Access Control",
+  "title": "User Management",
+  "subtitle": "View registered accounts, manage administrative roles, and inspect membership dates.",
+  "table": {
+    "headers": {
+      "user": "User",
+      "role": "Role",
+      "joined": "Joined Date",
+      "actions": "Actions"
+    }
+  },
+  "roles": {
+    "admin": "Administrator",
+    "user": "Member"
+  },
+  "empty": "No registered users found."
+}

@@ -1,0 +1,80 @@
+{
+  "tag": "Moderation Queue",
+  "title": "Review Moderation",
+  "subtitle": "Inspect, approve, or reject community evaluations before publication.",
+  "newOfficial": "New Official Review",
+  "filterAll": "All",
+  "filterPublished": "Published",
+  "filterPending": "Pending",
+  "filterRejected": "Rejected",
+  "noReviews": "No reviews found for this filter.",
+  "officialBadge": "Official",
+  "anonymousKnight": "Anonymous Knight",
+  "unknownRestaurant": "Unknown Restaurant",
+  "newReview": {
+    "tag": "Official Evaluation",
+    "title": "New Official Review",
+    "subtitle": "Publish a verified official review with detailed ingredient scoring and critique.",
+    "backLink": "Back to Reviews"
+  },
+  "editReview": {
+    "tag": "Review Editor",
+    "title": "Edit Review",
+    "subtitle": "Modify evaluation details, pricing, photos, and component scoring.",
+    "backLink": "Back to Reviews"
+  },
+  "form": {
+    "generalInfo": "General Information",
+    "restaurantLabel": "Restaurant",
+    "selectRestaurant": "Select restaurant...",
+    "visitDateLabel": "Visit date",
+    "pricePaidLabel": "Price paid (€)",
+    "pricePlaceholder": "0.00",
+    "typeLabel": "Francesinha type (e.g. Tradicional, Especial)",
+    "ingredientsHeading": "Ingredient Evaluation & Tags",
+    "removeIngredient": "Remove ingredient",
+    "addIngredient": "Add another ingredient",
+    "ingredientNameLabel": "Ingredient Name",
+    "change": "Change",
+    "chooseOrSearch": "Click to choose or search ingredient",
+    "searchIngredientPlaceholder": "Search or type new ingredient...",
+    "createInline": "Create \"{query}\" inline",
+    "scoreLabel": "Score",
+    "selectScore": "Select score (0-10)...",
+    "notIncluded": "Not included",
+    "badLabel": "(Not included / Bad)",
+    "perfectLabel": "(Perfect)",
+    "tagsLabel": "Tags",
+    "addTags": "Add / Manage Tags",
+    "close": "Close",
+    "searchTagPlaceholder": "Search or type new tag...",
+    "createInlineTag": "Create \"{query}\" inline tag",
+    "noTags": "No tags assigned yet.",
+    "experienceHeading": "Experience Matrix (1-10)",
+    "selectExperienceScore": "Select score (1-10)...",
+    "poorLabel": "(Poor)",
+    "exceptionalLabel": "(Exceptional)",
+    "mediaHeading": "Review & Media",
+    "reviewTextLabel": "Review text",
+    "reviewTextPlaceholder": "Write your detailed review...",
+    "photosLabel": "Photos ({current}/{max})",
+    "publishReview": "Publish review"
+  },
+  "table": {
+    "headers": {
+      "restaurant": "Restaurant",
+      "author": "Author",
+      "visitDate": "Visit Date",
+      "text": "Review Details"
+    },
+    "actions": {
+      "approve": "Approve",
+      "reject": "Reject",
+      "edit": "Edit",
+      "delete": "Remove",
+      "confirmDelete": "Are you sure you want to permanently delete this review?",
+      "confirmReject": "Reject this review? This cannot be undone."
+    },
+    "empty": "No pending community reviews awaiting moderation."
+  }
+}

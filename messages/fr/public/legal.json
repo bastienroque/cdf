@@ -1,0 +1,44 @@
+{
+  "privacy": {
+    "title": "Politique de Confidentialité & RGPD",
+    "backLink": "Retour à l'accueil",
+    "manageCookiesLabel": "Préférences des Cookies",
+    "manageCookiesSub": "Mettez à jour ou réinitialisez vos paramètres de consentement de suivi à tout moment.",
+    "overview": {
+      "heading": "Vue d'ensemble",
+      "text": "Chez Cavaleiros da Francesinha, nous traitons vos données personnelles de manière sécurisée et transparente, conformément au Règlement Général sur la Protection des Données (RGPD)."
+    },
+    "dataCollection": {
+      "heading": "Informations que nous collectons",
+      "accountTitle": "Compte & Avis",
+      "accountText": "Identifiants d'authentification, texte des avis soumis, scores des ingrédients, notes et photos des plats téléchargées.",
+      "analyticsTitle": "Technique & Analytique",
+      "analyticsText": "Pages vues anonymes, métriques des appareils et journaux d'interaction via Google Analytics 4 (GA4) et Google Tag Manager (GTM)."
+    },
+    "cookies": {
+      "heading": "Cookies & Google Consent Mode v2",
+      "intro": "Nous implémentons Google Consent Mode v2 pour garantir que les scripts d'analyse non essentiels ne s'exécutent que lorsqu'ils sont explicitement autorisés.",
+      "essentialTag": "Strictement Nécessaires",
+      "essentialDesc": "Requis pour la navigation sur les pages, la sécurité des sessions et l'enregistrement de votre choix de cookies.",
+      "analyticsTag": "Analytique",
+      "analyticsDesc": "Utilisés pour agréger les statistiques de trafic et améliorer les performances de l'application. Désactivés par défaut."
+    },
+    "infrastructure": {
+      "heading": "Infrastructure & Stockage",
+      "intro": "Tout le traitement des données est hébergé au sein d'une infrastructure cloud européenne sécurisée :",
+      "supabase": "Supabase (UE) : Base de données relationnelle et compartiments de stockage d'images.",
+      "vercel": "Vercel : Hébergement d'applications serverless et distribution edge CDN."
+    },
+    "rights": {
+      "heading": "Vos Droits en vertu du RGPD",
+      "intro": "Vous disposez d'une autorité totale sur vos informations personnelles :",
+      "accessTitle": "Accès",
+      "accessDesc": "Demandez une copie complète de vos données de compte stockées.",
+      "rectificationTitle": "Rectification",
+      "rectificationDesc": "Mettez à jour ou corrigez des détails de profil inexacts.",
+      "erasureTitle": "Effacement",
+      "erasureDesc": "Demandez la suppression permanente de votre compte et de vos avis.",
+      "contact": "Pour exercer vos droits, écrivez-nous à :"
+    }
+  }
+}

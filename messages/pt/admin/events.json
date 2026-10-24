@@ -1,0 +1,52 @@
+{
+  "tag": "Encontros e Banquetes",
+  "title": "Gestão de Eventos",
+  "subtitle": "Agende, organize e publique provas comunitárias, encontros e eventos de taverna.",
+  "newEvent": "Novo Evento",
+  "newEventPage": {
+    "tag": "Agenda de Eventos",
+    "title": "Novo Evento",
+    "subtitle": "Agende uma prova comunitária ou encontro de taverna com localização e data.",
+    "backLink": "Voltar aos Eventos"
+  },
+  "editEventPage": {
+    "tag": "Editor de Eventos",
+    "title": "Editar Evento",
+    "subtitle": "Atualize detalhes do evento, estabelecimento associado, data ou idioma alvo.",
+    "backLink": "Voltar aos Eventos"
+  },
+  "form": {
+    "titleLabel": "Título do Evento",
+    "titlePlaceholder": "ex: Grande Noite de Prova de Francesinha",
+    "descriptionLabel": "Descrição do Evento",
+    "descriptionPlaceholder": "Forneça detalhes do evento, agenda e diretrizes de participação.",
+    "dateLabel": "Data",
+    "locationLabel": "Localização / Morada",
+    "locationPlaceholder": "ex: Centro do Porto",
+    "restaurantLabel": "Restaurante Associado",
+    "restaurantOptional": "(opcional)",
+    "noRestaurant": "Sem restaurante associado",
+    "localeLabel": "Idioma Alvo",
+    "locales": {
+      "pt": "Português",
+      "en": "Inglês",
+      "fr": "Francês"
+    },
+    "submitCreate": "Criar Evento",
+    "submitUpdate": "Guardar Alterações",
+    "submitting": "A guardar..."
+  },
+  "table": {
+    "headers": {
+      "title": "Título do Evento",
+      "date": "Data",
+      "location": "Localização",
+      "locale": "Idioma"
+    },
+    "empty": "Nenhum evento adicionado.",
+    "actions": {
+      "confirmDelete": "Eliminar \"{title}\"? Esta ação não pode ser revertida."
+    }
+  },
+  "empty": "Sem eventos futuros ou passados listados."
+}

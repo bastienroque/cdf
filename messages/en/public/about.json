@@ -1,0 +1,103 @@
+{
+  "tag": "The Guild & The Dish",
+  "title": "About The Order",
+  "subtitle": "Discover the heritage of Portugal's iconic sandwich and the brotherhood dedicated to preserving its standards.",
+  "stats": {
+    "verified": "Verified Taverns",
+    "reviews": "Community Reviews",
+    "cities": "Cities Covered"
+  },
+  "francesinha": {
+    "cta": "View Full Leaderboard",
+    "hero": {
+      "title": "Francesinha",
+      "lede": "How a homesick bartender's take on a Parisian sandwich became the dish that defines Porto."
+    },
+    "sections": {
+      "origin": {
+        "eyebrow": "Origin",
+        "title": "A bartender in Paris",
+        "paragraphs": {
+          "creator": "Daniel David Da Silva, born on September 28, 1904, in Chorense, in northern Portugal, imagined the Francesinha in 1950.",
+          "frenchInfluence": "A bartender and versatile kitchen employee in France and Belgium, it was when French cuisine represented the quintessence of refinement that Daniel discovered the Croque-Monsieur, a hot sandwich invented in Paris in 1910.",
+          "inspiration": "Finding it too light, he decided to create his own version of this iconic dish by adapting it to the tastes and habits of his home country. More substantial, richer, and spicier, Daniel thus created the first version of the Francesinha."
+        }
+      },
+      "name": {
+        "eyebrow": "The Name",
+        "title": "\"The little French woman\"",
+        "paragraphs": {
+          "nameOrigin": "Where does the name Francesinha come from? Daniel declared that French women at the time were more audacious, more seductive, and more 'spicy'. He therefore baptized his creation 'The little French woman'.",
+          "moveToPorto": "It was the same year that Antonio Passos, passing through France and impressed by Daniel's professionalism, proposed that he come work in the family restaurant A Regaleira in the center of Porto."
+        }
+      },
+      "officialBirth": {
+        "eyebrow": "1952",
+        "title": "Born at «A Regaleira»",
+        "paragraphs": {
+          "firstVersion": "In 1952, the Francesinha officially came to be in this same restaurant. Roasted pork steak, ham, Portuguese charcuterie (chouriço, linguiça), all in a bijou bread coated with cheese and covered with a secret beer sauce that would become iconic."
+        }
+      },
+      "spreadingAcrossPortugal": {
+        "eyebrow": "Spreading Across Portugal",
+        "title": "A working city adopts its dish",
+        "paragraphs": {
+          "adoptionInPorto": "Porto, a working-class city at the time, did not take long to adopt the dish. Rich in protein and filling, the Francesinha met all the criteria to become a must-have for workers' lunches.",
+          "poveiraVariant": "In the 1960s, a variant from Póvoa de Varzim appeared: the Francesinha Poveira. With baguette bread and a thicker sauce, this recipe forged its own identity.",
+          "popularization": "By the 1990s, the Francesinha became popular across Portugal, eventually receiving world recognition in 2011 as one of the best sandwiches in the world."
+        }
+      },
+      "legacy": {
+        "eyebrow": "Legacy",
+        "title": "A recipe that outlived its inventor",
+        "paragraphs": {
+          "retirement": "After years of service at A Regaleira, Daniel David Da Silva retired and returned to live in Chorense, remaining faithful to A Regaleira until his retirement.",
+          "restaurantClosure": "In 2018, A Regaleira briefly closed before reopening a few meters further down the same street.",
+          "legacy": "Today, the Francesinha is an icon of Portuguese cuisine. It is still possible to taste the original recipe at A Regaleira, still run by the same family nearly 75 years later."
+        }
+      }
+    }
+  },
+  "cavaleiros": {
+    "sections": {
+      "legend": {
+        "eyebrow": "The Legend",
+        "title": "A dish that became a legend",
+        "paragraphs": {
+          "intro": "There are dishes that nourish the body, and others that nourish legends. For over seventy years, the Francesinha has passed through generations like an old tale told by the fireside. Born between the mists of the North and the clamor of Porto's kitchens, it has become much more than a dish: a living memory of Portugal."
+        }
+      },
+      "order": {
+        "eyebrow": "The Order",
+        "title": "The Cavaleiros da Francesinha",
+        "paragraphs": {
+          "confrerie": "Thus, a brotherhood was born: the Cavaleiros da Francesinha.",
+          "notTitles": "Neither kings, nor monks, nor scholars.",
+          "whoTheyAre": "Only travelers, bound by an ancient oath: to journey across the kingdom in search of the last Francesinhas worthy of entering the chronicles."
+        }
+      },
+      "quest": {
+        "eyebrow": "The Quest",
+        "title": "On the road, plate by plate",
+        "paragraphs": {
+          "theirJourney": "Their path knows neither rest nor detour. They cross mountains and valleys, pushing open the doors of the humblest taverns and the most renowned houses alike.",
+          "theirTasting": "Over forty houses have already been tested. They judge each ingredient with the patience of a craftsman and the rigor of a chronicler."
+        }
+      },
+      "soul": {
+        "eyebrow": "Beyond the Plate",
+        "title": "Where a Francesinha lives",
+        "paragraphs": {
+          "francesinhaSoul": "For a Francesinha never lives alone. It dwells in a room buzzing with conversation, the smile of a tavern keeper, and the warmth of a place where one returns as if meeting an old friend."
+        }
+      },
+      "mission": {
+        "eyebrow": "Their Mission",
+        "title": "Preserving the memory",
+        "paragraphs": {
+          "theirMission": "It is all of this that they record, so that no traveler may go astray and the memory of the true Francesinha may never be lost."
+        }
+      }
+    }
+  }
+}

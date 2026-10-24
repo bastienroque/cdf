@@ -1,0 +1,80 @@
+{
+  "tag": "File de Modération",
+  "title": "Modération des Avis",
+  "subtitle": "Inspectez, approuvez ou rejetez les évaluations de la communauté avant publication.",
+  "newOfficial": "Nouvel Avis Officiel",
+  "filterAll": "Tous",
+  "filterPublished": "Publiés",
+  "filterPending": "En attente",
+  "filterRejected": "Rejetés",
+  "noReviews": "Aucun avis trouvé pour ce filtre.",
+  "officialBadge": "Officiel",
+  "anonymousKnight": "Chevalier Anonyme",
+  "unknownRestaurant": "Restaurant Inconnu",
+  "newReview": {
+    "tag": "Évaluation Officielle",
+    "title": "Nouvel Avis Officiel",
+    "subtitle": "Publiez un avis officiel vérifié avec notation détaillée des ingrédients et critique.",
+    "backLink": "Retour aux Avis"
+  },
+  "editReview": {
+    "tag": "Éditeur d'Avis",
+    "title": "Modifier l'Avis",
+    "subtitle": "Modifiez les détails de l'évaluation, les prix, les photos et la notation des composants.",
+    "backLink": "Retour aux Avis"
+  },
+  "form": {
+    "generalInfo": "Informations Générales",
+    "restaurantLabel": "Restaurant",
+    "selectRestaurant": "Sélectionner un restaurant...",
+    "visitDateLabel": "Date de visite",
+    "pricePaidLabel": "Prix payé (€)",
+    "pricePlaceholder": "0.00",
+    "typeLabel": "Type de francesinha (ex. Tradicional, Especial)",
+    "ingredientsHeading": "Évaluation des Ingrédients & Tags",
+    "removeIngredient": "Supprimer l'ingrédient",
+    "addIngredient": "Ajouter un autre ingrédient",
+    "ingredientNameLabel": "Nom de l'Ingrédient",
+    "change": "Modifier",
+    "chooseOrSearch": "Cliquer pour choisir ou rechercher un ingrédient",
+    "searchIngredientPlaceholder": "Rechercher ou saisir un nouvel ingrédient...",
+    "createInline": "Créer \"{query}\" en ligne",
+    "scoreLabel": "Score",
+    "selectScore": "Sélectionner un score (0-10)...",
+    "notIncluded": "Non inclus",
+    "badLabel": "(Non inclus / Mauvais)",
+    "perfectLabel": "(Parfait)",
+    "tagsLabel": "Tags",
+    "addTags": "Ajouter / Gérer les Tags",
+    "close": "Fermer",
+    "searchTagPlaceholder": "Rechercher ou saisir un nouveau tag...",
+    "createInlineTag": "Créer le tag \"{query}\" en ligne",
+    "noTags": "Aucun tag assigné pour le moment.",
+    "experienceHeading": "Matrice d'Expérience (1-10)",
+    "selectExperienceScore": "Sélectionner un score (1-10)...",
+    "poorLabel": "(Médiocre)",
+    "exceptionalLabel": "(Exceptionnel)",
+    "mediaHeading": "Avis & Médias",
+    "reviewTextLabel": "Texte de l'avis",
+    "reviewTextPlaceholder": "Rédigez votre avis détaillé...",
+    "photosLabel": "Photos ({current}/{max})",
+    "publishReview": "Publier l'avis"
+  },
+  "table": {
+    "headers": {
+      "restaurant": "Restaurant",
+      "author": "Auteur",
+      "visitDate": "Date de Visite",
+      "text": "Détails de l'Avis"
+    },
+    "actions": {
+      "approve": "Approuver",
+      "reject": "Rejeter",
+      "edit": "Modifier",
+      "delete": "Supprimer",
+      "confirmDelete": "Êtes-vous sûr de vouloir supprimer définitivement cet avis ?",
+      "confirmReject": "Rejeter cet avis ? Cette action est irréversible."
+    },
+    "empty": "Aucun avis communautaire en attente de modération."
+  }
+}

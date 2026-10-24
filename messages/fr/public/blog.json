@@ -1,0 +1,11 @@
+{
+  "tag": "Dépêches & Articles",
+  "title": "Blog & Actualités",
+  "subtitle": "Chroniques, guides et histoires du monde des Francesinhas.",
+  "empty": "Aucun article publié pour le moment. Revenez bientôt pour de nouvelles dépêches.",
+  "detail": {
+    "backLink": "Retour au Blog",
+    "publishedOn": "Publié le",
+    "tags": "Sujets"
+  }
+}

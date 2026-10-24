@@ -1,0 +1,22 @@
+{
+  "tag": "Taxonomia Culinária",
+  "title": "Ingredientes & Variantes",
+  "subtitle": "Gerir componentes centrais da Francesinha e respetivas variantes de preparação.",
+  "addPlaceholder": "Nome do novo ingrediente...",
+  "addIngredient": "Adicionar Ingrediente",
+  "variantPlaceholder": "ex: Caseiro / Picante",
+  "addVariant": "Adicionar Variante",
+  "variantsHeader": "Variantes",
+  "noVariants": "Sem variantes definidas.",
+  "deleteIngredient": "Eliminar",
+  "deleteError": "Não foi possível eliminar o ingrediente. Certifique-se de que não existem avaliações dependentes.",
+  "empty": "Sem ingredientes definidos na taxonomia.",
+  "form": {
+    "ptLabel": "Português (PT)",
+    "enLabel": "Inglês (EN)",
+    "frLabel": "Francês (FR)",
+    "placeholder": "Opcional / Recuar para PT",
+    "deleteTitle": "Eliminar item",
+    "confirmDelete": "Tem a certeza de que pretende eliminar permanentemente \"{name}\"?"
+  }
+}

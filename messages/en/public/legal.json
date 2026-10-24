@@ -1,0 +1,44 @@
+{
+  "privacy": {
+    "title": "Privacy Policy & GDPR",
+    "backLink": "Back to Home",
+    "manageCookiesLabel": "Cookie Preferences",
+    "manageCookiesSub": "Update or reset your tracking consent settings at any time.",
+    "overview": {
+      "heading": "Overview",
+      "text": "At Cavaleiros da Francesinha, we process your personal data securely and transparently in compliance with the European General Data Protection Regulation (GDPR)."
+    },
+    "dataCollection": {
+      "heading": "Information We Collect",
+      "accountTitle": "Account & Reviews",
+      "accountText": "Authentication credentials, submitted review text, ingredient scores, ratings, and uploaded dish photos.",
+      "analyticsTitle": "Technical & Analytics",
+      "analyticsText": "Anonymous page views, device metrics, and interaction logs via Google Analytics 4 (GA4) and Google Tag Manager (GTM)."
+    },
+    "cookies": {
+      "heading": "Cookies & Google Consent Mode v2",
+      "intro": "We implement Google Consent Mode v2 to ensure non-essential analytics scripts run only when explicitly authorized.",
+      "essentialTag": "Strictly Necessary",
+      "essentialDesc": "Required for page navigation, session security, and recording your cookie choice.",
+      "analyticsTag": "Analytics",
+      "analyticsDesc": "Used to aggregate traffic statistics and improve application performance. Disabled by default."
+    },
+    "infrastructure": {
+      "heading": "Infrastructure & Storage",
+      "intro": "All data processing is hosted within secure European cloud infrastructure:",
+      "supabase": "Supabase (EU): Relational database and image storage buckets.",
+      "vercel": "Vercel: Serverless application hosting and CDN edge distribution."
+    },
+    "rights": {
+      "heading": "Your Rights Under GDPR",
+      "intro": "You hold complete authority over your personal information:",
+      "accessTitle": "Access",
+      "accessDesc": "Request a complete copy of stored account data.",
+      "rectificationTitle": "Rectification",
+      "rectificationDesc": "Update or correct inaccurate profile details.",
+      "erasureTitle": "Erasure",
+      "erasureDesc": "Request permanent deletion of your account and reviews.",
+      "contact": "To exercise your rights, email us at:"
+    }
+  }
+}

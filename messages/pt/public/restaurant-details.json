@@ -1,0 +1,12 @@
+{
+  "verifiedTag": "Santuário Verificado",
+  "coordinatesHeader": "Coordenadas do Santuário",
+  "noPhone": "Sem telefone heráldico registado",
+  "visitPortal": "Visitar Portal Oficial do Reino",
+  "noWebsite": "Sem portal online disponível",
+  "decreesHeader": "Decretos de Cavaleiros & Avaliações",
+  "recordsBadge": "{count, plural, =1 {# Registo} other {# Registos}}",
+  "noDecrees": "Ainda não existem decretos registados para esta taverna.",
+  "officialDecree": "Decreto Oficial",
+  "communityScroll": "Pergaminho da Comunidade"
+}

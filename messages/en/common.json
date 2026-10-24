@@ -1,0 +1,61 @@
+{
+  "nav": {
+    "discover": "Discover",
+    "community": "Community",
+    "about": "About Us",
+    "restaurants": "Restaurants",
+    "leaderboard": "Leaderboard",
+    "map": "Interactive Map",
+    "blog": "Blog & News",
+    "events": "Events & Gatherings",
+    "glossary": "Glossary",
+    "contact": "Contact",
+    "admin": "Admin Dashboard"
+  },
+  "badges": {
+    "official": "Verified Review",
+    "community": "Community Review"
+  },
+  "actions": {
+    "save": "Save",
+    "saving": "Saving...",
+    "saved": "Saved",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "approve": "Approve",
+    "reject": "Reject",
+    "edit": "Edit",
+    "viewAll": "View All"
+  },
+  "status": {
+    "published": "Published",
+    "draft": "Draft",
+    "pending": "Pending Review",
+    "rejected": "Rejected",
+    "read": "Read",
+    "unread": "Unread"
+  },
+  "footer": {
+    "tagline": "The definitive guide to Francesinhas across Portugal.",
+    "rights": "Cavaleiros da Francesinha. All rights reserved.",
+    "legalHeader": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "cookies": "Cookie Preferences"
+  },
+  "consent": {
+    "title": "Cookie Preferences",
+    "message": "We use cookies and analytical tags to understand how the kingdom explores our taverns. Learn more in our",
+    "privacyLink": "Privacy Policy",
+    "reject": "Decline",
+    "accept": "Accept Cookies"
+  },
+  "notFound": {
+    "badge": "404 Page Not Found",
+    "title": "Uncharted Territory",
+    "description": "The sanctuary, decree, or page you are looking for doesn't exist, has been removed, or was moved to another location.",
+    "returnHome": "Back to Home",
+    "openMap": "Explore Map"
+  },
+  "imageUnavailable": "No image available yet."
+}

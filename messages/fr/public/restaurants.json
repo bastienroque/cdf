@@ -1,0 +1,26 @@
+{
+  "tag": "Codex des Tavernes",
+  "title": "Répertoire des Tavernes",
+  "subtitle": "Inspectez et filtrez tous les sanctuaires vérifiés de Francesinha à travers le royaume.",
+  "filterLabel": "Filtres :",
+  "allCities": "Toutes les villes",
+  "anyPrice": "Tous les prix",
+  "sortDesc": "Score : Plus haut → Plus bas",
+  "sortAsc": "Score : Plus bas → Plus haut",
+  "filterButton": "Filtrer",
+  "empty": "Aucun restaurant trouvé dans les catacumbas.",
+  "searchPlaceholder": "Rechercher des tavernes par nom ou ville...",
+  "filterScore": "Score Minimum",
+  "filterPrice": "Gamme de Prix",
+  "details": {
+    "score": "Score Royal",
+    "location": "Domaine",
+    "price": "Niveau de Tribut",
+    "ingredients": "Anatomie du Plat",
+    "bread": "Pain et Croûte",
+    "meat": "Viandes et Charcuteries",
+    "cheese": "Bouclier Fondu",
+    "sauce": "Sauce Secrète",
+    "potatoes": "Frites Dorées"
+  }
+}

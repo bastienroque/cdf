@@ -1,0 +1,51 @@
+{
+  "navTrigger": "Menu Admin",
+  "links": {
+    "dashboard": "Tableau de bord",
+    "restaurants": "Restaurants",
+    "reviews": "Avis",
+    "blog": "Blog",
+    "events": "Événements"
+  },
+  "dashboard": {
+    "subtitle": "Administrateurs du Codex • Vue d'ensemble du Royaume",
+    "title": "Tableau de bord & Centre de commande",
+    "publicBreakdown": "Voir la vue publique",
+    "pendingReviewsTitle": "Avis en attente de modération",
+    "viewAllReviews": "Voir tous les avis",
+    "noPendingReviews": "Aucun avis en attente de modération. Tout est en ordre !",
+    "translationSummaryTitle": "Statut de localisation",
+    "pendingLocalizations": "Éléments en attente",
+    "translationDesc": "Maintenez les noms du catalogue d'ingrédients et de tags synchronisés en portugais, anglais et français.",
+    "catalogHubTitle": "Hub de traduction des ingrédients et tags",
+    "catalogHubSubtitle": "Gérez les noms en portugais, anglais et français pour les éléments dynamiques.",
+    "noCatalogItems": "Aucun élément de catalogue enregistré pour le moment.",
+    "completeStatus": "Terminé",
+    "pendingStatus": "Traduction en attente",
+    "sections": {
+      "restaurants": "Restaurants",
+      "restaurantsDesc": "Nombre total de restaurants enregistrés",
+      "reviews": "Avis & Modération",
+      "reviewsDesc": "Total des évaluations soumises",
+      "users": "Utilisateurs & Rôles",
+      "usersDesc": "Total des comptes enregistrés",
+      "cities": "Villes",
+      "citiesDesc": "Villes uniques couvertes",
+      "apiUsage": "Utilisation des API (Ce mois-ci)",
+      "apiDisclaimer": "Estimations suivies en interne, non vérifiées par le fournisseur",
+      "contact": "Communications"
+    },
+    "labels": {
+      "total": "Total des comptes",
+      "admins": "Administrateurs",
+      "googlePlaces": "Appels Google Places",
+      "resend": "E-mails Resend envoyés",
+      "turnstile": "Vérifications de sécurité Turnstile",
+      "unread": "Messages non lus",
+      "apiTelemetryTitle": "Télémétrie d'utilisation des API",
+      "apiTelemetryDesc": "Surveiller les appels aux services externes et les intégrations de suivi.",
+      "totalCalls": "Total des appels",
+      "noApiUsage": "Aucune utilisation d'API enregistrée pour le moment."
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "tag": "Gatherings & Feasts",
+  "title": "Events Management",
+  "subtitle": "Schedule, organize, and publish community tastings, gatherings, and tavern events.",
+  "newEvent": "New Event",
+  "newEventPage": {
+    "tag": "Event Schedule",
+    "title": "New Event",
+    "subtitle": "Schedule a community tasting or tavern gathering with location and date.",
+    "backLink": "Back to Events"
+  },
+  "editEventPage": {
+    "tag": "Event Editor",
+    "title": "Edit Event",
+    "subtitle": "Update event details, linked establishment, date, or target language.",
+    "backLink": "Back to Events"
+  },
+  "form": {
+    "titleLabel": "Event Title",
+    "titlePlaceholder": "e.g., Grand Francesinha Tasting Night",
+    "descriptionLabel": "Event Description",
+    "descriptionPlaceholder": "Provide event details, schedule, and attendance guidelines.",
+    "dateLabel": "Date",
+    "locationLabel": "Location / Address",
+    "locationPlaceholder": "e.g., Porto City Center",
+    "restaurantLabel": "Linked Restaurant",
+    "restaurantOptional": "(optional)",
+    "noRestaurant": "No restaurant linked",
+    "localeLabel": "Target Locale",
+    "locales": {
+      "pt": "Portuguese",
+      "en": "English",
+      "fr": "French"
+    },
+    "submitCreate": "Create Event",
+    "submitUpdate": "Save Changes",
+    "submitting": "Saving..."
+  },
+  "table": {
+    "headers": {
+      "title": "Event Title",
+      "date": "Date",
+      "location": "Location",
+      "locale": "Language"
+    },
+    "empty": "No events added yet.",
+    "actions": {
+      "confirmDelete": "Delete \"{title}\"? This action cannot be undone."
+    }
+  },
+  "empty": "No upcoming or past events listed."
+}

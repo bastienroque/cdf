@@ -1,0 +1,80 @@
+{
+  "tag": "Fila de Moderação",
+  "title": "Moderação de Avaliações",
+  "subtitle": "Inspecione, aprove ou rejeite avaliações da comunidade antes da publicação.",
+  "newOfficial": "Nova Avaliação Oficial",
+  "filterAll": "Todos",
+  "filterPublished": "Publicados",
+  "filterPending": "Pendentes",
+  "filterRejected": "Rejeitados",
+  "noReviews": "Nenhuma avaliação encontrada para este filtro.",
+  "officialBadge": "Oficial",
+  "anonymousKnight": "Cavaleiro Anónimo",
+  "unknownRestaurant": "Restaurante Desconhecido",
+  "newReview": {
+    "tag": "Avaliação Oficial",
+    "title": "Nova Avaliação Oficial",
+    "subtitle": "Publique uma avaliação oficial verificada com pontuação detalhada de ingredientes e crítica.",
+    "backLink": "Voltar às Avaliações"
+  },
+  "editReview": {
+    "tag": "Editor de Avaliações",
+    "title": "Editar Avaliação",
+    "subtitle": "Modifique detalhes da avaliação, preços, fotografias e pontuação de componentes.",
+    "backLink": "Voltar às Avaliações"
+  },
+  "form": {
+    "generalInfo": "Informações Gerais",
+    "restaurantLabel": "Restaurante",
+    "selectRestaurant": "Selecionar restaurante...",
+    "visitDateLabel": "Data da visita",
+    "pricePaidLabel": "Preço pago (€)",
+    "pricePlaceholder": "0.00",
+    "typeLabel": "Tipo de francesinha (ex. Tradicional, Especial)",
+    "ingredientsHeading": "Avaliação de Ingredientes e Etiquetas",
+    "removeIngredient": "Remover ingrediente",
+    "addIngredient": "Adicionar outro ingrediente",
+    "ingredientNameLabel": "Nome do Ingrediente",
+    "change": "Alterar",
+    "chooseOrSearch": "Clique para escolher ou pesquisar ingrediente",
+    "searchIngredientPlaceholder": "Pesquisar ou escrever novo ingrediente...",
+    "createInline": "Criar \"{query}\" inline",
+    "scoreLabel": "Pontuação",
+    "selectScore": "Selecionar pontuação (0-10)...",
+    "notIncluded": "Não incluído",
+    "badLabel": "(Não incluído / Mau)",
+    "perfectLabel": "(Perfeito)",
+    "tagsLabel": "Etiquetas",
+    "addTags": "Adicionar / Gerir Etiquetas",
+    "close": "Fechar",
+    "searchTagPlaceholder": "Pesquisar ou escrever nova etiqueta...",
+    "createInlineTag": "Criar etiqueta \"{query}\" inline",
+    "noTags": "Ainda sem etiquetas atribuídas.",
+    "experienceHeading": "Matriz de Experiência (1-10)",
+    "selectExperienceScore": "Selecionar pontuação (1-10)...",
+    "poorLabel": "(Fraco)",
+    "exceptionalLabel": "(Excecional)",
+    "mediaHeading": "Avaliação e Multimédia",
+    "reviewTextLabel": "Texto da avaliação",
+    "reviewTextPlaceholder": "Escreva a sua avaliação detalhada...",
+    "photosLabel": "Fotografias ({current}/{max})",
+    "publishReview": "Publicar avaliação"
+  },
+  "table": {
+    "headers": {
+      "restaurant": "Restaurante",
+      "author": "Autor",
+      "visitDate": "Data da Visita",
+      "text": "Detalhes da Avaliação"
+    },
+    "actions": {
+      "approve": "Aprovar",
+      "reject": "Rejeitar",
+      "edit": "Editar",
+      "delete": "Remover",
+      "confirmDelete": "Tem a certeza de que pretende eliminar permanentemente esta avaliação?",
+      "confirmReject": "Rejeitar esta avaliação? Esta ação não pode ser revertida."
+    },
+    "empty": "Sem avaliações comunitárias pendentes de moderação."
+  }
+}

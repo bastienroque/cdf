@@ -1,0 +1,45 @@
+{
+  "tag": "Lexicon & Terminology",
+  "title": "Glossary Terms",
+  "subtitle": "Manage Francesinha terminology, definitions, and multilingual translations.",
+  "newTerm": "New Term",
+  "newTermPage": {
+    "tag": "Lexicon Entry",
+    "title": "New Glossary Term",
+    "subtitle": "Define a stable URL slug first, then provide terms and definitions across all supported languages.",
+    "backLink": "Back to Glossary"
+  },
+  "editTermPage": {
+    "tag": "Lexicon Editor",
+    "title": "Edit: {slug}",
+    "subtitle": "Update the stable slug or revise translations for each language.",
+    "backLink": "Back to Glossary"
+  },
+  "form": {
+    "step1Title": "Step 1 of 2: Slug",
+    "step2Title": "Step 2 of 2: Translations",
+    "slugLabel": "Slug (stable across all languages)",
+    "slugPlaceholder": "e.g., molho-de-francesinha",
+    "slugNote": "Nothing is saved yet; finalized together with translations.",
+    "nextTranslations": "Next: Translations",
+    "backToSlug": "Back to Slug",
+    "activeSlug": "Active Slug:",
+    "termLabel": "Term Name",
+    "termPlaceholder": "Term title in {locale}...",
+    "definitionLabel": "Definition",
+    "definitionPlaceholder": "Comprehensive definition in {locale}...",
+    "submitSave": "Save & Finish",
+    "submitting": "Saving...",
+    "errorMessage": "Something went wrong. Please try again."
+  },
+  "table": {
+    "headers": {
+      "slug": "Slug Identifier",
+      "translations": "Translations Coverage"
+    },
+    "actions": {
+      "confirmDelete": "Delete \"{slug}\"? This will permanently remove all associated translations."
+    }
+  },
+  "empty": "No terms found in the glossary."
+}

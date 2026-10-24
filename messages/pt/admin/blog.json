@@ -1,0 +1,51 @@
+{
+  "tag": "Crónicas e Editorial",
+  "title": "Artigos de Blog",
+  "subtitle": "Gerir artigos, críticas culinárias, ensaios históricos e anúncios.",
+  "newPost": "Novo Artigo",
+  "newPostPage": {
+    "tag": "Rascunho de Artigo",
+    "title": "Novo Artigo de Blog",
+    "subtitle": "Escreva e publique um novo artigo com formatação Markdown, etiquetas e imagem de capa.",
+    "backLink": "Voltar ao Blog"
+  },
+  "editPostPage": {
+    "tag": "Conselho Editorial",
+    "title": "Editar Artigo de Blog",
+    "subtitle": "Reveja o conteúdo do artigo, atualize a multimédia de capa, gira etiquetas ou altere o estado de publicação.",
+    "backLink": "Voltar ao Blog"
+  },
+  "form": {
+    "titleLabel": "Título do Artigo",
+    "titlePlaceholder": "ex: A História Secreta do Molho do Porto",
+    "contentLabel": "Conteúdo (Markdown)",
+    "contentPlaceholder": "Escreva o conteúdo do artigo em Markdown...",
+    "coverLabel": "Imagem de Capa",
+    "uploadCover": "Carregar imagem de capa",
+    "uploading": "A carregar...",
+    "tagsLabel": "Etiquetas",
+    "tagPlaceholder": "Escreva uma etiqueta e prima Enter.",
+    "localeLabel": "Idioma Alvo",
+    "locales": {
+      "pt": "Português",
+      "en": "Inglês",
+      "fr": "Francês"
+    },
+    "publishLabel": "Publicar Imediatamente",
+    "submitCreate": "Criar Artigo",
+    "submitUpdate": "Guardar Alterações",
+    "submitting": "A guardar..."
+  },
+  "table": {
+    "headers": {
+      "title": "Título do Artigo",
+      "locale": "Idioma",
+      "status": "Estado de Publicação"
+    },
+    "empty": "Nenhuma publicação adicionada.",
+    "actions": {
+      "confirmDelete": "Eliminar \"{title}\"? Esta ação não pode ser revertida."
+    }
+  },
+  "empty": "Nenhum artigo ou publicação encontrado no diretório do blog."
+}

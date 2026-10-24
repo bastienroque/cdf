@@ -1,0 +1,41 @@
+{
+  "hero": {
+    "badge": "Le Codex Officiel du Royaume",
+    "title": "Le Guide Définitif des Francesinhas du Royaume",
+    "subtitle": "Chaque taverne jugée ingrédient par ingrédient par décret royal et par la communauté.",
+    "exploreAction": "Explorer les Tavernes",
+    "mapAction": "Inspecter la Cartographie"
+  },
+  "topRated": {
+    "tag": "Distinction",
+    "title": "L'Étendard Royal",
+    "leaderboardLink": "Voir la Chronique Complète",
+    "empty": "Aucune taverne enregistrée dans la chronique pour l'instant."
+  },
+  "decree": {
+    "tag": "Le Protocole",
+    "title": "Le Décret de l'Ordre",
+    "step1Title": "Jugé par les Chevaliers & Sujets",
+    "step1Desc": "Les sceaux officiels proviennent de notre ordre ; les notes de la communauté proviennent de membres assermentés. Les deux ont un poids égal dans le calcul de la véritable gloire.",
+    "step2Title": "Anatomie du Festin",
+    "step2Desc": "Chaque chronique décortique chaque couche : croûte, charcuteries, fromage fondu, sauce secrète et pommes de terre dorées."
+  },
+  "recentActivity": {
+    "tag": "Dépêches",
+    "title": "Chroniques Récentes",
+    "empty": "Aucun décret publié pour le moment."
+  },
+  "mapTeaser": {
+    "title": "Chaque Royaume & Taverne, Cartographiés",
+    "subtitle": "Localisez les bastions proches et trouvez les meilleures francesinhas du royaume.",
+    "cta": "Ouvrir la Carte"
+  },
+  "cta": {
+    "authTitle": "Vous avez savouré une Francesinha récemment ?",
+    "authSubtitle": "Consignez votre jugement dans le registre du royaume.",
+    "authAction": "Rédiger un Avis",
+    "guestTitle": "Prêter Serment",
+    "guestSubtitle": "Enrôlez-vous dès aujourd'hui pour juger les tavernes et attribuer des notes.",
+    "guestAction": "Rejoindre l'Ordre"
+  }
+}

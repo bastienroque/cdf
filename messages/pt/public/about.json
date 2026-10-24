@@ -1,0 +1,103 @@
+{
+  "tag": "A Guilda e o Prato",
+  "title": "Sobre a Ordem",
+  "subtitle": "Descubra a herança da sanduíche icónica de Portugal e a irmandade dedicada a preservar os seus padrões.",
+  "stats": {
+    "verified": "Tavernas Verificadas",
+    "reviews": "Avaliações da Comunidade",
+    "cities": "Cidades Cobertas"
+  },
+  "francesinha": {
+    "cta": "Ver Classificação Completa",
+    "hero": {
+      "title": "Francesinha",
+      "lede": "Como a versão de um barman nostálgico de uma sanduíche parisiense se tornou no prato que define o Porto."
+    },
+    "sections": {
+      "origin": {
+        "eyebrow": "Origem",
+        "title": "Um barman em Paris",
+        "paragraphs": {
+          "creator": "Daniel David Da Silva, nascido a 28 de setembro de 1904, em Chorense, no norte de Portugal, imaginou a Francesinha em 1950.",
+          "frenchInfluence": "Barman e funcionário versátil de cozinha em França e na Bélgica, foi quando a cozinha francesa representava a quintessência do requinte que Daniel descobriu o Croque-Monsieur, uma sanduíche quente inventada em Paris em 1910.",
+          "inspiration": "A achando demasiado leve, decidiu criar a sua própria versão deste prato icónico, adaptando-o aos gostos e hábitos do seu país natal. Mais substancial, rica e picante, Daniel criou assim a primeira versão da Francesinha."
+        }
+      },
+      "name": {
+        "eyebrow": "O Nome",
+        "title": "\"A pequena francesa\"",
+        "paragraphs": {
+          "nameOrigin": "De onde vem o nome Francesinha? Daniel declarou que as mulheres francesas da época eram mais audazes, sedutoras e 'picantes'. Batizou assim a sua criação de 'A pequena francesa'.",
+          "moveToPorto": "Foi nesse mesmo ano que António Passos, de passagem por França e impressionado pelo profissionalismo de Daniel, propôs que viesse trabalhar para o restaurante familiar A Regaleira, no centro do Porto."
+        }
+      },
+      "officialBirth": {
+        "eyebrow": "1952",
+        "title": "Nascida no «A Regaleira»",
+        "paragraphs": {
+          "firstVersion": "Em 1952, a Francesinha nasceu oficialmente neste mesmo restaurante. Bife de porco assado, fiambre, charcutaria portuguesa (chouriço, linguiça), tudo num pão bijou revestido com queijo e coberto com um molho de cerveja secreto que se tornaria icónico."
+        }
+      },
+      "spreadingAcrossPortugal": {
+        "eyebrow": "Expansão por Portugal",
+        "title": "Uma cidade trabalhadora adota o seu prato",
+        "paragraphs": {
+          "adoptionInPorto": "O Porto, cidade operária na altura, não tardou a adotar o prato. Rica em proteínas e reconfortante, a Francesinha preenchia todos os requisitos para se tornar indispensável nos almoços dos trabalhadores.",
+          "poveiraVariant": "Nos anos 60, surgiu uma variante da Póvoa de Varzim: a Francesinha Poveira. Com pão cacete e um molho mais espesso, esta receita forjou a sua própria identidade.",
+          "popularization": "Nos anos 90, a Francesinha popularizou-se em todo o Portugal, acabando por receber reconhecimento mundial em 2011 como uma das melhores sanduíches do mundo."
+        }
+      },
+      "legacy": {
+        "eyebrow": "Legado",
+        "title": "Uma receita que sobreviveu ao seu criador",
+        "paragraphs": {
+          "retirement": "Após anos de serviço no A Regaleira, Daniel David Da Silva reformou-se e regressou a Chorense, mantendo-se fiel ao A Regaleira até ao fim.",
+          "restaurantClosure": "Em 2018, o A Regaleira fechou brevemente antes de reabrir uns metros mais abaixo na mesma rua.",
+          "legacy": "Hoje, a Francesinha é um ícone da culinária portuguesa. Ainda é possível provar a receita original no A Regaleira, gerido pela mesma família quase 75 anos depois."
+        }
+      }
+    }
+  },
+  "cavaleiros": {
+    "sections": {
+      "legend": {
+        "eyebrow": "A Lenda",
+        "title": "Um prato que se tornou lenda",
+        "paragraphs": {
+          "intro": "Há pratos que nutrem o corpo e outros que alimentam lendas. Durante mais de setenta anos, a Francesinha atravessou gerações como um conto antigo contado junto à lareira. Nascida entre as brumas do Norte e o bulício das cozinhas do Porto, tornou-se muito mais do que um prato: a memória viva de Portugal."
+        }
+      },
+      "order": {
+        "eyebrow": "A Ordem",
+        "title": "Os Cavaleiros da Francesinha",
+        "paragraphs": {
+          "confrerie": "Assim nasceu uma irmandade: os Cavaleiros da Francesinha.",
+          "notTitles": "Nem reis, nem monges, nem letrados.",
+          "whoTheyAre": "Apenas viajantes, unidos por um antigo juramento: percorrer o reino em busca das últimas Francesinhas dignas de entrar nas crónicas."
+        }
+      },
+      "quest": {
+        "eyebrow": "A Missão",
+        "title": "Na estrada, prato a prato",
+        "paragraphs": {
+          "theirJourney": "O seu caminho não conhece descanso nem desvios. Cruzam montanhas e vales, abrindo as portas das tavernas mais humildes e das casas mais prestigiadas.",
+          "theirTasting": "Mais de quarenta casas já foram testadas. Julgam cada ingrediente com a paciência de um artesão e o rigor de um cronista."
+        }
+      },
+      "soul": {
+        "eyebrow": "Além do Prato",
+        "title": "Onde vive uma Francesinha",
+        "paragraphs": {
+          "francesinhaSoul": "Pois uma Francesinha nunca vive sozinha. Habita numa sala vibrante de conversas, no sorriso de um taberneiro e no calor de um lugar onde se regressa como quem reencontra um velho amigo."
+        }
+      },
+      "mission": {
+        "eyebrow": "A Sua Missão",
+        "title": "Preservar a memória",
+        "paragraphs": {
+          "theirMission": "É tudo isto que registam, para que nenhum viajante se perca e a memória da verdadeira Francesinha nunca se desvaneça."
+        }
+      }
+    }
+  }
+}

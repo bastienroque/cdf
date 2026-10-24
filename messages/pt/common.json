@@ -1,0 +1,61 @@
+{
+  "nav": {
+    "discover": "Descobrir",
+    "community": "Comunidade",
+    "about": "Sobre Nós",
+    "restaurants": "Restaurantes",
+    "leaderboard": "Classificação",
+    "map": "Mapa Interativo",
+    "blog": "Blog e Notícias",
+    "events": "Eventos e Encontros",
+    "glossary": "Glossário",
+    "contact": "Contacto",
+    "admin": "Painel de Administração"
+  },
+  "badges": {
+    "official": "Avaliação Verificada",
+    "community": "Avaliação da Comunidade"
+  },
+  "actions": {
+    "save": "Guardar",
+    "saving": "A guardar...",
+    "saved": "Guardado",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "approve": "Aprovar",
+    "reject": "Rejeitar",
+    "edit": "Editar",
+    "viewAll": "Ver Todos"
+  },
+  "status": {
+    "published": "Publicado",
+    "draft": "Rascunho",
+    "pending": "Pendente de Revisão",
+    "rejected": "Rejeitado",
+    "read": "Lido",
+    "unread": "Não lido"
+  },
+  "footer": {
+    "tagline": "O guia definitivo das Francesinhas em Portugal.",
+    "rights": "Cavaleiros da Francesinha. Todos os direitos reservados.",
+    "legalHeader": "Legal",
+    "privacy": "Política de Privacidade",
+    "terms": "Termos de Serviço",
+    "cookies": "Preferências de Cookies"
+  },
+  "consent": {
+    "title": "Preferências de Cookies",
+    "message": "Utilizamos cookies e tags analíticas para compreender como o reino explora as nossas tavernas. Saiba mais na nossa",
+    "privacyLink": "Política de Privacidade",
+    "reject": "Recusar",
+    "accept": "Aceitar Cookies"
+  },
+  "notFound": {
+    "badge": "404 Página Não Encontrada",
+    "title": "Território Desconhecido",
+    "description": "O santuário, decreto ou página que procura não existe, foi removido ou mudado de local.",
+    "returnHome": "Voltar ao Início",
+    "openMap": "Explorar o Mapa"
+  },
+  "imageUnavailable": "Sem imagem disponível."
+}

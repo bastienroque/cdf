@@ -1,0 +1,11 @@
+{
+  "tag": "Despachos e Artigos",
+  "title": "Blog e Notícias",
+  "subtitle": "Crónicas, guias e histórias do mundo das Francesinhas.",
+  "empty": "Ainda não foram publicados artigos. Volte brevemente para novos despachos.",
+  "detail": {
+    "backLink": "Voltar ao Blog",
+    "publishedOn": "Publicado em",
+    "tags": "Tópicos"
+  }
+}
