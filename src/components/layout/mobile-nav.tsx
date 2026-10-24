@@ -63,11 +63,13 @@ export function MobileNav({ currentLocale, isLoggedIn, role }: MobileNavProps) {
             {/* Language Switcher & Account Section */}
             <div className="flex items-center justify-between border-b border-border pb-4 pt-1">
               <LocaleSwitcher currentLocale={currentLocale} />
-              {/* <AccountMenu
-                locale={currentLocale}
-                isLoggedIn={isLoggedIn}
-                onClick={() => setOpen(false)}
-              /> */}
+              {role === "admin" && (
+                <AccountMenu
+                  locale={currentLocale}
+                  isLoggedIn={isLoggedIn}
+                  onClick={() => setOpen(false)}
+                />
+              )}
             </div>
 
             {/* Navigation Groups & Links */}

@@ -71,9 +71,11 @@ export async function Navbar({ locale }: { locale: string }) {
           </div>
 
           {/* Desktop Account Menu */}
-          {/* <div className="hidden md:block">
-            <AccountMenu locale={locale} isLoggedIn={isLoggedIn} />
-          </div> */}
+          {role === "admin" && (
+            <div className="hidden md:block">
+              <AccountMenu locale={locale} isLoggedIn={isLoggedIn} />
+            </div>
+          )}
 
           {/* Mobile Nav Component */}
           <div className="flex md:hidden">

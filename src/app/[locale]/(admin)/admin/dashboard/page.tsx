@@ -106,7 +106,7 @@ export default async function AdminDashboardPage({
       {/* Header Bar */}
       <div className="border-b border-border/65 pb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-amber-600">
+          <div className="mb-2.5 inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-3.5 py-1 font-mono text-[10px] sm:text-xs uppercase tracking-widest text-amber-600">
             <ShieldAlert className="h-4 w-4" />
             <span>
               {tAdmin("subtitle") || "Codex Administrators • Realm Overview"}

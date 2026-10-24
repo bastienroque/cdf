@@ -21,13 +21,13 @@ export function Hero({
   return (
     <section className="relative overflow-hidden flex flex-col items-center gap-6 border-b border-border/60 px-6 py-28 text-center bg-linear-to-b from-background via-muted/20 to-background">
       {/* Background Knight Watermark */}
-      <div className="absolute inset-0 pointer-events-none flex items-center justify-center opacity-[0.25] dark:opacity-[0.18] select-none">
+      <div className="absolute inset-0 pointer-events-none flex items-start justify-center opacity-[0.25] dark:opacity-[0.18] select-none">
         <Image
-          src="/knight-hero.jpeg"
+          src="/knight-hero.png"
           alt=""
           width={1800}
           height={1600}
-          className="object-cover w-full h-full scale-105"
+          className="object-cover object-[30%_top] md:object-top w-full h-full"
           priority
         />
       </div>

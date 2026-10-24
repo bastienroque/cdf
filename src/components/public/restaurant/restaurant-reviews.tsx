@@ -84,20 +84,20 @@ export function RestaurantReviews({ reviews, labels }: RestaurantReviewsProps) {
                 </p>
               )}
 
-              {/* Review Photos Grid */}
+              {/* Review Photos: Horizontal Scroll Carousel on Mobile, Grid on Tablet/Desktop */}
               {review.photos && review.photos.length > 0 && (
-                <div className="mb-4 grid grid-cols-1 gap-2 sm:grid-cols-3 md:grid-cols-4">
+                <div className="mb-4 -mx-4 px-4 sm:mx-0 sm:px-0 flex sm:grid sm:grid-cols-3 md:grid-cols-4 gap-2 overflow-x-auto sm:overflow-visible snap-x snap-mandatory scrollbar-none">
                   {review.photos.map((photoUrl, idx) => (
                     <div
                       key={photoUrl}
-                      className="relative aspect-video overflow-hidden rounded-sm border border-border/80 bg-muted"
+                      className="relative aspect-video w-[80%] shrink-0 snap-align-start overflow-hidden rounded-sm border border-border/80 bg-muted sm:w-full"
                     >
                       <Image
                         src={photoUrl}
                         alt={`${review.authorName} review photo ${idx + 1}`}
                         fill
                         className="object-cover transition-transform hover:scale-105"
-                        sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw"
+                        sizes="(max-width: 640px) 80vw, (max-width: 768px) 33vw, 25vw"
                       />
                     </div>
                   ))}

@@ -5,7 +5,6 @@ import * as schema from "./schema";
 
 const connectionString = process.env.DATABASE_URL!;
 
-// Use global singleton in development to prevent connection spikes during hot-reloading
 const globalForDb = globalThis as unknown as {
   conn: postgres.Sql | undefined;
 };
@@ -13,8 +12,9 @@ const globalForDb = globalThis as unknown as {
 const conn =
   globalForDb.conn ??
   postgres(connectionString, {
-    max: 1,
-    idle_timeout: 20,
+    max: process.env.NODE_ENV === "production" ? 1 : 5,
+    idle_timeout: 10,
+    connect_timeout: 5,
     prepare: false,
   });
 
