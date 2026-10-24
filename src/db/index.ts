@@ -5,7 +5,7 @@ import * as schema from "./schema";
 
 const connectionString = process.env.DATABASE_URL!;
 
-// Use global singleton in development to prevent (EMAXCONNSESSION)
+// Use global singleton in development to prevent connection spikes during hot-reloading
 const globalForDb = globalThis as unknown as {
   conn: postgres.Sql | undefined;
 };
@@ -13,9 +13,9 @@ const globalForDb = globalThis as unknown as {
 const conn =
   globalForDb.conn ??
   postgres(connectionString, {
-    max: 10, // Keep pool size below Supabase limit
-    idle_timeout: 20, // Close idle connections promptly
-    prepare: false, // Required for Supabase Transaction / Session Pooler
+    max: 1,
+    idle_timeout: 20,
+    prepare: false,
   });
 
 if (process.env.NODE_ENV !== "production") {
