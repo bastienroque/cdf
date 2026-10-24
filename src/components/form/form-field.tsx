@@ -70,7 +70,7 @@ export function TextInput({
       id={id}
       {...props}
       className={cn(
-        "focus-ring rounded-md border border-input bg-background px-2.5 py-1.5 font-body text-body text-foreground placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50",
+        "w-full focus-ring rounded-md border border-input bg-background px-2.5 py-1.5 font-body text-body text-foreground placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50",
         className,
       )}
     />

@@ -99,12 +99,12 @@ export function UpdateTranslationForm({ item }: { item: CatalogItem }) {
         />
       </div>
 
-      <div className="flex items-center gap-2">
+      <div className="flex items-center justify-between md:justify-end gap-2">
         <CustomButton
           type="submit"
           disabled={loading || deleting}
           size="md"
-          className="w-full sm:w-auto"
+          className="w-auto"
         >
           {loading ? tCommon("actions.saving") : tCommon("actions.save")}
         </CustomButton>
