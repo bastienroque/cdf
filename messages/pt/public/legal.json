@@ -1,0 +1,44 @@
+{
+  "privacy": {
+    "title": "Política de Privacidade & RGPD",
+    "backLink": "Voltar ao Início",
+    "manageCookiesLabel": "Preferências de Cookies",
+    "manageCookiesSub": "Atualize ou reinicie as suas definições de consentimento de rastreio a qualquer momento.",
+    "overview": {
+      "heading": "Visão Geral",
+      "text": "Nos Cavaleiros da Francesinha, tratamos os seus dados pessoais de forma segura e transparente, em conformidade com o Regulamento General de Proteção de Dados (RGPD)."
+    },
+    "dataCollection": {
+      "heading": "Informação que Recolhemos",
+      "accountTitle": "Conta e Avaliações",
+      "accountText": "Credenciais de autenticação, texto de avaliações submetidas, pontuações de ingredientes, classificações e fotografias de pratos enviadas.",
+      "analyticsTitle": "Técnico e Analítico",
+      "analyticsText": "Visualizações de páginas anónimas, métricas de dispositivos e registos de interação via Google Analytics 4 (GA4) e Google Tag Manager (GTM)."
+    },
+    "cookies": {
+      "heading": "Cookies e Modo de Consentimento Google v2",
+      "intro": "Implementamos o Modo de Consentimento Google v2 para garantir que os scripts de análise não essenciais apenas são executados quando explicitamente autorizados.",
+      "essentialTag": "Estritamente Necessários",
+      "essentialDesc": "Necessários para navegação na página, segurança de sessão e registo da sua escolha de cookies.",
+      "analyticsTag": "Análise",
+      "analyticsDesc": "Utilizados para agregar estatísticas de tráfego e melhorar o desempenho da aplicação. Desativados por predefinição."
+    },
+    "infrastructure": {
+      "heading": "Infraestrutura e Armazenamento",
+      "intro": "Todo o processamento de dados está alojado numa infraestrutura de cloud europeia segura:",
+      "supabase": "Supabase (UE): Base de dados relacional e baldes de armazenamento de imagens.",
+      "vercel": "Vercel: Alojamento de aplicações serverless e distribuição CDN edge."
+    },
+    "rights": {
+      "heading": "Os Seus Direitos ao Abrigo do RGPD",
+      "intro": "Detém total autoridade sobre a sua informação pessoal:",
+      "accessTitle": "Acesso",
+      "accessDesc": "Solicite uma cópia completa dos dados de conta armazenados.",
+      "rectificationTitle": "Retificação",
+      "rectificationDesc": "Atualize ou corrija detalhes de perfil imprecisos.",
+      "erasureTitle": "Eliminação",
+      "erasureDesc": "Solicite a eliminação permanente da sua conta e avaliações.",
+      "contact": "Para exercer os seus direitos, envie-nos um email para:"
+    }
+  }
+}

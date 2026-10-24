@@ -1,0 +1,12 @@
+{
+  "tag": "Rassemblements & Festins",
+  "title": "Événements",
+  "subtitle": "Découvrez les prochains rassemblements, dégustations de Francesinhas et célébrations communautaires.",
+  "empty": "Aucun événement à venir programmé pour le moment. Revenez bientôt !",
+  "detail": {
+    "backLink": "Retour aux Événements",
+    "location": "Emplacement",
+    "date": "Date & Heure",
+    "venue": "Lieu Hôte"
+  }
+}

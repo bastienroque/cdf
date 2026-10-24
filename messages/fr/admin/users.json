@@ -1,0 +1,18 @@
+{
+  "tag": "Contrôle d'Accès",
+  "title": "Gestion des Utilisateurs",
+  "subtitle": "Consultez les comptes enregistrés, gérez les rôles administratifs et inspectez les dates d'adhésion.",
+  "table": {
+    "headers": {
+      "user": "Utilisateur",
+      "role": "Rôle",
+      "joined": "Date d'Adhésion",
+      "actions": "Actions"
+    }
+  },
+  "roles": {
+    "admin": "Administrateur",
+    "user": "Membre"
+  },
+  "empty": "Aucun utilisateur enregistré trouvé."
+}

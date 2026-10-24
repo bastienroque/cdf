@@ -1,0 +1,12 @@
+{
+  "tag": "Gatherings & Feasts",
+  "title": "Events",
+  "subtitle": "Discover upcoming gatherings, Francesinha tastings, and community celebrations.",
+  "empty": "No upcoming events scheduled at this time. Check back soon!",
+  "detail": {
+    "backLink": "Back to Events",
+    "location": "Location",
+    "date": "Date & Time",
+    "venue": "Host Venue"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "tag": "Cartografia do Reino",
+  "title": "Mapa de Tavernas",
+  "subtitle": "{count, plural, =1 {# Santuário Mapeado no Reino} other {# Santuários Mapeados no Reino}}"
+}

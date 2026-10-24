@@ -1,0 +1,51 @@
+{
+  "navTrigger": "Admin Menu",
+  "links": {
+    "dashboard": "Dashboard",
+    "restaurants": "Restaurants",
+    "reviews": "Reviews",
+    "blog": "Blog",
+    "events": "Events"
+  },
+  "dashboard": {
+    "subtitle": "Codex Administrators • Realm Overview",
+    "title": "Dashboard & Command Center",
+    "publicBreakdown": "View public breakdown",
+    "pendingReviewsTitle": "Reviews Awaiting Moderation",
+    "viewAllReviews": "View All Reviews",
+    "noPendingReviews": "No reviews pending moderation. All clear!",
+    "translationSummaryTitle": "Localization Status",
+    "pendingLocalizations": "Pending Items",
+    "translationDesc": "Keep ingredient and tag catalog names synchronized across Portuguese, English, and French.",
+    "catalogHubTitle": "Ingredients & Tags Translation Hub",
+    "catalogHubSubtitle": "Manage Portuguese, English, and French names for dynamic items.",
+    "noCatalogItems": "No catalog items registered yet.",
+    "completeStatus": "Complete",
+    "pendingStatus": "Pending Translation",
+    "sections": {
+      "restaurants": "Restaurants",
+      "restaurantsDesc": "Total number of restaurants registered",
+      "reviews": "Reviews & Moderation",
+      "reviewsDesc": "Total submitted evaluations",
+      "users": "Users & Roles",
+      "usersDesc": "Total registered accounts",
+      "cities": "Cities",
+      "citiesDesc": "Unique cities covered",
+      "apiUsage": "API Usage (This Month)",
+      "apiDisclaimer": "Self-tracked estimations not provider-verified",
+      "contact": "Communications"
+    },
+    "labels": {
+      "total": "Total Accounts",
+      "admins": "Administrators",
+      "googlePlaces": "Google Places Calls",
+      "resend": "Resend Emails Sent",
+      "turnstile": "Turnstile Security Checks",
+      "unread": "Unread Messages",
+      "apiTelemetryTitle": "API Usage Telemetry",
+      "apiTelemetryDesc": "Monitor external service calls and tracking integrations.",
+      "totalCalls": "Total Calls",
+      "noApiUsage": "No API usage recorded yet."
+    }
+  }
+}

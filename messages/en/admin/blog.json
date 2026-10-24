@@ -1,0 +1,51 @@
+{
+  "tag": "Chronicles & Editorial",
+  "title": "Blog Posts",
+  "subtitle": "Manage articles, culinary reviews, historical essays, and announcements.",
+  "newPost": "New Post",
+  "newPostPage": {
+    "tag": "Article Draft",
+    "title": "New Blog Post",
+    "subtitle": "Write and publish a new article with Markdown formatting, tags, and cover art.",
+    "backLink": "Back to Blog"
+  },
+  "editPostPage": {
+    "tag": "Editorial Board",
+    "title": "Edit Blog Post",
+    "subtitle": "Revise article content, update cover media, manage tags, or toggle publication state.",
+    "backLink": "Back to Blog"
+  },
+  "form": {
+    "titleLabel": "Article Title",
+    "titlePlaceholder": "e.g., The Secret History of Porto's Sauce",
+    "contentLabel": "Content (Markdown)",
+    "contentPlaceholder": "Write article content in Markdown...",
+    "coverLabel": "Cover Image",
+    "uploadCover": "Upload cover image",
+    "uploading": "Uploading...",
+    "tagsLabel": "Tags",
+    "tagPlaceholder": "Type a tag and press Enter.",
+    "localeLabel": "Target Locale",
+    "locales": {
+      "pt": "Portuguese",
+      "en": "English",
+      "fr": "French"
+    },
+    "publishLabel": "Publish Immediately",
+    "submitCreate": "Create Post",
+    "submitUpdate": "Save Changes",
+    "submitting": "Saving..."
+  },
+  "table": {
+    "headers": {
+      "title": "Article Title",
+      "locale": "Language",
+      "status": "Publication Status"
+    },
+    "empty": "No blog posts added yet.",
+    "actions": {
+      "confirmDelete": "Delete \"{title}\"? This action cannot be undone."
+    }
+  },
+  "empty": "No articles or posts found in the blog directory."
+}

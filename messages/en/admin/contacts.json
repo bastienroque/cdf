@@ -1,0 +1,15 @@
+{
+  "tag": "Inquiries & Outreach",
+  "title": "Contact Messages",
+  "subtitle": "Inspect user inquiries, mark messages as read, or remove resolved communications.",
+  "table": {
+    "headers": {
+      "status": "Status",
+      "sender": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "date": "Received"
+    }
+  },
+  "empty": "No contact messages received."
+}

@@ -1,0 +1,61 @@
+{
+  "nav": {
+    "discover": "Découvrir",
+    "community": "Communauté",
+    "about": "À propos",
+    "restaurants": "Restaurants",
+    "leaderboard": "Classement",
+    "map": "Carte Interactive",
+    "blog": "Blog & Actualités",
+    "events": "Événements",
+    "glossary": "Glossaire",
+    "contact": "Contact",
+    "admin": "Tableau de bord Admin"
+  },
+  "badges": {
+    "official": "Avis Vérifié",
+    "community": "Avis de la Communauté"
+  },
+  "actions": {
+    "save": "Enregistrer",
+    "saving": "Enregistrement...",
+    "saved": "Enregistré",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "approve": "Approuver",
+    "reject": "Rejeter",
+    "edit": "Modifier",
+    "viewAll": "Tout voir"
+  },
+  "status": {
+    "published": "Publié",
+    "draft": "Brouillon",
+    "pending": "En attente de révision",
+    "rejected": "Rejeté",
+    "read": "Lu",
+    "unread": "Non lu"
+  },
+  "footer": {
+    "tagline": "Le guide définitif des Francesinhas à travers le Portugal.",
+    "rights": "Cavaleiros da Francesinha. Tous droits réservés.",
+    "legalHeader": "Mentions légales",
+    "privacy": "Politique de confidentialité",
+    "terms": "Conditions d'utilisation",
+    "cookies": "Préférences des cookies"
+  },
+  "consent": {
+    "title": "Préférences des cookies",
+    "message": "Nous utilisons des cookies et des balises analytiques pour comprendre comment le royaume explore nos tavernes. En savoir plus dans notre",
+    "privacyLink": "Politique de confidentialité",
+    "reject": "Refuser",
+    "accept": "Accepter les cookies"
+  },
+  "notFound": {
+    "badge": "404 Page Non Trouvée",
+    "title": "Territoire Inconnu",
+    "description": "Le sanctuaire, décret ou page que vous recherchez n'existe pas, a été supprimé ou déplacé.",
+    "returnHome": "Retour à l'accueil",
+    "openMap": "Explorer la carte"
+  },
+  "imageUnavailable": "Aucune image disponible."
+}

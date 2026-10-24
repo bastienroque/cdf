@@ -1,0 +1,103 @@
+{
+  "tag": "La Guilde & Le Plat",
+  "title": "À Propos de l'Ordre",
+  "subtitle": "Découvrez l'héritage du sandwich emblématique du Portugal et la confrérie dédiée à la préservation de ses standards.",
+  "stats": {
+    "verified": "Tavernes Vérifiées",
+    "reviews": "Avis de la Communauté",
+    "cities": "Villes Couvertes"
+  },
+  "francesinha": {
+    "cta": "Voir le Classement Complet",
+    "hero": {
+      "title": "Francesinha",
+      "lede": "Comment la version d'un barman nostalgique d'un sandwich parisien est devenue le plat qui définit Porto."
+    },
+    "sections": {
+      "origin": {
+        "eyebrow": "Origine",
+        "title": "Un barman à Paris",
+        "paragraphs": {
+          "creator": "Daniel David Da Silva, né le 28 septembre 1904 à Chorense, dans le nord du Portugal, a imaginé la Francesinha en 1950.",
+          "frenchInfluence": "Barman et employé de cuisine polyvalent en France et en Belgique, c'est à l'époque où la cuisine française représentait la quintessence du raffinement que Daniel a découvert le Croque-Monsieur, un sandwich chaud inventé à Paris en 1910.",
+          "inspiration": "Le trouvant trop léger, il décida de créer sa propre version de ce plat emblématique en l'adaptant aux goûts et aux habitudes de son pays natal. Plus consistante, plus riche et plus épicée, Daniel créa ainsi la première version de la Francesinha."
+        }
+      },
+      "name": {
+        "eyebrow": "Le Nom",
+        "title": "\"La petite française\"",
+        "paragraphs": {
+          "nameOrigin": "D'où vient le nom Francesinha ? Daniel a déclaré que les femmes françaises de l'époque étaient plus audacieuses, séduisantes et 'épicées'. Il a donc baptisé sa création 'La petite française'.",
+          "moveToPorto": "C'est la même année qu'António Passos, de passage en France et impressionné par le professionnalisme de Daniel, lui proposa de venir travailler dans le restaurant familial A Regaleira au centre de Porto."
+        }
+      },
+      "officialBirth": {
+        "eyebrow": "1952",
+        "title": "Née au « A Regaleira »",
+        "paragraphs": {
+          "firstVersion": "En 1952, la Francesinha est officiellement née dans ce même restaurant. Steak de porc rôti, jambon, charcuterie portugaise (chouriço, linguiça), le tout dans un pain bijou enrobé de fromage et nappé d'une sauce à la bière secrète qui deviendra emblématique."
+        }
+      },
+      "spreadingAcrossPortugal": {
+        "eyebrow": "Expansion à travers le Portugal",
+        "title": "Une ville ouvrière adopte son plat",
+        "paragraphs": {
+          "adoptionInPorto": "Porto, ville ouvrière à l'époque, n'a pas tardé à adopter le plat. Riche en protéines et nourrissante, la Francesinha réunissait tous les critères pour devenir un incontournable des déjeuners de travailleurs.",
+          "poveiraVariant": "Dans les années 1960, une variante de Póvoa de Varzim est apparue : la Francesinha Poveira. Avec du pain baguette et une sauce plus épaisse, cette recette a forgé sa propre identité.",
+          "popularization": "Dès les années 1990, la Francesinha est devenue populaire à travers le Portugal, obtenant finalement une reconnaissance mondiale en 2011 comme l'un des meilleurs sandwiches au monde."
+        }
+      },
+      "legacy": {
+        "eyebrow": "Héritage",
+        "title": "Une recette qui a survécu à son inventeur",
+        "paragraphs": {
+          "retirement": "Après des années de service au A Regaleira, Daniel David Da Silva a pris sa retraite et est retourné vivre à Chorense, restant fidèle au A Regaleira jusqu'à la fin.",
+          "restaurantClosure": "En 2018, A Regaleira a brièvement fermé avant de rouvrir quelques mètres plus loin dans la même rue.",
+          "legacy": "Aujourd'hui, la Francesinha est une icône de la cuisine portugaise. Il est toujours possible de déguster la recette originale au A Regaleira, toujours géré par la même famille près de 75 ans plus tard."
+        }
+      }
+    }
+  },
+  "cavaleiros": {
+    "sections": {
+      "legend": {
+        "eyebrow": "La Légende",
+        "title": "Un plat devenu légende",
+        "paragraphs": {
+          "intro": "Il y a des plats qui nourrissent le corps, et d'autres qui nourrissent les légendes. Depuis plus de soixante-dix ans, la Francesinha traverse les générations comme un vieux conte raconté au coin du feu. Née entre les brumes du Nord et la clameur des cuisines de Porto, elle est devenue bien plus qu'un plat : la mémoire vivante du Portugal."
+        }
+      },
+      "order": {
+        "eyebrow": "L'Ordre",
+        "title": "Les Chevaliers de la Francesinha",
+        "paragraphs": {
+          "confrerie": "Ainsi est née une confrérie : les Cavaleiros da Francesinha.",
+          "notTitles": "Ni rois, ni moines, ni érudits.",
+          "whoTheyAre": "Seulement des voyageurs, liés par un ancien serment : parcourir le royaume à la recherche des dernières Francesinhas dignes d'entrer dans les chroniques."
+        }
+      },
+      "quest": {
+        "eyebrow": "La Quête",
+        "title": "Sur la route, assiette après assiette",
+        "paragraphs": {
+          "theirJourney": "Leurs chemins ne connaissent ni repos ni détour. Ils traversent montagnes et vallées, poussant les portes des tavernes les plus modestes comme des maisons les plus renommées.",
+          "theirTasting": "Plus de quarante maisons ont déjà été testées. Ils jugent chaque ingrédient avec la patience d'un artisan et la rigueur d'un chroniqueur."
+        }
+      },
+      "soul": {
+        "eyebrow": "Au-delà de l'Assiette",
+        "title": "Où vit une Francesinha",
+        "paragraphs": {
+          "francesinhaSoul": "Car une Francesinha ne vit jamais seule. Elle habite une pièce bourdonnante de conversations, le sourire d'un tavernier et la chaleur d'un lieu où l'on revient comme pour retrouver un vieux compagnon."
+        }
+      },
+      "mission": {
+        "eyebrow": "Leur Mission",
+        "title": "Préserver la mémoire",
+        "paragraphs": {
+          "theirMission": "C'est tout cela qu'ils consignent, afin qu'aucun voyageur ne s'égare et que la mémoire de la véritable Francesinha ne se perde jamais."
+        }
+      }
+    }
+  }
+}

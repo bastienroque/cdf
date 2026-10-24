@@ -1,0 +1,51 @@
+{
+  "tag": "Establishment Directory",
+  "title": "Restaurants",
+  "subtitle": "Manage restaurant listings, review status, locations, and pricing tiers.",
+  "newRestaurant": "New Restaurant",
+  "newRestaurantPage": {
+    "tag": "Directory Creation",
+    "title": "New Restaurant",
+    "subtitle": "Add a new establishment to the directory with location coordinates, contact info, and pricing tier.",
+    "backLink": "Back to Restaurants"
+  },
+  "editRestaurantPage": {
+    "tag": "Directory Editor",
+    "title": "Edit Restaurant",
+    "subtitle": "Update details, coordinates, photos, and publication status for this establishment.",
+    "backLink": "Back to Restaurants"
+  },
+  "form": {
+    "nameAddressLabel": "Restaurant name & address",
+    "phoneLabel": "Phone",
+    "phonePlaceholder": "Not found via search — add manually if known",
+    "websiteLabel": "Website",
+    "websitePlaceholder": "Not found via search — add manually if known",
+    "priceRangeLabel": "Price range",
+    "photosLabel": "Photos ({current}/{max})",
+    "removePhoto": "Remove photo",
+    "statusLabel": "Status",
+    "statusDraft": "Draft",
+    "statusPublished": "Published",
+    "saveChanges": "Save changes",
+    "createRestaurant": "Create restaurant"
+  },
+  "table": {
+    "headers": {
+      "name": "Name",
+      "city": "City",
+      "price": "Price Range",
+      "status": "Status"
+    },
+    "status": {
+      "published": "Published",
+      "draft": "Draft"
+    },
+    "actions": {
+      "edit": "Edit",
+      "delete": "Delete",
+      "confirmDelete": "Delete \"{name}\"? This action cannot be undone."
+    },
+    "empty": "No restaurants found in directory."
+  }
+}

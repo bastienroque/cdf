@@ -1,0 +1,52 @@
+{
+  "tag": "Rassemblements & Festins",
+  "title": "Gestion des Événements",
+  "subtitle": "Planifiez, organisez et publiez des dégustations communautaires, des rassemblements et des événements de taverne.",
+  "newEvent": "Nouvel Événement",
+  "newEventPage": {
+    "tag": "Calendrier des Événements",
+    "title": "Nouvel Événement",
+    "subtitle": "Planifiez une dégustation communautaire ou un rassemblement de taverne avec lieu et date.",
+    "backLink": "Retour aux Événements"
+  },
+  "editEventPage": {
+    "tag": "Éditeur d'Événement",
+    "title": "Modifier l'Événement",
+    "subtitle": "Mettez à jour les détails de l'événement, l'établissement lié, la date ou la langue cible.",
+    "backLink": "Retour aux Événements"
+  },
+  "form": {
+    "titleLabel": "Titre de l'Événement",
+    "titlePlaceholder": "ex: Grande Nuit de Dégustation de Francesinha",
+    "descriptionLabel": "Description de l'Événement",
+    "descriptionPlaceholder": "Fournissez les détails de l'événement, le programme et les consignes de participation.",
+    "dateLabel": "Date",
+    "locationLabel": "Emplacement / Adresse",
+    "locationPlaceholder": "ex: Centre-ville de Porto",
+    "restaurantLabel": "Restaurant Lié",
+    "restaurantOptional": "(optionnel)",
+    "noRestaurant": "Aucun restaurant lié",
+    "localeLabel": "Langue Cible",
+    "locales": {
+      "pt": "Portugais",
+      "en": "Anglais",
+      "fr": "Français"
+    },
+    "submitCreate": "Créer l'Événement",
+    "submitUpdate": "Enregistrer les Modifications",
+    "submitting": "Enregistrement..."
+  },
+  "table": {
+    "headers": {
+      "title": "Titre de l'Événement",
+      "date": "Date",
+      "location": "Emplacement",
+      "locale": "Langue"
+    },
+    "empty": "Aucun événement n'a été ajouté.",
+    "actions": {
+      "confirmDelete": "Supprimer \"{title}\" ? Cette action est irréversible."
+    }
+  },
+  "empty": "Aucun événement à venir ou passé répertorié."
+}

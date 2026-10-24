@@ -1,0 +1,26 @@
+{
+  "tag": "Codex of Taverns",
+  "title": "Tavern Directory",
+  "subtitle": "Inspect and filter all verified sanctuaries of Francesinha across the realm.",
+  "filterLabel": "Filters:",
+  "allCities": "All Cities",
+  "anyPrice": "Any Price",
+  "sortDesc": "Score: Highest → Lowest",
+  "sortAsc": "Score: Lowest → Highest",
+  "filterButton": "Filter",
+  "empty": "No taverns found in the catacombs.",
+  "searchPlaceholder": "Search taverns by name or city...",
+  "filterScore": "Minimum Score",
+  "filterPrice": "Price Range",
+  "details": {
+    "score": "Royal Score",
+    "location": "Domain",
+    "price": "Tribute Level",
+    "ingredients": "Anatomy Breakdown",
+    "bread": "Bread & Crust",
+    "meat": "Meats & Sausages",
+    "cheese": "Melted Shield",
+    "sauce": "Secret Gravy",
+    "potatoes": "Golden Chips"
+  }
+}

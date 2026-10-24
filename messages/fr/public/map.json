@@ -1,0 +1,5 @@
+{
+  "tag": "Cartographie du Royaume",
+  "title": "Carte des Tavernes",
+  "subtitle": "{count, plural, =1 {# Sanctuaire Cartographié dans le Royaume} other {# Sanctuaires Cartographiés dans le Royaume}}"
+}

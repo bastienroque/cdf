@@ -1,0 +1,26 @@
+{
+  "tag": "Códice de Tavernas",
+  "title": "Diretório de Tavernas",
+  "subtitle": "Inspecione e filtre todos os santuários verificados de Francesinha em todo o reino.",
+  "filterLabel": "Filtros:",
+  "allCities": "Todas as cidades",
+  "anyPrice": "Qualquer preço",
+  "sortDesc": "Nota: Maior → Menor",
+  "sortAsc": "Nota: Menor → Maior",
+  "filterButton": "Filtrar",
+  "empty": "Nenhum restaurante encontrado nas catacumbas.",
+  "searchPlaceholder": "Pesquisar tavernas por nome ou cidade...",
+  "filterScore": "Pontuação Mínima",
+  "filterPrice": "Nível de Preço",
+  "details": {
+    "score": "Pontuação Real",
+    "location": "Domínio",
+    "price": "Nível de Tributo",
+    "ingredients": "Anatomia do Prato",
+    "bread": "Pão e Crosta",
+    "meat": "Carnes e Enchidos",
+    "cheese": "Escudo Derretido",
+    "sauce": "Molho Secreto",
+    "potatoes": "Batatas Douradas"
+  }
+}

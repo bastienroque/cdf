@@ -1,0 +1,22 @@
+{
+  "tag": "Culinary Taxonomy",
+  "title": "Ingredients & Variants",
+  "subtitle": "Manage core Francesinha components and their specific preparation variants.",
+  "addPlaceholder": "New ingredient name...",
+  "addIngredient": "Add Ingredient",
+  "variantPlaceholder": "e.g., Homemade / Spicy",
+  "addVariant": "Add Variant",
+  "variantsHeader": "Variants",
+  "noVariants": "No variants defined.",
+  "deleteIngredient": "Delete",
+  "deleteError": "Could not delete ingredient. Ensure no existing reviews depend on it.",
+  "empty": "No ingredients defined in taxonomy.",
+  "form": {
+    "ptLabel": "Portuguese (PT)",
+    "enLabel": "English (EN)",
+    "frLabel": "French (FR)",
+    "placeholder": "Optional / Fallback to PT",
+    "deleteTitle": "Delete item",
+    "confirmDelete": "Are you sure you want to permanently delete \"{name}\"?"
+  }
+}

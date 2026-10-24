@@ -1,0 +1,41 @@
+{
+  "hero": {
+    "badge": "The Official Kingdom Codex",
+    "title": "The Definitive Guide to Francesinhas in the Realm",
+    "subtitle": "Every tavern judged ingredient by ingredient by royal decree and the community alike.",
+    "exploreAction": "Explore Taverns",
+    "mapAction": "Inspect the Cartography"
+  },
+  "topRated": {
+    "tag": "Distinction",
+    "title": "The Royal Roster",
+    "leaderboardLink": "View Full Chronicle",
+    "empty": "No taverns recorded in the chronicle yet."
+  },
+  "decree": {
+    "tag": "The Protocol",
+    "title": "The Order's Decree",
+    "step1Title": "Judged by Knights & Subject",
+    "step1Desc": "Official seals originate from our order; community marks come from sworn members. Both hold equal weight in calculating true glory.",
+    "step2Title": "Anatomy of the Feast",
+    "step2Desc": "Every chronicle dissects each layer: crust, cured meats, melted cheese, secret gravy, and golden potatoes."
+  },
+  "recentActivity": {
+    "tag": "Dispatches",
+    "title": "Recent Chronicles",
+    "empty": "No decrees published yet."
+  },
+  "mapTeaser": {
+    "title": "Every Realm & Tavern, Mapped",
+    "subtitle": "Locate nearby strongholds and find the finest francesinhas in the kingdom.",
+    "cta": "Open Map"
+  },
+  "cta": {
+    "authTitle": "Feasted Upon a Francesinha Lately?",
+    "authSubtitle": "Record your judgment in the realm's ledger.",
+    "authAction": "Pen a Review",
+    "guestTitle": "Take the Oath",
+    "guestSubtitle": "Enlist today to judge taverns and bestow ratings.",
+    "guestAction": "Join the Order"
+  }
+}

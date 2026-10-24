@@ -1,0 +1,12 @@
+{
+  "verifiedTag": "Sanctuaire Vérifié",
+  "coordinatesHeader": "Coordonnées du Sanctuaire",
+  "noPhone": "Aucun téléphone héraldique répertorié",
+  "visitPortal": "Visiter le Portail Officiel du Royaume",
+  "noWebsite": "Aucun portail en ligne disponible",
+  "decreesHeader": "Décrets des Chevaliers & Avis",
+  "recordsBadge": "{count, plural, =1 {# Enregistrement} other {# Enregistrements}}",
+  "noDecrees": "Aucun décret enregistré pour cette taverne pour le moment.",
+  "officialDecree": "Décret Officiel",
+  "communityScroll": "Parchemin Communautaire"
+}

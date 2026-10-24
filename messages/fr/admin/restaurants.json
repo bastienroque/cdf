@@ -1,0 +1,51 @@
+{
+  "tag": "Répertoire des Établissements",
+  "title": "Restaurants",
+  "subtitle": "Gérez les listes de restaurants, le statut des avis, les emplacements et les gammes de prix.",
+  "newRestaurant": "Nouveau Restaurant",
+  "newRestaurantPage": {
+    "tag": "Création de Répertoire",
+    "title": "Nouveau Restaurant",
+    "subtitle": "Ajoutez un nouvel établissement au répertoire avec coordonnées géographiques, contacts et gamme de prix.",
+    "backLink": "Retour aux Restaurants"
+  },
+  "editRestaurantPage": {
+    "tag": "Éditeur de Répertoire",
+    "title": "Modifier le Restaurant",
+    "subtitle": "Mettez à jour les détails, coordonnées, photos et statut de publication de cet établissement.",
+    "backLink": "Retour aux Restaurants"
+  },
+  "form": {
+    "nameAddressLabel": "Nom et adresse du restaurant",
+    "phoneLabel": "Téléphone",
+    "phonePlaceholder": "Introuvable via la recherche — ajoutez manuellement si connu",
+    "websiteLabel": "Site Web",
+    "websitePlaceholder": "Introuvable via la recherche — ajoutez manuellement si connu",
+    "priceRangeLabel": "Gamme de prix",
+    "photosLabel": "Photos ({current}/{max})",
+    "removePhoto": "Supprimer la photo",
+    "statusLabel": "Statut",
+    "statusDraft": "Brouillon",
+    "statusPublished": "Publié",
+    "saveChanges": "Enregistrer les modifications",
+    "createRestaurant": "Créer le restaurant"
+  },
+  "table": {
+    "headers": {
+      "name": "Nom",
+      "city": "Ville",
+      "price": "Gamme de Prix",
+      "status": "Statut"
+    },
+    "status": {
+      "published": "Publié",
+      "draft": "Brouillon"
+    },
+    "actions": {
+      "edit": "Modifier",
+      "delete": "Supprimer",
+      "confirmDelete": "Supprimer \"{name}\" ? Cette action est irréversible."
+    },
+    "empty": "Aucun restaurant trouvé dans le répertoire."
+  }
+}

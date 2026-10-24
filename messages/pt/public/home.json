@@ -1,0 +1,41 @@
+{
+  "hero": {
+    "badge": "O Códice Oficial do Reino",
+    "title": "O Guia Definitivo das Francesinhas no Reino",
+    "subtitle": "Cada taverna julgada ingrediente por ingrediente por decreto real e pela comunidade.",
+    "exploreAction": "Explorar Tavernas",
+    "mapAction": "Inspecionar a Cartografia"
+  },
+  "topRated": {
+    "tag": "Distinção",
+    "title": "O Estandarte Real",
+    "leaderboardLink": "Ver Crónica Completa",
+    "empty": "Ainda não há tavernas registadas na crónica."
+  },
+  "decree": {
+    "tag": "O Protocolo",
+    "title": "O Decreto da Ordem",
+    "step1Title": "Julgado por Cavaleiros e Súbditos",
+    "step1Desc": "Os selos oficiais provêm da nossa ordem; as marcas da comunidade vêm de membros jurados. Ambos têm igual peso no cálculo da verdadeira glória.",
+    "step2Title": "Anatomia do Banquete",
+    "step2Desc": "Cada crónica disseca cada camada: crosta, enchidos, queijo derretido, molho secreto e batatas douradas."
+  },
+  "recentActivity": {
+    "tag": "Despachos",
+    "title": "Crónicas Recentes",
+    "empty": "Ainda não foram publicados decretos."
+  },
+  "mapTeaser": {
+    "title": "Cada Reino e Taverna, Mapeados",
+    "subtitle": "Localize fortalezas próximas e encontre as melhores francesinhas no reino.",
+    "cta": "Abrir o Mapa"
+  },
+  "cta": {
+    "authTitle": "Saboreou uma Francesinha recentemente?",
+    "authSubtitle": "Registe o seu julgamento no registo do reino.",
+    "authAction": "Escrever Avaliação",
+    "guestTitle": "Prestar Juramento",
+    "guestSubtitle": "Aliste-se hoje para julgar tavernas e atribuir classificações.",
+    "guestAction": "Juntar-se à Ordem"
+  }
+}

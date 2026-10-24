@@ -1,0 +1,15 @@
+{
+  "tag": "Requêtes & Sensibilisation",
+  "title": "Messages de Contact",
+  "subtitle": "Inspectez les demandes des utilisateurs, marquez les messages comme lus ou supprimez les communications résolues.",
+  "table": {
+    "headers": {
+      "status": "Statut",
+      "sender": "Nom",
+      "email": "E-mail",
+      "subject": "Sujet",
+      "date": "Reçu"
+    }
+  },
+  "empty": "Aucun message de contact reçu."
+}

@@ -1,0 +1,11 @@
+{
+  "tag": "Dispatches & Articles",
+  "title": "Blog & News",
+  "subtitle": "Chronicles, guides, and stories from the world of Francesinhas.",
+  "empty": "No articles published yet. Check back soon for new dispatches.",
+  "detail": {
+    "backLink": "Back to Blog",
+    "publishedOn": "Published on",
+    "tags": "Topics"
+  }
+}

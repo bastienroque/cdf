@@ -1,0 +1,23 @@
+{
+  "tag": "Entrar em Contacto",
+  "title": "Fale Connosco",
+  "subtitle": "Tem alguma questão, feedback ou recomendação de taverna? Envie-nos uma mensagem.",
+  "form": {
+    "header": "Enviar Mensagem",
+    "name": "Nome Completo",
+    "namePlaceholder": "O seu nome",
+    "email": "Endereço de Email",
+    "emailPlaceholder": "seu.email@exemplo.com",
+    "subject": "Assunto",
+    "subjectPlaceholder": "Sobre o que versa?",
+    "message": "Mensagem",
+    "messagePlaceholder": "Escreva a sua mensagem aqui...",
+    "submit": "Enviar Mensagem",
+    "submitting": "A enviar...",
+    "turnstileRequired": "Por favor, conclua a verificação de segurança antes de submeter."
+  },
+  "success": {
+    "title": "Mensagem Enviada",
+    "description": "Obrigado por nos contactar. A sua mensagem foi entregue e entraremos em contacto brevemente."
+  }
+}

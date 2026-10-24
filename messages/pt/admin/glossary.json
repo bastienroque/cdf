@@ -1,0 +1,45 @@
+{
+  "tag": "Léxico e Terminolgia",
+  "title": "Termos do Glossário",
+  "subtitle": "Gerir terminologia da Francesinha, definições e traduções multilíngues.",
+  "newTerm": "Novo Termo",
+  "newTermPage": {
+    "tag": "Entrada de Léxico",
+    "title": "Novo Termo do Glossário",
+    "subtitle": "Defina primeiro um slug de URL estável e, em seguida, forneça termos e definições em todos os idiomas suportados.",
+    "backLink": "Voltar ao Glossário"
+  },
+  "editTermPage": {
+    "tag": "Editor de Léxico",
+    "title": "Editar: {slug}",
+    "subtitle": "Atualize o slug estável ou reveja as traduções para cada idioma.",
+    "backLink": "Voltar ao Glossário"
+  },
+  "form": {
+    "step1Title": "Passo 1 de 2: Slug",
+    "step2Title": "Passo 2 de 2: Traduções",
+    "slugLabel": "Slug (estável em todos os idiomas)",
+    "slugPlaceholder": "ex: molho-de-francesinha",
+    "slugNote": "Nada é guardado ainda; finalizado em conjunto com as traduções.",
+    "nextTranslations": "Seguinte: Traduções",
+    "backToSlug": "Voltar ao Slug",
+    "activeSlug": "Slug Ativo:",
+    "termLabel": "Nome do Termo",
+    "termPlaceholder": "Título do termo em {locale}...",
+    "definitionLabel": "Definição",
+    "definitionPlaceholder": "Definição abrangente em {locale}...",
+    "submitSave": "Guardar & Concluir",
+    "submitting": "A guardar...",
+    "errorMessage": "Ocorreu um erro. Por favor, tente novamente."
+  },
+  "table": {
+    "headers": {
+      "slug": "Identificador Slug",
+      "translations": "Cobertura de Traduções"
+    },
+    "actions": {
+      "confirmDelete": "Eliminar \"{slug}\"? Isto removerá permanentemente todas as traduções associadas."
+    }
+  },
+  "empty": "Nenhum termo encontrado no glossário."
+}

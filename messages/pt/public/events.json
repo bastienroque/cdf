@@ -1,0 +1,12 @@
+{
+  "tag": "Encontros e Banquetes",
+  "title": "Eventos",
+  "subtitle": "Descubra próximos encontros, provas de Francesinha e celebrações comunitárias.",
+  "empty": "Não há eventos futuros agendados de momento. Volte em breve!",
+  "detail": {
+    "backLink": "Voltar aos Eventos",
+    "location": "Localização",
+    "date": "Data e Hora",
+    "venue": "Local Anfitrião"
+  }
+}

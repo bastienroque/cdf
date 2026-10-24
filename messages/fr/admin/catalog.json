@@ -1,0 +1,23 @@
+{
+  "tag": "Taxinomie Culinaire",
+  "title": "Ingrédients & Variantes",
+  "subtitle": "Gérez les composants clés de la Francesinha et leurs variantes de préparation spécifiques.",
+  "addPlaceholder": "Nom du nouvel ingrédient...",
+  "addIngredient": "Ajouter un Ingrédient",
+  "variantPlaceholder": "ex: Maison / Épicé",
+  "addVariant": "Ajouter une Variante",
+  "variantsHeader": "Variantes",
+  "noVariants": "Aucune variante définie.",
+  "deleteIngredient": "Supprimer",
+  "deleteError": "Impossible de supprimer l'ingrédient. Assurez-vous qu'aucun avis existant n'en dépend.",
+  "empty": "Aucun ingrédient défini dans la taxinomie.",
+
+  "form": {
+    "ptLabel": "Portugais (PT)",
+    "enLabel": "Anglais (EN)",
+    "frLabel": "Français (FR)",
+    "placeholder": "Optionnel / Repli sur PT",
+    "deleteTitle": "Supprimer l'élément",
+    "confirmDelete": "Êtes-vous sûr de vouloir supprimer définitivement \"{name}\" ?"
+  }
+}
