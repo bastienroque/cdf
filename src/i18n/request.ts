@@ -31,6 +31,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
     events,
     contact,
     legal,
+    share,
     adminDashboard,
     adminUsers,
     adminReviews,
@@ -66,6 +67,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
       (m) => m.default,
     ),
     import(`../../messages/${locale}/public/legal.json`).then((m) => m.default),
+    import(`../../messages/${locale}/public/share.json`).then((m) => m.default),
     import(`../../messages/${locale}/admin/dashboard.json`).then(
       (m) => m.default,
     ),
@@ -107,6 +109,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
         events,
         contact,
         legal,
+        share,
       },
       // Spread admin files so `admin.navTrigger`, `admin.links`, etc. resolve properly
       admin: {
@@ -115,7 +118,6 @@ export default getRequestConfig(async ({ requestLocale }) => {
         reviews: adminReviews,
         restaurants: adminRestaurants,
         catalog: adminCatalog,
-        glossary: adminGlossary,
         events: adminEvents,
         blog: adminBlog,
         contacts: adminContacts,

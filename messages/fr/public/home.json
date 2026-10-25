@@ -37,5 +37,10 @@
     "guestTitle": "Prêter Serment",
     "guestSubtitle": "Enrôlez-vous dès aujourd'hui pour juger les tavernes et attribuer des notes.",
     "guestAction": "Rejoindre l'Ordre"
+  },
+  "comingSoon": {
+    "tag": "Bientôt",
+    "title": "Vos avis, à table",
+    "description": "Nous sommes encore en train de semer le projet. Bientôt, un formulaire public vous permettra de laisser vos propres avis sur les francesinhas."
   }
 }
