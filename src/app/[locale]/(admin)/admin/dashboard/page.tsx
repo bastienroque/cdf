@@ -102,18 +102,16 @@ export default async function AdminDashboardPage({
   );
 
   return (
-    <div className="space-y-12 md:space-y-24 p-4 sm:p-6 md:p-10 max-w-7xl mx-auto">
+    <div className="max-w-7xl mx-auto px-4 py-6 sm:px-6 sm:py-10 space-y-12 md:space-y-24 ">
       {/* Header Bar */}
       <div className="border-b border-border/65 pb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
           <div className="mb-2.5 inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-3.5 py-1 font-mono text-[10px] sm:text-xs uppercase tracking-widest text-amber-600">
             <ShieldAlert className="h-4 w-4" />
-            <span>
-              {tAdmin("subtitle") || "Codex Administrators • Realm Overview"}
-            </span>
+            <span>{tAdmin("subtitle")}</span>
           </div>
-          <h1 className="mt-1 font-display text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl">
-            {tAdmin("title") || "Dashboard & Command Center"}
+          <h1 className="font-display text-2xl font-bold uppercase tracking-tight text-foreground sm:text-4xl">
+            {tAdmin("title")}
           </h1>
         </div>
       </div>
@@ -156,11 +154,10 @@ export default async function AdminDashboardPage({
       <TranslationHubSection
         items={combinedCatalog}
         labels={{
-          title:
-            tAdmin("catalogHubTitle") || "Ingredients & Tags Translation Hub",
-          subtitle:
-            tAdmin("catalogHubSubtitle") ||
-            "Manage Portuguese, English, and French names for dynamic items.",
+          title: tAdmin("catalogHubTitle"),
+          subtitle: tAdmin("catalogHubSubtitle"),
+          status: tCommon("status.status"),
+          type: tCommon("actions.type"),
           empty: tAdmin("noCatalogItems") || "No catalog items registered yet.",
           completeStatus: tAdmin("completeStatus") || "Complete",
           pendingStatus: tAdmin("pendingStatus") || "Pending Translation",

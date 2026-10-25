@@ -8,8 +8,8 @@
     "events": "Events"
   },
   "dashboard": {
-    "subtitle": "Codex Administrators • Realm Overview",
-    "title": "Dashboard & Command Center",
+    "subtitle": "Command Center",
+    "title": "Dashboard",
     "publicBreakdown": "View public breakdown",
     "pendingReviewsTitle": "Reviews Awaiting Moderation",
     "viewAllReviews": "View All Reviews",

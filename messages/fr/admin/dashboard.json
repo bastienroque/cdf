@@ -8,8 +8,8 @@
     "events": "Événements"
   },
   "dashboard": {
-    "subtitle": "Administrateurs du Codex • Vue d'ensemble du Royaume",
-    "title": "Tableau de bord & Centre de commande",
+    "subtitle": "Centre de commandement",
+    "title": "Tableau de bord",
     "publicBreakdown": "Voir la vue publique",
     "pendingReviewsTitle": "Avis en attente de modération",
     "viewAllReviews": "Voir tous les avis",

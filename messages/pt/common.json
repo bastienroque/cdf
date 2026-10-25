@@ -25,9 +25,11 @@
     "approve": "Aprovar",
     "reject": "Rejeitar",
     "edit": "Editar",
-    "viewAll": "Ver Todos"
+    "viewAll": "Ver Todos",
+    "type": "Tipo"
   },
   "status": {
+    "status": "Estado",
     "published": "Publicado",
     "draft": "Rascunho",
     "pending": "Pendente de Revisão",

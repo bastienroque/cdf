@@ -8,8 +8,8 @@
     "events": "Eventos"
   },
   "dashboard": {
-    "subtitle": "Administradores do Codex • Visão Geral do Reino",
-    "title": "Painel & Centro de Comando",
+    "subtitle": "Centro de Comando",
+    "title": "Painel de controlo",
     "publicBreakdown": "Ver perspetiva pública",
     "pendingReviewsTitle": "Avaliações Pendentes de Moderação",
     "viewAllReviews": "Ver Todas as Avaliações",
