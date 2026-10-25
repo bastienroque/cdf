@@ -78,7 +78,7 @@ export const translationStatusEnum = pgEnum("translation_status", [
 // --- Dynamic Ingredients Catalog ---
 export const ingredients = pgTable("ingredients", {
   id: uuid("id").primaryKey().defaultRandom(),
-  category: text("category").notNull(), // 'bread', 'sauce', 'meat', 'sausage', 'linguica', 'ham', 'cheese', 'fries', 'egg'
+  category: text("category").notNull(),
   slug: text("slug").notNull().unique(),
   namePt: text("name_pt").notNull(),
   nameEn: text("name_en"),
@@ -93,7 +93,7 @@ export const ingredients = pgTable("ingredients", {
 // --- Dynamic Attribute Tags Catalog ---
 export const tags = pgTable("tags", {
   id: uuid("id").primaryKey().defaultRandom(),
-  category: text("category").notNull(), // 'bread', 'sauce', 'meat', 'sausage', 'linguica', 'ham', 'cheese', 'fries', 'egg', 'shared', 'vibe'
+  category: text("category").notNull(),
   slug: text("slug").notNull().unique(),
   namePt: text("name_pt").notNull(),
   nameEn: text("name_en"),
@@ -185,18 +185,6 @@ export const events = pgTable("events", {
   locale: text("locale").notNull(),
   createdAt: timestamp("created_at").notNull().defaultNow(),
 });
-
-export const pageContent = pgTable(
-  "page_content",
-  {
-    id: uuid("id").primaryKey().defaultRandom(),
-    pageKey: text("page_key").notNull(),
-    locale: text("locale").notNull(),
-    content: text("content").notNull(),
-    createdAt: timestamp("created_at").notNull().defaultNow(),
-  },
-  (table) => [unique("page_key_locale_unique").on(table.pageKey, table.locale)],
-);
 
 // --- API Logging ---
 export const apiUsageLog = pgTable("api_usage_log", {

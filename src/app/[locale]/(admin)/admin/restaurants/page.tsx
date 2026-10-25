@@ -117,7 +117,7 @@ export default async function AdminRestaurantsPage({
   });
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-10">
+    <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-10 space-y-6">
       {/* ---- Header Section ---- */}
       <div className="mb-6 sm:mb-8 border-b border-border/60 pb-6">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
