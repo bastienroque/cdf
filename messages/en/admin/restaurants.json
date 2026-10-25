@@ -47,5 +47,11 @@
       "confirmDelete": "Delete \"{name}\"? This action cannot be undone."
     },
     "empty": "No restaurants found in directory."
-  }
+  },
+  "filter": {
+    "all": "All",
+    "published": "Published",
+    "draft": "Draft"
+  },
+  "searchPlaceholder": "Search restaurants by name or city"
 }

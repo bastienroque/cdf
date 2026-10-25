@@ -47,5 +47,11 @@
       "confirmDelete": "Supprimer \"{name}\" ? Cette action est irréversible."
     },
     "empty": "Aucun restaurant trouvé dans le répertoire."
-  }
+  },
+  "filter": {
+    "all": "Tous",
+    "published": "Publié",
+    "draft": "Brouillon"
+  },
+  "searchPlaceholder": "Trouver des restaurants par nom ou ville"
 }

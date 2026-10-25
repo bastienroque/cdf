@@ -1,6 +1,6 @@
 import { db } from "@/db";
 import { restaurants } from "@/db/schema";
-import { desc } from "drizzle-orm";
+import { desc, eq, and, ilike, or } from "drizzle-orm";
 import { AdminTable, type AdminRow } from "@/components/admin/admin-table";
 import { DeleteRowButton } from "@/components/ui/delete-row-button";
 import { Link } from "@/i18n/navigation";
@@ -16,17 +16,40 @@ import {
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { CustomButton } from "@/components/ui/custom-button";
+import { RestaurantSearchBar } from "@/components/admin/restaurant/restaurant-search-bar";
 
 const priceLabels = ["€", "€€", "€€€", "€€€€"];
 
 interface AdminRestaurantsPageProps {
   params: Promise<{ locale: string }>;
+  searchParams: Promise<{ status?: string; q?: string }>;
 }
 
 export default async function AdminRestaurantsPage({
   params,
+  searchParams,
 }: AdminRestaurantsPageProps) {
   const { locale } = await params;
+  const { status: statusFilter, q: searchQuery } = await searchParams;
+
+  // Build SQL filters
+  const conditions = [];
+
+  if (statusFilter && statusFilter !== "all") {
+    conditions.push(
+      eq(
+        restaurants.status,
+        statusFilter === "published" ? "published" : "draft",
+      ),
+    );
+  }
+
+  if (searchQuery && searchQuery.trim() !== "") {
+    const term = `%${searchQuery.trim()}%`;
+    conditions.push(
+      or(ilike(restaurants.name, term), ilike(restaurants.city, term)),
+    );
+  }
 
   const [data, t, tCommon] = await Promise.all([
     db
@@ -38,6 +61,7 @@ export default async function AdminRestaurantsPage({
         status: restaurants.status,
       })
       .from(restaurants)
+      .where(conditions.length > 0 ? and(...conditions) : undefined)
       .orderBy(desc(restaurants.createdAt)),
     getTranslations({ locale, namespace: "admin.restaurants" }),
     getTranslations({ locale, namespace: "common" }),
@@ -118,8 +142,8 @@ export default async function AdminRestaurantsPage({
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-10 space-y-6">
-      {/* ---- Header Section ---- */}
-      <div className="mb-6 sm:mb-8 border-b border-border/60 pb-6">
+      {/* ---- Header & Controls ---- */}
+      <div className="mb-6 sm:mb-8 border-b border-border/60 pb-6 space-y-6">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <div className="mb-2.5 inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-3.5 py-1 font-mono text-[10px] sm:text-xs uppercase tracking-widest text-amber-600">
@@ -134,10 +158,53 @@ export default async function AdminRestaurantsPage({
             </p>
           </div>
 
-          <CustomButton href="/admin/restaurants/new" intent="amber" size="md">
-            <Plus className="h-4 w-4" />
-            <span>{t("newRestaurant")}</span>
-          </CustomButton>
+          {/* Filter Tabs & New Restaurant Button */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+            {/* Filter Tabs */}
+            <div className="flex flex-wrap gap-1 font-mono text-xs">
+              {["all", "published", "draft"].map((s) => {
+                const active = (statusFilter ?? "all") === s;
+                const querySuffix = searchQuery
+                  ? `&q=${encodeURIComponent(searchQuery)}`
+                  : "";
+
+                return (
+                  <Link
+                    key={s}
+                    href={
+                      s === "all"
+                        ? `/admin/restaurants${searchQuery ? `?q=${encodeURIComponent(searchQuery)}` : ""}`
+                        : `/admin/restaurants?status=${s}${querySuffix}`
+                    }
+                    className={`rounded-sm border px-3 py-1.5 uppercase transition-colors ${
+                      active
+                        ? "border-amber-500 bg-amber-500/15 text-amber-500 font-bold"
+                        : "border-border bg-card text-muted-foreground hover:border-amber-500/40"
+                    }`}
+                  >
+                    {t(`filter.${s}`)}
+                  </Link>
+                );
+              })}
+            </div>
+
+            {/* Create Restaurant Button */}
+            <CustomButton
+              href="/admin/restaurants/new"
+              intent="amber"
+              size="md"
+            >
+              <Plus className="h-4 w-4" />
+              <span>{t("newRestaurant")}</span>
+            </CustomButton>
+          </div>
+        </div>
+
+        {/* ---- Search Bar (Separate Row) ---- */}
+        <div className="w-full max-w-md">
+          <RestaurantSearchBar
+            placeholder={t("searchPlaceholder") || "Search by name or city..."}
+          />
         </div>
       </div>
 
@@ -211,6 +278,7 @@ export default async function AdminRestaurantsPage({
               );
             })}
           </div>
+
           {/* ---- Desktop Table View (>= md) ---- */}
           <div className="hidden md:block">
             <AdminTable
@@ -222,7 +290,7 @@ export default async function AdminRestaurantsPage({
               ]}
               rows={rows}
             />
-          </div>{" "}
+          </div>
         </>
       )}
     </div>
