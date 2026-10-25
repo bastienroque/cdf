@@ -30,7 +30,7 @@ export function EntityCard({
           <img
             src={image}
             alt={title}
-            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+            className="h-full w-full object-cover transition-transform duration-300"
           />
         ) : (
           <div className="flex flex-col items-center justify-center gap-1 text-muted-foreground/40 p-4 text-center">

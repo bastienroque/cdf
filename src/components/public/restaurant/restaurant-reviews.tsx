@@ -96,7 +96,7 @@ export function RestaurantReviews({ reviews, labels }: RestaurantReviewsProps) {
                         src={photoUrl}
                         alt={`${review.authorName} review photo ${idx + 1}`}
                         fill
-                        className="object-cover transition-transform hover:scale-105"
+                        className="object-cover transition-transform"
                         sizes="(max-width: 640px) 80vw, (max-width: 768px) 33vw, 25vw"
                       />
                     </div>

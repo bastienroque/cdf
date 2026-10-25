@@ -42,7 +42,7 @@
     "scoreLabel": "Score",
     "selectScore": "Select score (0-10)...",
     "notIncluded": "Not included",
-    "badLabel": "(Not included / Bad)",
+    "badLabel": "(Not included)",
     "perfectLabel": "(Perfect)",
     "tagsLabel": "Tags",
     "addTags": "Add / Manage Tags",
@@ -58,7 +58,9 @@
     "reviewTextLabel": "Review text",
     "reviewTextPlaceholder": "Write your detailed review...",
     "photosLabel": "Photos ({current}/{max})",
-    "publishReview": "Publish review"
+    "publishReview": "Publish review",
+    "noRestaurantsFound": "No restaurant found.",
+    "removeTag": "Click to remove"
   },
   "table": {
     "headers": {

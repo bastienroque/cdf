@@ -7,13 +7,23 @@ import { catalogItemSchema } from "@/lib/validations/catalog";
 import { requireAdmin } from "@/lib/auth/admin";
 import { eq, like } from "drizzle-orm";
 import { redirect } from "next/navigation";
-import { revalidatePath } from "next/cache";
+import { revalidatePath, updateTag } from "next/cache";
 import {
   sendReviewApprovedEmail,
   sendReviewRejectedEmail,
 } from "@/lib/send-review-email";
 import { slugify } from "@/lib/slugify";
 import { recalculateRestaurantAvgScore } from "@/lib/restaurant-review-score";
+
+// Invalidates everything that displays restaurant scores.
+// - updateTag busts unstable_cache entries tagged "restaurants" (homepage top list).
+//   If updateTag isn't available in your Next version, use revalidateTag("restaurants", "max").
+// - revalidatePath("/[locale]", "layout") covers localized pages (home, restaurants, leaderboard).
+function revalidateScoreCaches() {
+  updateTag("restaurants");
+  revalidatePath("/admin/reviews");
+  revalidatePath("/[locale]", "layout");
+}
 
 async function generateUniqueIngredientSlug(name: string): Promise<string> {
   const base = slugify(name);
@@ -83,12 +93,11 @@ export async function createReview(values: ReviewFormValues) {
       experienceScores,
     });
 
-    await recalculateRestaurantAvgScore(parsed.restaurantId);
+    // Pass tx so the recalculation sees the uncommitted insert
+    await recalculateRestaurantAvgScore(parsed.restaurantId, tx);
   });
 
-  revalidatePath("/admin/reviews");
-  revalidatePath("/restaurants");
-  revalidatePath("/leaderboard");
+  revalidateScoreCaches();
   redirect("/admin/reviews");
 }
 
@@ -109,6 +118,12 @@ export async function updateReview(reviewId: string, values: ReviewFormValues) {
   ];
 
   await db.transaction(async (tx) => {
+    // Remember the previous restaurant in case the review is moved to another one
+    const [previous] = await tx
+      .select({ restaurantFk: reviews.restaurantFk })
+      .from(reviews)
+      .where(eq(reviews.id, reviewId));
+
     await tx
       .update(reviews)
       .set({
@@ -124,12 +139,14 @@ export async function updateReview(reviewId: string, values: ReviewFormValues) {
       })
       .where(eq(reviews.id, reviewId));
 
-    await recalculateRestaurantAvgScore(parsed.restaurantId);
+    await recalculateRestaurantAvgScore(parsed.restaurantId, tx);
+
+    if (previous && previous.restaurantFk !== parsed.restaurantId) {
+      await recalculateRestaurantAvgScore(previous.restaurantFk, tx);
+    }
   });
 
-  revalidatePath("/admin/reviews");
-  revalidatePath("/restaurants");
-  revalidatePath("/leaderboard");
+  revalidateScoreCaches();
   redirect("/admin/reviews");
 }
 
@@ -232,40 +249,64 @@ export async function approveReview(reviewId: string) {
       });
 
     if (row) {
-      await recalculateRestaurantAvgScore(row.restaurantFk);
+      await recalculateRestaurantAvgScore(row.restaurantFk, tx);
     }
     return row;
   });
 
   if (updated) {
+    // NOTE: this URL uses the restaurant ID, but public routes use the slug.
+    // Select the restaurant's slug and use it here so the email link doesn't 404.
     const reviewUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/restaurants/${updated.restaurantFk}#review-${updated.id}`;
     await sendReviewApprovedEmail(updated.authorFk, reviewUrl);
   }
 
-  revalidatePath("/admin/reviews");
-  revalidatePath("/leaderboard");
+  revalidateScoreCaches();
 }
 
 export async function rejectReview(reviewId: string) {
   await requireAdmin();
 
-  const [updated] = await db
-    .update(reviews)
-    .set({ status: "rejected" })
-    .where(eq(reviews.id, reviewId))
-    .returning({ id: reviews.id, authorFk: reviews.authorFk });
+  const updated = await db.transaction(async (tx) => {
+    const [row] = await tx
+      .update(reviews)
+      .set({ status: "rejected" })
+      .where(eq(reviews.id, reviewId))
+      .returning({
+        id: reviews.id,
+        authorFk: reviews.authorFk,
+        restaurantFk: reviews.restaurantFk,
+      });
+
+    // A previously published review must stop counting towards the score
+    if (row) {
+      await recalculateRestaurantAvgScore(row.restaurantFk, tx);
+    }
+    return row;
+  });
 
   if (updated) {
     await sendReviewRejectedEmail(updated.authorFk);
   }
 
-  revalidatePath("/admin/reviews");
+  revalidateScoreCaches();
 }
 
 export async function deleteReview(reviewId: string) {
   await requireAdmin();
-  await db.delete(reviews).where(eq(reviews.id, reviewId));
-  revalidatePath("/admin/reviews");
+
+  await db.transaction(async (tx) => {
+    const [deleted] = await tx
+      .delete(reviews)
+      .where(eq(reviews.id, reviewId))
+      .returning({ restaurantFk: reviews.restaurantFk });
+
+    if (deleted) {
+      await recalculateRestaurantAvgScore(deleted.restaurantFk, tx);
+    }
+  });
+
+  revalidateScoreCaches();
 }
 
 export async function updateCatalogTranslation(

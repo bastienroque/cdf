@@ -1,6 +1,6 @@
 import { db } from "@/db";
 import { restaurants, reviews } from "@/db/schema";
-import { eq, desc } from "drizzle-orm";
+import { eq, desc, and, isNotNull } from "drizzle-orm";
 import { unstable_cache } from "next/cache";
 
 export const getTopRestaurants = unstable_cache(
@@ -16,12 +16,17 @@ export const getTopRestaurants = unstable_cache(
         photos: restaurants.photos,
       })
       .from(restaurants)
-      .where(eq(restaurants.status, "published"))
+      .where(
+        and(
+          eq(restaurants.status, "published"),
+          isNotNull(restaurants.avgScore),
+        ),
+      )
       .orderBy(desc(restaurants.avgScore))
-      .limit(5);
+      .limit(6);
   },
   ["top-restaurants-homepage"],
-  { revalidate: 300, tags: ["restaurants"] }, // Cache for 5 minutes
+  { revalidate: 300, tags: ["restaurants"] },
 );
 
 export const getRecentReviews = unstable_cache(
