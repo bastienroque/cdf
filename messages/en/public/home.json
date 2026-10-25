@@ -37,5 +37,10 @@
     "guestTitle": "Take the Oath",
     "guestSubtitle": "Enlist today to judge taverns and bestow ratings.",
     "guestAction": "Join the Order"
+  },
+  "comingSoon": {
+    "tag": "Coming soon",
+    "title": "Your reviews, on the table",
+    "description": "We're still seeding the project. Soon, a public form will let you leave your own Francesinha reviews."
   }
 }

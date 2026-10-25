@@ -8,23 +8,17 @@ import { HowItWorks } from "@/components/public/home/how-it-works";
 import { RecentActivity } from "@/components/public/home/recent-activity";
 import { MapTeaser } from "@/components/public/home/map-teaser";
 import { CtaBand } from "@/components/public/home/cta-band";
+import { ComingSoonReviews } from "@/components/public/home/coming-soon";
 
 const priceLabels = ["€", "€€", "€€€", "€€€€"];
 
 export default async function HomePage() {
-  const supabase = await createClient();
-
-  const [topRestaurants, recentReviews, userResult, t, tCommon] =
-    await Promise.all([
-      getTopRestaurants(),
-      getRecentReviews(),
-      supabase.auth.getUser(),
-      getTranslations("public.home"),
-      getTranslations("common"),
-    ]);
-
-  const user = userResult.data?.user;
-  const isAuthenticated = !!user;
+  const [topRestaurants, recentReviews, t, tCommon] = await Promise.all([
+    getTopRestaurants(),
+    getRecentReviews(),
+    getTranslations("public.home"),
+    getTranslations("common"),
+  ]);
 
   return (
     <>
@@ -44,6 +38,14 @@ export default async function HomePage() {
           title: t("topRated.title"),
           leaderboardLink: t("topRated.leaderboardLink"),
           empty: t("topRated.empty"),
+        }}
+      />
+
+      <ComingSoonReviews
+        labels={{
+          tag: t("comingSoon.tag"),
+          title: t("comingSoon.title"),
+          description: t("comingSoon.description"),
         }}
       />
 
@@ -78,18 +80,6 @@ export default async function HomePage() {
           cta: t("mapTeaser.cta"),
         }}
       />
-
-      {/* <CtaBand
-        isAuthenticated={isAuthenticated}
-        labels={{
-          authTitle: t("cta.authTitle"),
-          authSubtitle: t("cta.authSubtitle"),
-          authAction: t("cta.authAction"),
-          guestTitle: t("cta.guestTitle"),
-          guestSubtitle: t("cta.guestSubtitle"),
-          guestAction: t("cta.guestAction"),
-        }}
-      /> */}
     </>
   );
 }

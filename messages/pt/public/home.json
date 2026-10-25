@@ -37,5 +37,10 @@
     "guestTitle": "Prestar Juramento",
     "guestSubtitle": "Aliste-se hoje para julgar tavernas e atribuir classificações.",
     "guestAction": "Juntar-se à Ordem"
+  },
+  "comingSoon": {
+    "tag": "Em breve",
+    "title": "As tuas críticas, à mesa",
+    "description": "Ainda estamos a semear o projeto. Em breve, um formulário público vai permitir-te deixar as tuas próprias avaliações de francesinhas."
   }
 }
