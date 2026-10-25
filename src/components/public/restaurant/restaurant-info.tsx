@@ -1,4 +1,4 @@
-import { MapPin, Phone, Globe, ShieldCheck } from "lucide-react";
+import { MapPin, Phone, Globe, ShieldCheck, Navigation } from "lucide-react";
 import { RestaurantSingleMap } from "@/components/public/map";
 
 interface RestaurantInfoProps {
@@ -25,9 +25,14 @@ export function RestaurantInfo({
   name,
   labels,
 }: RestaurantInfoProps) {
+  const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+    `${name} ${address}`,
+  )}`;
+
+  const telHref = phone ? `tel:${phone.replace(/[^\d+]/g, "")}` : null;
+
   return (
     <div className="mb-10 grid grid-cols-1 gap-6 md:grid-cols-2">
-      {/* Sanctuary Details */}
       <div className="flex flex-col gap-4 rounded-sm border border-amber-500/30 bg-card p-6 ">
         <h2 className="flex items-center gap-2 border-b border-border/60 pb-3 font-mono text-xs font-semibold uppercase tracking-widest text-amber-600">
           <ShieldCheck className="h-4 w-4" />
@@ -37,13 +42,26 @@ export function RestaurantInfo({
         <div className="flex flex-col gap-3 font-body text-sm text-foreground">
           <div className="flex items-start gap-3">
             <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-amber-500" />
-            <span>{address}</span>
+            <a
+              href={mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${address}`}
+              className="hover:text-amber-600 hover:underline"
+            >
+              {address}
+            </a>
           </div>
 
           <div className="flex items-center gap-3">
             <Phone className="h-4 w-4 shrink-0 text-amber-500" />
-            {phone ? (
-              <span>{phone}</span>
+            {phone && telHref ? (
+              <a
+                href={telHref}
+                className="hover:text-amber-600 hover:underline"
+              >
+                {phone}
+              </a>
             ) : (
               <span className="font-mono text-xs uppercase text-muted-foreground">
                 {labels.noPhone}
@@ -71,8 +89,7 @@ export function RestaurantInfo({
         </div>
       </div>
 
-      {/* Map Frame */}
-      <div className="overflow-hidden rounded-sm border border-amber-500/30 bg-card p-2 ">
+      <div className="relative overflow-hidden rounded-sm border border-amber-500/30 bg-card p-2 ">
         <RestaurantSingleMap lat={lat} lng={lng} name={name} />
       </div>
     </div>

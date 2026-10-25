@@ -10,9 +10,17 @@ interface ExperienceScoreJSON {
   score?: number;
 }
 
-export async function recalculateRestaurantAvgScore(restaurantId: string) {
-  // Fetch all published reviews for this restaurant
-  const publishedReviews = await db
+// Works with either the main db or a transaction handle
+type DbOrTx = typeof db | Parameters<Parameters<typeof db.transaction>[0]>[0];
+
+export async function recalculateRestaurantAvgScore(
+  restaurantId: string,
+  executor: DbOrTx = db,
+) {
+  // Fetch all published reviews for this restaurant.
+  // Using `executor` (the transaction when provided) means uncommitted changes
+  // made earlier in the same transaction are visible here.
+  const publishedReviews = await executor
     .select({
       ingredientEvaluations: reviews.ingredientEvaluations,
       experienceScores: reviews.experienceScores,
@@ -27,7 +35,7 @@ export async function recalculateRestaurantAvgScore(restaurantId: string) {
 
   if (publishedReviews.length === 0) {
     // If no published reviews exist, set avgScore to null
-    await db
+    await executor
       .update(restaurants)
       .set({ avgScore: null })
       .where(eq(restaurants.id, restaurantId));
@@ -71,7 +79,7 @@ export async function recalculateRestaurantAvgScore(restaurantId: string) {
     totalScoreCount > 0 ? (totalScoreSum / totalScoreCount).toFixed(1) : null;
 
   // Update restaurant avg_score in database
-  await db
+  await executor
     .update(restaurants)
     .set({ avgScore })
     .where(eq(restaurants.id, restaurantId));

@@ -42,7 +42,7 @@
     "scoreLabel": "Pontuação",
     "selectScore": "Selecionar pontuação (0-10)...",
     "notIncluded": "Não incluído",
-    "badLabel": "(Não incluído / Mau)",
+    "badLabel": "(Não incluído)",
     "perfectLabel": "(Perfeito)",
     "tagsLabel": "Etiquetas",
     "addTags": "Adicionar / Gerir Etiquetas",
@@ -58,7 +58,9 @@
     "reviewTextLabel": "Texto da avaliação",
     "reviewTextPlaceholder": "Escreva a sua avaliação detalhada...",
     "photosLabel": "Fotografias ({current}/{max})",
-    "publishReview": "Publicar avaliação"
+    "publishReview": "Publicar avaliação",
+    "noRestaurantsFound": "Nenhum restaurante encontrado.",
+    "removeTag": "Clica para remover"
   },
   "table": {
     "headers": {
