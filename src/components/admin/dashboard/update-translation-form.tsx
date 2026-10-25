@@ -8,7 +8,7 @@ import {
   deleteCatalogItem,
   updateCatalogTranslation,
 } from "@/app/[locale]/(admin)/admin/reviews/actions";
-import { CustomButton } from "../ui/custom-button";
+import { CustomButton } from "../../ui/custom-button";
 
 interface CatalogItem {
   id: string;

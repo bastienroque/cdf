@@ -1,17 +1,22 @@
 import { getTranslations } from "next-intl/server";
 import { db } from "@/db";
 import { restaurants } from "@/db/schema";
-import { and, eq, asc, desc } from "drizzle-orm";
+import { and, eq, asc, desc, ilike, or } from "drizzle-orm";
 import { EntityCard } from "@/components/ui/entity-card";
 import { Badge } from "@/components/ui/badge";
-import { Shield, Filter, Search, ArrowUp, ArrowDown } from "lucide-react";
-import { CustomButton } from "@/components/ui/custom-button";
+import { Shield } from "lucide-react";
+import { RestaurantFilters } from "@/components/public/restaurant/restaurant-filters";
 
 const priceLabels = ["€", "€€", "€€€", "€€€€"];
 
 interface RestaurantsPageProps {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ city?: string; price?: string; sort?: string }>;
+  searchParams: Promise<{
+    city?: string;
+    price?: string;
+    sort?: string;
+    q?: string;
+  }>;
 }
 
 export default async function RestaurantsPage({
@@ -19,7 +24,7 @@ export default async function RestaurantsPage({
   searchParams,
 }: RestaurantsPageProps) {
   const { locale } = await params;
-  const { city, price, sort } = await searchParams;
+  const { city, price, sort, q } = await searchParams;
 
   const t = await getTranslations({ locale, namespace: "public.restaurants" });
 
@@ -28,6 +33,12 @@ export default async function RestaurantsPage({
   const conditions = [eq(restaurants.status, "published")];
   if (city) conditions.push(eq(restaurants.city, city));
   if (price) conditions.push(eq(restaurants.priceRange, Number(price)));
+  if (q && q.trim() !== "") {
+    const term = `%${q.trim()}%`;
+    conditions.push(
+      or(ilike(restaurants.name, term), ilike(restaurants.city, term))!,
+    );
+  }
 
   const orderByClause =
     currentSort === "asc"
@@ -59,69 +70,23 @@ export default async function RestaurantsPage({
         </p>
       </div>
 
-      {/* ---- Filter Command Bar ---- */}
-      <form className="mb-10 flex flex-col md:flex-row items-start md:items-center gap-3 rounded-sm border border-amber-500/30 bg-card p-4">
-        <div className="mr-2 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-amber-600">
-          <Filter className="h-4 w-4" />
-          <span>{t("filterLabel")}</span>
-        </div>
-
-        <select
-          name="city"
-          defaultValue={city ?? ""}
-          aria-label="Filter restaurants by city"
-          className="focus-ring rounded-sm border border-border bg-background px-3 py-2 font-mono text-xs uppercase tracking-wider text-foreground transition-colors hover:border-amber-500/40"
-        >
-          <option value="">{t("allCities")}</option>
-          {cities.map((c) => (
-            <option key={c.city} value={c.city}>
-              {c.city}
-            </option>
-          ))}
-        </select>
-
-        <select
-          name="price"
-          defaultValue={price ?? ""}
-          aria-label="Filter restaurants by price range"
-          className="focus-ring rounded-sm border border-border bg-background px-3 py-2 font-mono text-xs uppercase tracking-wider text-foreground transition-colors hover:border-amber-500/40"
-        >
-          <option value="">{t("anyPrice")}</option>
-          {[1, 2, 3, 4].map((p) => (
-            <option key={p} value={p}>
-              {priceLabels[p - 1]}
-            </option>
-          ))}
-        </select>
-
-        {/* Sort Direction Toggle Selector */}
-        <div className="relative inline-flex items-center">
-          <select
-            name="sort"
-            defaultValue={currentSort}
-            aria-label="Sort restaurants by score"
-            className="focus-ring appearance-none rounded-sm border border-amber-500/30 bg-amber-500/10 pl-8 pr-3 py-2 font-mono text-xs font-semibold uppercase tracking-wider text-amber-600 transition-colors hover:bg-amber-500/20 cursor-pointer"
-          >
-            <option value="desc">{t("sortDesc")}</option>
-            <option value="asc">{t("sortAsc")}</option>
-          </select>
-          {currentSort === "desc" ? (
-            <ArrowDown className="pointer-events-none absolute left-2.5 h-3.5 w-3.5 text-amber-600" />
-          ) : (
-            <ArrowUp className="pointer-events-none absolute left-2.5 h-3.5 w-3.5 text-amber-600" />
-          )}
-        </div>
-        <CustomButton
-          type="submit"
-          variant="primary"
-          intent="amber"
-          size="md"
-          className="ml-auto"
-        >
-          <Search className="h-3.5 w-3.5" />
-          {t("filterButton")}
-        </CustomButton>
-      </form>
+      {/* ---- Instant Filter & Search Bar ---- */}
+      <RestaurantFilters
+        cities={cities}
+        currentCity={city}
+        currentPrice={price}
+        currentSort={currentSort}
+        currentQuery={q}
+        priceLabels={priceLabels}
+        labels={{
+          filterLabel: t("filterLabel"),
+          allCities: t("allCities"),
+          anyPrice: t("anyPrice"),
+          sortDesc: t("sortDesc"),
+          sortAsc: t("sortAsc"),
+          searchPlaceholder: "Search by restaurant name or city...",
+        }}
+      />
 
       {/* ---- Results Grid ---- */}
       {results.length === 0 ? (

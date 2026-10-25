@@ -51,7 +51,11 @@ export function ReviewGeneralSection({
             step="0.01"
             placeholder={t("pricePlaceholder")}
             {...register("pricePaid", {
-              setValueAs: (v) => (v === "" || isNaN(v) ? undefined : Number(v)),
+              setValueAs: (v) => {
+                if (v === "") return undefined;
+                const n = Number(v);
+                return Number.isNaN(n) ? undefined : n;
+              },
             })}
           />
         </FieldLabel>

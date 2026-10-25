@@ -17,7 +17,7 @@ import {
   SelectInput,
   PrimaryButton,
 } from "@/components/form/form-field";
-import { FileUploadButton } from "../form/file-upload-button";
+import { FileUploadButton } from "../../form/file-upload-button";
 import { X, AlertCircle } from "lucide-react";
 import { isRedirectError } from "next/dist/client/components/redirect-error";
 

@@ -1,4 +1,4 @@
-import { RestaurantForm } from "@/components/admin/restaurant-form";
+import { RestaurantForm } from "@/components/admin/restaurant/restaurant-form";
 import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import { ArrowLeft, Utensils } from "lucide-react";

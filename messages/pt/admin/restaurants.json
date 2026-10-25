@@ -47,5 +47,11 @@
       "confirmDelete": "Eliminar \"{name}\"? Esta ação não pode ser revertida."
     },
     "empty": "Nenhum restaurante encontrado no diretório."
-  }
+  },
+  "filter": {
+    "all": "Todos",
+    "published": "Publicado",
+    "draft": "Rascunho"
+  },
+  "searchPlaceholder": "Procurar restaurantes por nome ou cidade"
 }

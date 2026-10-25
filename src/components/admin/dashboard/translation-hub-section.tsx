@@ -12,7 +12,7 @@ import {
   Tag as TagIcon,
   Sparkles,
 } from "lucide-react";
-import { UpdateTranslationForm } from "@/components/admin/update-translation-form";
+import { UpdateTranslationForm } from "@/components/admin/dashboard/update-translation-form";
 
 export interface CatalogItem {
   id: string;

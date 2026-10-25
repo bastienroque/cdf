@@ -10,15 +10,7 @@ import { requireAdmin } from "@/lib/auth/admin";
 import { eq } from "drizzle-orm";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
-
-function slugify(input: string): string {
-  return input
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-}
+import { slugify } from "@/lib/slugify";
 
 export async function createBlogPost(values: BlogPostFormValues) {
   const adminId = await requireAdmin();

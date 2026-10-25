@@ -2,7 +2,7 @@ import { db } from "@/db";
 import { restaurants } from "@/db/schema";
 import { eq } from "drizzle-orm";
 import { notFound } from "next/navigation";
-import { RestaurantForm } from "@/components/admin/restaurant-form";
+import { RestaurantForm } from "@/components/admin/restaurant/restaurant-form";
 import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import { ArrowLeft, Edit3 } from "lucide-react";
