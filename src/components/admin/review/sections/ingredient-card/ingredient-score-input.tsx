@@ -38,7 +38,7 @@ export function IngredientScoreInput({
               const val = e.target.value === "" ? null : Number(e.target.value);
               onScoreChange(val);
             }}
-            className="w-full"
+            className="w-full cursor-pointer"
           >
             <option value="">{t("selectScore")}</option>
             {Array.from({ length: 11 }, (_, i) => (
