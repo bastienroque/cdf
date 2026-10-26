@@ -5,9 +5,25 @@ import { eq, desc, count, isNotNull, and } from "drizzle-orm";
 import { Link } from "@/i18n/navigation";
 import { Badge } from "@/components/ui/badge";
 import { Trophy, Crown } from "lucide-react";
+import { Metadata } from "next";
 
 const PAGE_SIZE = 24;
 const priceLabels = ["€", "€€", "€€€", "€€€€"];
+
+interface LeaderboardProps {
+  params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({
+  params,
+}: LeaderboardProps): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "public.leaderboard" });
+
+  return {
+    title: t("title"),
+  };
+}
 
 async function getLeaderboard(page: number) {
   const offset = (page - 1) * PAGE_SIZE;

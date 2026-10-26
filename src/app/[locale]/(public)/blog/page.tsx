@@ -4,6 +4,22 @@ import { and, eq, desc, isNotNull } from "drizzle-orm";
 import { EntityCard } from "@/components/ui/entity-card";
 import { getTranslations } from "next-intl/server";
 import { BookOpen } from "lucide-react";
+import { Metadata } from "next";
+
+interface BlogProps {
+  params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({
+  params,
+}: BlogProps): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "public.blog" });
+
+  return {
+    title: t("title"),
+  };
+}
 
 async function getBlogPosts(locale: string) {
   return db

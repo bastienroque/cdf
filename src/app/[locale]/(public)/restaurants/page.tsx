@@ -6,8 +6,24 @@ import { EntityCard } from "@/components/ui/entity-card";
 import { Badge } from "@/components/ui/badge";
 import { Shield } from "lucide-react";
 import { RestaurantFilters } from "@/components/public/restaurant/restaurant-filters";
+import { Metadata } from "next";
 
 const priceLabels = ["€", "€€", "€€€", "€€€€"];
+
+interface RestaurantsProps {
+  params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({
+  params,
+}: RestaurantsProps): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "public.restaurants" });
+
+  return {
+    title: t("title"),
+  };
+}
 
 interface RestaurantsPageProps {
   params: Promise<{ locale: string }>;

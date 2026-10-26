@@ -10,10 +10,26 @@ import { getTranslations } from "next-intl/server";
 import { LogIn, KeyRound, Mail, Shield } from "lucide-react";
 import Link from "next/link";
 import { PasswordInput } from "@/components/auth/password-input";
+import { Metadata } from "next";
 
 interface LoginPageProps {
   params: Promise<{ locale: string }>;
   searchParams: Promise<{ next?: string; error?: string }>;
+}
+
+interface LoginProps {
+  params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({
+  params,
+}: LoginProps): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "auth.signIn" });
+
+  return {
+    title: t("title"),
+  };
 }
 
 export default async function LoginPage({

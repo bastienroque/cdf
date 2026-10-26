@@ -1,6 +1,22 @@
 import { getTranslations } from "next-intl/server";
 import { Mail } from "lucide-react";
 import ContactForm from "@/components/form/contact-form";
+import { Metadata } from "next";
+
+interface ContactProps {
+  params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({
+  params,
+}: ContactProps): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "public.contact" });
+
+  return {
+    title: t("title"),
+  };
+}
 
 export default async function ContactPage() {
   const t = await getTranslations("public.contact");
