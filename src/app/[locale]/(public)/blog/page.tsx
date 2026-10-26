@@ -55,7 +55,7 @@ export default async function BlogPage({
           <BookOpen className="h-3.5 w-3.5" />
           {t("tag")}
         </div>
-        <h1 className="font-display text-4xl font-bold tracking-tight text-foreground uppercase">
+        <h1 className="font-display text-3xl font-bold tracking-tight text-foreground uppercase">
           {t("title")}
         </h1>
         <p className="mt-1 font-body text-sm text-muted-foreground">

@@ -57,7 +57,7 @@ export default async function PrivacyPage() {
       {/* Sections Grid / Layout */}
       <div className="flex flex-col gap-10 font-body">
         {/* Section 1: Overview */}
-        <section className="rounded-sm border border-border/60 bg-card p-6  sm:p-8">
+        <section className="rounded-sm border border-border/60 bg-card p-4 sm:p-8">
           <h2 className="font-display text-xl font-bold uppercase text-foreground mb-3">
             1. {t("overview.heading")}
           </h2>
@@ -67,9 +67,9 @@ export default async function PrivacyPage() {
         </section>
 
         {/* Section 2: Data We Collect */}
-        <section className="rounded-sm border border-border/60 bg-card p-6  sm:p-8">
+        <section className="rounded-sm border border-border/60 bg-card p-4 sm:p-8">
           <div className="flex items-center gap-2.5 mb-4">
-            <Database className="h-5 w-5 text-amber-500" />
+            <Database className="hidden md:block h-5 w-5 text-amber-500" />
             <h2 className="font-display text-xl font-bold uppercase text-foreground">
               2. {t("dataCollection.heading")}
             </h2>
@@ -95,9 +95,9 @@ export default async function PrivacyPage() {
         </section>
 
         {/* Section 3: Cookies & Consent */}
-        <section className="rounded-sm border border-border/60 bg-card p-6  sm:p-8">
+        <section className="rounded-sm border border-border/60 bg-card p-4 sm:p-8">
           <div className="flex items-center gap-2.5 mb-4">
-            <Cookie className="h-5 w-5 text-amber-500" />
+            <Cookie className="hidden md:block h-5 w-5 text-amber-500" />
             <h2 className="font-display text-xl font-bold uppercase text-foreground">
               3. {t("cookies.heading")}
             </h2>
@@ -106,7 +106,7 @@ export default async function PrivacyPage() {
             {t("cookies.intro")}
           </p>
           <div className="space-y-3">
-            <div className="flex items-start gap-3 rounded-sm border border-border/40 bg-muted/10 p-3">
+            <div className="flex flex-col md:flex-row items-start gap-3 rounded-sm border border-border/40 bg-muted/10 p-3">
               <span className="font-mono text-xs font-bold uppercase text-foreground shrink-0 mt-0.5">
                 {t("cookies.essentialTag")}:
               </span>
@@ -114,7 +114,7 @@ export default async function PrivacyPage() {
                 {t("cookies.essentialDesc")}
               </p>
             </div>
-            <div className="flex items-start gap-3 rounded-sm border border-border/40 bg-muted/10 p-3">
+            <div className="flex flex-col md:flex-row items-start gap-3 rounded-sm border border-border/40 bg-muted/10 p-3">
               <span className="font-mono text-xs font-bold uppercase text-foreground shrink-0 mt-0.5">
                 {t("cookies.analyticsTag")}:
               </span>
@@ -126,9 +126,9 @@ export default async function PrivacyPage() {
         </section>
 
         {/* Section 4: Infrastructure */}
-        <section className="rounded-sm border border-border/60 bg-card p-6  sm:p-8">
+        <section className="rounded-sm border border-border/60 bg-card p-4 sm:p-8">
           <div className="flex items-center gap-2.5 mb-4">
-            <Lock className="h-5 w-5 text-amber-500" />
+            <Lock className="hidden md:block h-5 w-5 text-amber-500" />
             <h2 className="font-display text-xl font-bold uppercase text-foreground">
               4. {t("infrastructure.heading")}
             </h2>
@@ -143,9 +143,9 @@ export default async function PrivacyPage() {
         </section>
 
         {/* Section 5: User Rights */}
-        <section className="rounded-sm border border-border/60 bg-card p-6  sm:p-8">
+        <section className="rounded-sm border border-border/60 bg-card p-4 sm:p-8">
           <div className="flex items-center gap-2.5 mb-4">
-            <UserCheck className="h-5 w-5 text-amber-500" />
+            <UserCheck className="hidden md:block h-5 w-5 text-amber-500" />
             <h2 className="font-display text-xl font-bold uppercase text-foreground">
               5. {t("rights.heading")}
             </h2>
@@ -192,7 +192,7 @@ export default async function PrivacyPage() {
       </div>
 
       {/* Interactive Preference Controls */}
-      <div className="mt-10 rounded-sm border border-amber-500/30 bg-amber-500/5 p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div className="mt-10 rounded-sm border border-amber-500/30 bg-amber-500/5 p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
           <h3 className="font-mono text-xs font-bold uppercase text-foreground tracking-wider">
             {t("manageCookiesLabel")}
