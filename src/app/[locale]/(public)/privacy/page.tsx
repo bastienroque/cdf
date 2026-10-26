@@ -22,7 +22,7 @@ export async function generateMetadata({
   });
 
   return {
-    title: `${t("title")} — Cavaleiros da Francesinha`,
+    title: t("title"),
     description: t("overview.text"),
   };
 }

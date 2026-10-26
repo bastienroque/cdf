@@ -4,6 +4,7 @@ import { asc, eq } from "drizzle-orm";
 import { EntityCard } from "@/components/ui/entity-card";
 import { getTranslations } from "next-intl/server";
 import { Calendar } from "lucide-react";
+import { Metadata } from "next";
 
 async function getEvents(locale: string) {
   return db
@@ -11,6 +12,21 @@ async function getEvents(locale: string) {
     .from(events)
     .where(eq(events.locale, locale))
     .orderBy(asc(events.date));
+}
+
+interface EventsProps {
+  params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({
+  params,
+}: EventsProps): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "public.events" });
+
+  return {
+    title: t("title"),
+  };
 }
 
 export default async function EventsPage({

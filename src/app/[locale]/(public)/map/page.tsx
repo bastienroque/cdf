@@ -4,6 +4,7 @@ import { eq } from "drizzle-orm";
 import { RestaurantsClusterMap } from "@/components/public/map";
 import { Compass } from "lucide-react";
 import { getTranslations } from "next-intl/server";
+import { Metadata } from "next";
 
 async function getMapPins() {
   return db
@@ -17,6 +18,21 @@ async function getMapPins() {
     })
     .from(restaurants)
     .where(eq(restaurants.status, "published"));
+}
+
+interface MapPageProps {
+  params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({
+  params,
+}: MapPageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "public.map" });
+
+  return {
+    title: t("title"),
+  };
 }
 
 export default async function MapPage() {

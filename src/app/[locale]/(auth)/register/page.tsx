@@ -17,10 +17,26 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { PasswordInput } from "@/components/auth/password-input";
+import { Metadata } from "next";
 
 interface RegisterPageProps {
   params: Promise<{ locale: string }>;
   searchParams: Promise<{ error?: string; registered?: string }>;
+}
+
+interface RegisterProps {
+  params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({
+  params,
+}: RegisterProps): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "auth.register" });
+
+  return {
+    title: t("title"),
+  };
 }
 
 export default async function RegisterPage({
@@ -31,7 +47,6 @@ export default async function RegisterPage({
   const { error, registered } = await searchParams;
   const t = await getTranslations("auth.register");
 
-  // Show confirmation popup/card if registration was successful
   if (registered === "true") {
     return (
       <AuthCard

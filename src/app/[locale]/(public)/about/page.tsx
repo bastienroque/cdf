@@ -1,7 +1,23 @@
 import HistoryOfCavaleiros from "@/components/public/about/history-of-cavaleiros";
 import HistoryOfFrancesinha from "@/components/public/about/history-of-francesinha";
 import { getTranslations } from "next-intl/server";
-import { Scroll, Compass } from "lucide-react";
+import { Scroll } from "lucide-react";
+import { Metadata } from "next";
+
+interface AboutProps {
+  params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({
+  params,
+}: AboutProps): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "public.about" });
+
+  return {
+    title: t("title"),
+  };
+}
 
 export default async function AboutPage() {
   const t = await getTranslations("public.about");
