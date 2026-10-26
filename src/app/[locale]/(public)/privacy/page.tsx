@@ -185,7 +185,7 @@ export default async function PrivacyPage() {
               href="mailto:privacy@cavaleirosdafrancesinha.pt"
               className="underline hover:text-foreground"
             >
-              privacy@cavaleirosdafrancesinha.pt
+              contact@cavaleirosdafrancesinha.com
             </a>
           </p>
         </section>
