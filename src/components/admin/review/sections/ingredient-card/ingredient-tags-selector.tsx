@@ -1,22 +1,13 @@
 "use client";
 
-import {
-  useCallback,
-  useEffect,
-  useId,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import { useMemo } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { getLocalizedName } from "@/lib/utils";
 import { Plus, X, Check, ChevronDown } from "lucide-react";
-import { TextInput } from "@/components/form/form-field";
-import {
-  useCatalogSearch,
-  useDismiss,
-  type CatalogItem,
-} from "@/lib/use-catalog-search";
+
+import { useCatalogPicker } from "@/lib/use-catalog-picker";
+import type { CatalogItem } from "@/lib/use-catalog-search";
+import { getLocalizedName } from "@/lib/utils";
+import { CatalogSearchPanel } from "../../catalog-search-panel";
 
 interface IngredientTagsSelectorProps {
   index: number;
@@ -39,17 +30,13 @@ export function IngredientTagsSelector({
 }: IngredientTagsSelectorProps) {
   const t = useTranslations("admin.reviews.form");
   const locale = useLocale();
-  const panelId = useId();
 
-  const [isOpen, setIsOpen] = useState(false);
-  const [isCreating, setIsCreating] = useState(false);
-  const [createFailed, setCreateFailed] = useState(false);
-
-  const containerRef = useRef<HTMLDivElement>(null);
-  const searchRef = useRef<HTMLInputElement>(null);
-
-  const { query, setQuery, reset, trimmedQuery, results, hasMore, canCreate } =
-    useCatalogSearch(tagsMaster, locale);
+  const picker = useCatalogPicker({
+    items: tagsMaster,
+    locale,
+    onCreate: (tagName) => onCreateInlineTag(index, tagName),
+    // closeAfterCreate stays false: the admin may want to add more tags
+  });
 
   // O(1) lookups instead of includes()/find() inside render loops
   const attachedIds = useMemo(() => new Set(tagIds), [tagIds]);
@@ -58,38 +45,9 @@ export function IngredientTagsSelector({
     [tagsMaster],
   );
 
-  const close = useCallback(() => {
-    setIsOpen(false);
-    setCreateFailed(false);
-    reset();
-  }, [reset]);
-
-  // Close on outside click or Escape
-  useDismiss(containerRef, isOpen, close);
-
-  // Focus the search box when the panel opens (instead of the autoFocus prop)
-  useEffect(() => {
-    if (isOpen) searchRef.current?.focus();
-  }, [isOpen]);
-
-  async function handleCreate() {
-    if (isCreating) return; // guard against double clicks
-    setIsCreating(true);
-    setCreateFailed(false);
-    try {
-      await onCreateInlineTag(index, trimmedQuery);
-      reset(); // stay open: the admin may want to add more tags
-    } catch (error) {
-      console.error("Failed to create tag inline", error);
-      setCreateFailed(true);
-    } finally {
-      setIsCreating(false);
-    }
-  }
-
   return (
     <div
-      ref={containerRef}
+      ref={picker.containerRef}
       className="space-y-2 pt-2 border-t border-border/40"
     >
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-2">
@@ -98,86 +56,51 @@ export function IngredientTagsSelector({
         </span>
         <button
           type="button"
-          aria-expanded={isOpen}
-          aria-controls={panelId}
-          onClick={() => (isOpen ? close() : setIsOpen(true))}
+          aria-expanded={picker.isOpen}
+          aria-controls={picker.panelId}
+          onClick={picker.toggle}
           className="inline-flex items-center gap-1 font-mono text-xs text-amber-600 hover:text-amber-500 bg-amber-500/10 px-2.5 py-1 rounded-sm border border-amber-500/30 transition-colors cursor-pointer"
         >
-          {isOpen ? (
+          {picker.isOpen ? (
             <ChevronDown className="h-3.5 w-3.5" aria-hidden="true" />
           ) : (
             <Plus className="h-3.5 w-3.5" aria-hidden="true" />
           )}
-          <span>{isOpen ? t("close") : t("addTags")}</span>
+          <span>{picker.isOpen ? t("close") : t("addTags")}</span>
         </button>
       </div>
 
-      {isOpen && (
-        <div
-          id={panelId}
-          className="p-3 rounded-sm border border-amber-500/40 bg-popover space-y-2 shadow-md"
-        >
-          <TextInput
-            ref={searchRef}
-            aria-label={t("searchTagPlaceholder")}
-            placeholder={t("searchTagPlaceholder")}
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            className="w-full text-xs"
-          />
-          <div className="max-h-36 overflow-y-auto space-y-1">
-            {results.map(({ item, label }) => {
-              const isAttached = attachedIds.has(item.id);
-              return (
-                <button
-                  type="button"
-                  key={item.id}
-                  aria-pressed={isAttached}
-                  onClick={() => onToggleTag(index, item.id)}
-                  className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-sm text-xs font-mono transition-colors ${
-                    isAttached
-                      ? "bg-amber-500/20 text-amber-600 font-bold"
-                      : "hover:bg-muted text-left"
-                  }`}
-                >
-                  <span>{label}</span>
-                  {isAttached && (
-                    <Check
-                      className="h-3 w-3 text-amber-600"
-                      aria-hidden="true"
-                    />
-                  )}
-                </button>
-              );
-            })}
-
-            {hasMore && (
-              <p className="px-2.5 py-1 font-mono text-[11px] text-muted-foreground">
-                {t("keepTypingToNarrow")}
-              </p>
-            )}
-
-            {canCreate && (
+      {picker.isOpen && (
+        <CatalogSearchPanel
+          picker={picker}
+          placeholder={t("searchTagPlaceholder")}
+          createLabel={t("createInlineTag", { query: picker.trimmedQuery })}
+          className="p-3"
+          listClassName="max-h-36"
+          renderItem={({ item, label }) => {
+            const isAttached = attachedIds.has(item.id);
+            return (
               <button
                 type="button"
-                disabled={isCreating}
-                onClick={() => void handleCreate()}
-                className="w-full text-left px-2.5 py-1.5 rounded-sm text-xs font-mono bg-amber-500/10 text-amber-600 hover:bg-amber-500/20 font-semibold disabled:opacity-60"
+                aria-pressed={isAttached}
+                onClick={() => onToggleTag(index, item.id)}
+                className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-sm text-xs font-mono transition-colors ${
+                  isAttached
+                    ? "bg-amber-500/20 text-amber-600 font-bold"
+                    : "hover:bg-muted text-left"
+                }`}
               >
-                {t("createInlineTag", { query: trimmedQuery })}
+                <span>{label}</span>
+                {isAttached && (
+                  <Check
+                    className="h-3 w-3 text-amber-600"
+                    aria-hidden="true"
+                  />
+                )}
               </button>
-            )}
-
-            {createFailed && (
-              <p
-                role="alert"
-                className="px-2.5 py-1 font-mono text-[11px] text-destructive"
-              >
-                {t("createFailed")}
-              </p>
-            )}
-          </div>
-        </div>
+            );
+          }}
+        />
       )}
 
       {/* Selected Tag Pills */}
@@ -203,7 +126,7 @@ export function IngredientTagsSelector({
             </span>
           );
         })}
-        {tagIds.length === 0 && !isOpen && (
+        {tagIds.length === 0 && !picker.isOpen && (
           <span className="font-mono text-xs text-muted-foreground italic">
             {t("noTags")}
           </span>
