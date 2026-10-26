@@ -6,27 +6,26 @@ import {
   TextInput,
   PrimaryButton,
 } from "@/components/form/form-field";
-
-import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import { LogIn, KeyRound, Mail, Shield } from "lucide-react";
+import Link from "next/link";
 import { PasswordInput } from "@/components/auth/password-input";
+
+interface LoginPageProps {
+  params: Promise<{ locale: string }>;
+  searchParams: Promise<{ next?: string; error?: string }>;
+}
 
 export default async function LoginPage({
   params,
   searchParams,
-}: {
-  params: Promise<{ locale: string }>;
-  searchParams: Promise<{ next?: string; error?: string }>;
-}) {
+}: LoginPageProps) {
   const { locale } = await params;
   const { next, error } = await searchParams;
-
   const t = await getTranslations("auth.signIn");
 
   return (
     <AuthCard title={t("title")} subtitle={t("subtitle")}>
-      {/* Header Tag Badge */}
       <div className="mb-6 flex justify-center">
         <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-3.5 py-1 font-mono text-xs uppercase tracking-widest text-amber-600">
           <Shield className="h-3.5 w-3.5" />
@@ -59,16 +58,24 @@ export default async function LoginPage({
         </FieldLabel>
 
         <FieldLabel className="font-mono text-xs uppercase tracking-wider text-foreground">
-          <div className="flex items-center gap-1.5 mb-1">
-            <KeyRound className="h-3.5 w-3.5 text-amber-500" />
-            <span>{t("passwordLabel")}</span>
+          <div className="flex flex-col items-start justify-between gap-2 mb-1">
+            <div className="flex items-center gap-1.5">
+              <KeyRound className="h-3.5 w-3.5 text-amber-500" />
+              <span>{t("passwordLabel")}</span>
+            </div>
+            <Link
+              href="/contact"
+              className="font-mono text-[10px] text-amber-600 hover:text-amber-500 transition-colors underline"
+            >
+              {t("forgotPasswordLink")}
+            </Link>
           </div>
           <PasswordInput name="password" required />
         </FieldLabel>
 
         <PrimaryButton
           type="submit"
-          className="focus-ring mt-2 flex items-center justify-center gap-2 rounded-sm bg-amber-500 px-6 py-2.5 font-mono text-xs font-semibold uppercase tracking-widest text-black  transition-all hover:bg-amber-400 cursor-pointer"
+          className="focus-ring mt-2 flex items-center justify-center gap-2 rounded-sm bg-amber-500 px-6 py-2.5 font-mono text-xs font-semibold uppercase tracking-widest text-black transition-all hover:bg-amber-400 cursor-pointer"
         >
           <LogIn className="h-3.5 w-3.5" />
           {t("submit")}
