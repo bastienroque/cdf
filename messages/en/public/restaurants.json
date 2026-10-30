@@ -12,6 +12,7 @@
   "searchPlaceholder": "Search taverns by name or city...",
   "filterScore": "Minimum Score",
   "filterPrice": "Price Range",
+  "noReviewsYet": "No reviews yet",
   "details": {
     "score": "Royal Score",
     "location": "Domain",

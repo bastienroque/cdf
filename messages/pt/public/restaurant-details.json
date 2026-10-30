@@ -8,5 +8,11 @@
   "recordsBadge": "{count, plural, =1 {# Registo} other {# Registos}}",
   "noDecrees": "Ainda não existem decretos registados para esta taverna.",
   "officialDecree": "Decreto Oficial",
-  "communityScroll": "Pergaminho da Comunidade"
+  "communityScroll": "Pergaminho da Comunidade",
+  "unknownIngredient": "Ingrediente",
+  "experienceLabels": {
+    "service": "Serviço",
+    "digestion": "Digestão",
+    "vibe": "Ambiente"
+  }
 }

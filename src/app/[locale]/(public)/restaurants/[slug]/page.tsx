@@ -3,7 +3,7 @@ import { ingredients, tags, restaurants, reviews, users } from "@/db/schema";
 import { eq, and, desc, inArray } from "drizzle-orm";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import { RestaurantHeader } from "@/components/public/restaurant/restaurant-header";
 import { RestaurantGallery } from "@/components/public/restaurant/restaurant-gallery";
@@ -12,7 +12,7 @@ import {
   RestaurantReviews,
   type FormattedReview,
 } from "@/components/public/restaurant/restaurant-reviews";
-import { EXPERIENCE_LABELS } from "@/lib/restaurant-labels";
+import { getLocalizedName } from "@/lib/utils";
 
 const priceLabels = ["€", "€€", "€€€", "€€€€"];
 
@@ -43,8 +43,18 @@ interface ExperienceScoreItem {
   score: number;
 }
 
+// Translated strings needed to build the review data
+interface ReviewLabels {
+  /** Shown when an ingredient was deleted from the catalog */
+  unknownIngredient: string;
+  /** Translated names of the experience categories, keyed by the stored key */
+  experience: Record<string, string>;
+}
+
 async function getRestaurantReviews(
   restaurantId: string,
+  locale: string,
+  labels: ReviewLabels,
 ): Promise<FormattedReview[]> {
   const reviewRows = await db
     .select({
@@ -93,31 +103,45 @@ async function getRestaurantReviews(
     ),
   );
 
-  // Batch fetch ingredient details
+  // Batch fetch ingredient details, resolved to the current locale
+  // (falls back to Portuguese when a translation is missing)
   const ingredientMap = new Map<string, string>();
   if (allIngredientIds.length > 0) {
     const ingredientList = await db
-      .select({ id: ingredients.id, namePt: ingredients.namePt })
+      .select({
+        id: ingredients.id,
+        namePt: ingredients.namePt,
+        nameEn: ingredients.nameEn,
+        nameFr: ingredients.nameFr,
+      })
       .from(ingredients)
       .where(inArray(ingredients.id, allIngredientIds));
 
     ingredientList.forEach((ing) => {
-      ingredientMap.set(ing.id, ing.namePt);
+      ingredientMap.set(ing.id, getLocalizedName(ing, locale));
     });
   }
 
-  // Batch fetch tag details
+  // Batch fetch tag details, resolved to the current locale
   const tagMap = new Map<string, string>();
   if (allTagIds.length > 0) {
     const tagList = await db
-      .select({ id: tags.id, namePt: tags.namePt })
+      .select({
+        id: tags.id,
+        namePt: tags.namePt,
+        nameEn: tags.nameEn,
+        nameFr: tags.nameFr,
+      })
       .from(tags)
       .where(inArray(tags.id, allTagIds));
 
-    tagList.forEach((t) => {
-      tagMap.set(t.id, t.namePt);
+    tagList.forEach((tag) => {
+      tagMap.set(tag.id, getLocalizedName(tag, locale));
     });
   }
+
+  const experienceLabel = (rawKey: string) =>
+    labels.experience[rawKey] ?? rawKey;
 
   return reviewRows.map((r) => {
     const evaluations =
@@ -128,7 +152,7 @@ async function getRestaurantReviews(
       const ingId = evalItem.ingredientId || evalItem.ingredient_id || "";
       const rawTagIds = evalItem.tagIds || evalItem.tag_ids || [];
 
-      const label = ingredientMap.get(ingId) ?? "Ingrediente";
+      const label = ingredientMap.get(ingId) ?? labels.unknownIngredient;
       const tagNames = rawTagIds
         .map((tid: string) => tagMap.get(tid))
         .filter((name: string | undefined): name is string => Boolean(name));
@@ -150,15 +174,9 @@ async function getRestaurantReviews(
           exp.key || exp.id || exp.category || exp.label || exp.name;
         if (!rawKey) return;
 
-        const labelKey = rawKey as keyof typeof EXPERIENCE_LABELS;
-        const label = EXPERIENCE_LABELS[labelKey] || rawKey;
         const score = Number(exp.score);
-
         if (score > 0) {
-          experienceScores.push({
-            label,
-            score,
-          });
+          experienceScores.push({ label: experienceLabel(rawKey), score });
         }
       });
     } else if (rawExperiences && typeof rawExperiences === "object") {
@@ -166,9 +184,7 @@ async function getRestaurantReviews(
         ([key, val]) => {
           const score = Number(val);
           if (score > 0) {
-            const labelKey = key as keyof typeof EXPERIENCE_LABELS;
-            const label = EXPERIENCE_LABELS[labelKey] || key;
-            experienceScores.push({ label, score });
+            experienceScores.push({ label: experienceLabel(key), score });
           }
         },
       );
@@ -226,10 +242,19 @@ export default async function RestaurantDetailPage({
 
   if (!restaurant) notFound();
 
-  const [restaurantReviews, t] = await Promise.all([
-    getRestaurantReviews(restaurant.id),
+  const [locale, t] = await Promise.all([
+    getLocale(),
     getTranslations("public.restaurantDetails"),
   ]);
+
+  const restaurantReviews = await getRestaurantReviews(restaurant.id, locale, {
+    unknownIngredient: t("unknownIngredient"),
+    experience: {
+      service: t("experienceLabels.service"),
+      digestion: t("experienceLabels.digestion"),
+      vibe: t("experienceLabels.vibe"),
+    },
+  });
 
   const jsonLd = {
     "@context": "https://schema.org",

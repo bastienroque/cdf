@@ -3,10 +3,10 @@ import { db } from "@/db";
 import { restaurants } from "@/db/schema";
 import { and, eq, asc, desc, ilike, or } from "drizzle-orm";
 import { EntityCard } from "@/components/ui/entity-card";
-import { Badge } from "@/components/ui/badge";
 import { Shield } from "lucide-react";
 import { RestaurantFilters } from "@/components/public/restaurant/restaurant-filters";
 import { Metadata } from "next";
+import { ScoreBadge } from "@/components/public/restaurant/score-badge";
 
 const priceLabels = ["€", "€€", "€€€", "€€€€"];
 
@@ -57,7 +57,7 @@ export default async function RestaurantsPage({
   }
 
   const orderByClause =
-    currentSort === "asc"
+    currentSort === "desc"
       ? asc(restaurants.avgScore)
       : desc(restaurants.avgScore);
 
@@ -121,11 +121,10 @@ export default async function RestaurantsPage({
               title={r.name}
               meta={`${r.city} · ${priceLabels[r.priceRange - 1]}`}
               badge={
-                r.avgScore && (
-                  <Badge className="rounded-sm border border-amber-500/30 bg-amber-500/20 font-mono font-bold text-amber-600">
-                    {r.avgScore} / 10
-                  </Badge>
-                )
+                <ScoreBadge
+                  score={r.avgScore}
+                  noReviewsLabel={t("noReviewsYet")}
+                />
               }
             />
           ))}

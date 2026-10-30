@@ -12,6 +12,7 @@
   "searchPlaceholder": "Rechercher des tavernes par nom ou ville...",
   "filterScore": "Score Minimum",
   "filterPrice": "Gamme de Prix",
+  "noReviewsYet": "Aucun avis enregistré",
   "details": {
     "score": "Score Royal",
     "location": "Domaine",

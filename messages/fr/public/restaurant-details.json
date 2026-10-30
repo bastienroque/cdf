@@ -8,5 +8,11 @@
   "recordsBadge": "{count, plural, =1 {# Enregistrement} other {# Enregistrements}}",
   "noDecrees": "Aucun décret enregistré pour cette taverne pour le moment.",
   "officialDecree": "Décret Officiel",
-  "communityScroll": "Parchemin Communautaire"
+  "communityScroll": "Parchemin Communautaire",
+  "unknownIngredient": "Ingrédient",
+  "experienceLabels": {
+    "service": "Service",
+    "digestion": "Digestion",
+    "vibe": "Ambiance"
+  }
 }
