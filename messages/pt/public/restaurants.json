@@ -12,6 +12,7 @@
   "searchPlaceholder": "Pesquisar tavernas por nome ou cidade...",
   "filterScore": "Pontuação Mínima",
   "filterPrice": "Nível de Preço",
+  "noReviewsYet": "Sem avaliações",
   "details": {
     "score": "Pontuação Real",
     "location": "Domínio",

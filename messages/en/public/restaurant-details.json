@@ -8,5 +8,11 @@
   "recordsBadge": "{count, plural, =1 {# Record} other {# Records}}",
   "noDecrees": "No decrees recorded for this tavern yet.",
   "officialDecree": "Official Decree",
-  "communityScroll": "Community Scroll"
+  "communityScroll": "Community Scroll",
+  "unknownIngredient": "Ingredient",
+  "experienceLabels": {
+    "service": "Service",
+    "digestion": "Digestion",
+    "vibe": "Vibe"
+  }
 }
