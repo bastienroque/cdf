@@ -6,8 +6,6 @@ export type AdminRow = {
   actions?: React.ReactNode;
 };
 
-// A table on tablet and desktop; on phones each row becomes a card with the
-// column names as labels, so nothing scrolls sideways.
 export function AdminTable({
   headers,
   rows,
@@ -68,14 +66,19 @@ export function AdminTable({
         </thead>
         <tbody>
           {rows.map((row) => (
-            <tr key={row.id} className="border-b border-border hover:bg-muted/50">
+            <tr
+              key={row.id}
+              className="border-b border-border hover:bg-muted/50"
+            >
               {row.cells.map((cell, i) => (
                 <td key={i} className="p-3 text-foreground">
                   {cell}
                 </td>
               ))}
               <td className="p-3">
-                <div className="flex items-center justify-end gap-2">{row.actions}</div>
+                <div className="flex items-center justify-end gap-2">
+                  {row.actions}
+                </div>
               </td>
             </tr>
           ))}

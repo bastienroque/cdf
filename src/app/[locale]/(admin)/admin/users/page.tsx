@@ -36,7 +36,9 @@ export default async function AdminUsersPage({
     getTranslations("admin.users"),
   ]);
 
-  const authById = new Map((authResult.data?.users ?? []).map((u) => [u.id, u]));
+  const authById = new Map(
+    (authResult.data?.users ?? []).map((u) => [u.id, u]),
+  );
   const formatDate = (value: string | Date | null | undefined) =>
     value
       ? new Date(value).toLocaleDateString(locale, {
@@ -72,11 +74,19 @@ export default async function AdminUsersPage({
         </div>,
 
         locked ? (
-          <Badge key="role" variant="outline" className="font-mono text-xs uppercase">
+          <Badge
+            key="role"
+            variant="outline"
+            className="font-mono text-xs uppercase"
+          >
             {t(`roles.${p.role}`)}
           </Badge>
         ) : (
-          <form key="role" action={setUserRole.bind(null, p.id)} className="flex flex-wrap items-center gap-2">
+          <form
+            key="role"
+            action={setUserRole.bind(null, p.id)}
+            className="flex flex-wrap items-center gap-2"
+          >
             <select
               name="role"
               defaultValue={p.role}
@@ -138,11 +148,16 @@ export default async function AdminUsersPage({
         <h1 className="font-display text-2xl font-bold tracking-tight text-foreground uppercase sm:text-4xl">
           {t("title")}
         </h1>
-        <p className="mt-1 font-body text-sm text-muted-foreground">{t("subtitle")}</p>
+        <p className="mt-1 font-body text-sm text-muted-foreground">
+          {t("subtitle")}
+        </p>
       </div>
 
       {authResult.error && (
-        <p role="alert" className="rounded-sm border border-red-500/40 bg-red-500/10 p-4 font-mono text-xs text-red-500">
+        <p
+          role="alert"
+          className="rounded-sm border border-red-500/40 bg-red-500/10 p-4 font-mono text-xs text-red-500"
+        >
           {t("authError")}
         </p>
       )}
