@@ -44,7 +44,7 @@
     "actions": {
       "edit": "Edit",
       "delete": "Delete",
-      "confirmDelete": "Delete \"{name}\"? This action cannot be undone."
+      "confirmDelete": "Delete \"{name}\"? Its reviews and photos will be deleted too. This cannot be undone."
     },
     "empty": "No restaurants found in directory."
   },

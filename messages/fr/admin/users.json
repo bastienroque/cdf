@@ -1,18 +1,33 @@
 {
   "tag": "Contrôle d'Accès",
   "title": "Gestion des Utilisateurs",
-  "subtitle": "Consultez les comptes enregistrés, gérez les rôles administratifs et inspectez les dates d'adhésion.",
+  "subtitle": "Consultez tous les comptes, changez les rôles d'administration, suspendez ou réactivez des comptes.",
   "table": {
     "headers": {
       "user": "Utilisateur",
       "role": "Rôle",
       "joined": "Date d'Adhésion",
-      "actions": "Actions"
+      "actions": "Actions",
+      "status": "Statut",
+      "lastSignIn": "Dernière connexion"
     }
   },
   "roles": {
     "admin": "Administrateur",
-    "user": "Membre"
+    "user": "Membre",
+    "super_admin": "Super administrateur"
   },
-  "empty": "Aucun utilisateur enregistré trouvé."
+  "empty": "Aucun utilisateur enregistré trouvé.",
+  "status": {
+    "active": "Actif",
+    "suspended": "Suspendu"
+  },
+  "actions": {
+    "saveRole": "Enregistrer",
+    "suspend": "Suspendre",
+    "reactivate": "Réactiver",
+    "confirmSuspend": "Suspendre {name} ? Ce compte ne pourra plus se connecter tant qu'il n'est pas réactivé."
+  },
+  "you": "Vous",
+  "authError": "Impossible de charger les emails et dates de connexion. Vérifiez la clé de service."
 }

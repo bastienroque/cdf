@@ -18,6 +18,7 @@ export const ROUTES = {
     blog: "/en/admin/blog",
     blogNew: "/en/admin/blog/new",
     events: "/en/admin/events",
+    users: "/en/admin/users",
   },
 } as const;
 

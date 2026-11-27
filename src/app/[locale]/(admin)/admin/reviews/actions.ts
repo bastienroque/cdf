@@ -1,9 +1,12 @@
 "use server";
 
 import { db } from "@/db";
-import { reviews, ingredients, tags } from "@/db/schema";
+import { reviews, ingredients, tags, restaurants } from "@/db/schema";
 import { reviewSchema, type ReviewFormValues } from "@/lib/validations/review";
-import { catalogItemSchema } from "@/lib/validations/catalog";
+import {
+  catalogItemSchema,
+  catalogTranslationSchema,
+} from "@/lib/validations/catalog";
 import { requireAdmin } from "@/lib/auth/admin";
 import { eq, like } from "drizzle-orm";
 import { redirect } from "next/navigation";
@@ -229,22 +232,29 @@ export async function approveReview(reviewId: string) {
   const updated = await setReviewStatus(reviewId, "published");
 
   if (updated) {
-    // NOTE: this URL uses the restaurant ID, but public routes use the slug.
-    // Select the restaurant's slug and use it here so the email link doesn't 404.
-    const reviewUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/restaurants/${updated.restaurantFk}#review-${updated.id}`;
-    await sendReviewApprovedEmail(updated.authorFk, reviewUrl);
+    const [restaurant] = await db
+      .select({ slug: restaurants.slug })
+      .from(restaurants)
+      .where(eq(restaurants.id, updated.restaurantFk))
+      .limit(1);
+    if (restaurant) {
+      await sendReviewApprovedEmail(updated.authorFk, restaurant.slug, updated.id);
+    }
   }
 
   revalidateScoreCaches();
 }
 
-export async function rejectReview(reviewId: string) {
+// Called from forms as `rejectReview.bind(null, id)`, so the second argument
+// is the submitted FormData; an optional "reason" field is emailed to the author.
+export async function rejectReview(reviewId: string, formData?: FormData) {
   await requireAdmin();
 
+  const reason = formData?.get("reason")?.toString().slice(0, 1000);
   const updated = await setReviewStatus(reviewId, "rejected");
 
   if (updated) {
-    await sendReviewRejectedEmail(updated.authorFk);
+    await sendReviewRejectedEmail(updated.authorFk, reason);
   }
 
   revalidateScoreCaches();
@@ -290,15 +300,21 @@ export async function updateCatalogTranslation(
 ) {
   await requireAdmin();
 
-  const isComplete = Boolean(data.namePt && data.nameEn && data.nameFr);
+  const validated = catalogTranslationSchema.safeParse(data);
+  if (!validated.success) {
+    return { success: false, errors: validated.error.flatten().fieldErrors };
+  }
+
+  const { namePt, nameEn, nameFr } = validated.data;
+  const isComplete = Boolean(namePt && nameEn && nameFr);
   const targetTable = getCatalogTable(type);
 
   await db
     .update(targetTable)
     .set({
-      namePt: data.namePt,
-      nameEn: data.nameEn || null,
-      nameFr: data.nameFr || null,
+      namePt,
+      nameEn: nameEn || null,
+      nameFr: nameFr || null,
       translationStatus: isComplete ? "complete" : "pending",
     })
     .where(eq(targetTable.id, id));

@@ -10,7 +10,8 @@
     "events": "Événements",
     "glossary": "Glossaire",
     "contact": "Contact",
-    "admin": "Tableau de bord Admin"
+    "admin": "Tableau de bord Admin",
+    "share": "Partager le site"
   },
   "badges": {
     "official": "Avis Vérifié",
@@ -60,5 +61,26 @@
     "returnHome": "Retour à l'accueil",
     "openMap": "Explorer la carte"
   },
-  "imageUnavailable": "Aucune image disponible."
+  "imageUnavailable": "Aucune image disponible.",
+  "emails": {
+    "approved": {
+      "subject": "Votre avis a été approuvé",
+      "body": "Bonne nouvelle ! Votre avis a été approuvé et il est maintenant public.",
+      "cta": "Voir votre avis"
+    },
+    "rejected": {
+      "subject": "Votre avis n'a pas été approuvé",
+      "body": "Votre avis récent ne respectait pas nos critères de publication et n'a pas été approuvé.",
+      "reasonLabel": "Motif :",
+      "retry": "Vous pouvez soumettre un nouvel avis à tout moment."
+    }
+  },
+  "languageSwitcher": "Changer de langue",
+  "error": {
+    "badge": "Une erreur est survenue",
+    "title": "Un faux pas en cuisine",
+    "description": "Cette page n'a pas pu être chargée. Veuillez réessayer dans un instant.",
+    "retry": "Réessayer",
+    "home": "Retour à l'accueil"
+  }
 }

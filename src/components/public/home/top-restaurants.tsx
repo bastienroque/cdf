@@ -1,9 +1,10 @@
 import { Link } from "@/i18n/navigation";
 import { EntityCard } from "@/components/ui/entity-card";
 import { Badge } from "@/components/ui/badge";
+import type { getTopRestaurants } from "@/lib/get-recent-activity";
 
 interface TopRestaurantsProps {
-  restaurants: any[];
+  restaurants: Awaited<ReturnType<typeof getTopRestaurants>>;
   labels: {
     tag: string;
     title: string;

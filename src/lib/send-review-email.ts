@@ -1,5 +1,13 @@
 import { Resend } from "resend";
-import { getUserEmail } from "@/lib/get-user-email";
+import { getTranslations } from "next-intl/server";
+import { getUserContact } from "@/lib/get-user-email";
+import { escapeHtml } from "@/lib/escape-html";
+import { logApiUsage } from "@/lib/log-api-usage";
+import { siteUrl } from "@/lib/site-url";
+
+const FROM = `Cavaleiros da Francesinha <${
+  process.env.REVIEW_EMAIL_FROM || "no-reply@cavaleirosdafrancesinha.com"
+}>`;
 
 function getResendClient(): Resend | null {
   if (!process.env.RESEND_API_KEY) {
@@ -9,49 +17,62 @@ function getResendClient(): Resend | null {
   return new Resend(process.env.RESEND_API_KEY);
 }
 
+
 export async function sendReviewApprovedEmail(
   authorId: string,
-  reviewUrl: string,
+  restaurantSlug: string,
+  reviewId: string,
 ) {
   const resend = getResendClient();
   if (!resend) return;
 
   try {
-    const email = await getUserEmail(authorId);
-    if (!email) return;
+    const contact = await getUserContact(authorId);
+    if (!contact) return;
+
+    const t = await getTranslations({ locale: contact.locale, namespace: "common.emails" });
+    const url = `${siteUrl()}/${contact.locale}/restaurants/${encodeURIComponent(restaurantSlug)}#review-${reviewId}`;
 
     await resend.emails.send({
-      from: "Cavaleiros da Francesinha <no-reply@cavaleirosdafrancesinha.pt>",
-      to: email,
-      subject: "A sua avaliação foi aprovada",
+      from: FROM,
+      to: contact.email,
+      subject: t("approved.subject"),
       html: `
-        <p>Boas notícias! A sua avaliação foi aprovada e já está visível publicamente.</p>
-        <p><a href="${reviewUrl}">Ver a avaliação</a></p>
+        <p>${escapeHtml(t("approved.body"))}</p>
+        <p><a href="${escapeHtml(url)}">${escapeHtml(t("approved.cta"))}</a></p>
       `,
     });
+    await logApiUsage("resend");
   } catch (err) {
-    console.error("Falha ao enviar email de aprovação:", err);
+    console.error("Failed to send approval email:", err);
   }
 }
 
-export async function sendReviewRejectedEmail(authorId: string) {
+export async function sendReviewRejectedEmail(authorId: string, reason?: string) {
   const resend = getResendClient();
   if (!resend) return;
 
   try {
-    const email = await getUserEmail(authorId);
-    if (!email) return;
+    const contact = await getUserContact(authorId);
+    if (!contact) return;
+
+    const t = await getTranslations({ locale: contact.locale, namespace: "common.emails" });
+    const reasonBlock = reason?.trim()
+      ? `<p><strong>${escapeHtml(t("rejected.reasonLabel"))}</strong> ${escapeHtml(reason.trim())}</p>`
+      : "";
 
     await resend.emails.send({
-      from: "Cavaleiros da Francesinha <no-reply@cavaleirosdafrancesinha.pt>",
-      to: email,
-      subject: "A sua avaliação não foi aprovada",
+      from: FROM,
+      to: contact.email,
+      subject: t("rejected.subject"),
       html: `
-        <p>A sua avaliação recente não cumpriu os critérios de publicação e não foi aprovada.</p>
-        <p>Pode submeter uma nova avaliação a qualquer momento.</p>
+        <p>${escapeHtml(t("rejected.body"))}</p>
+        ${reasonBlock}
+        <p>${escapeHtml(t("rejected.retry"))}</p>
       `,
     });
+    await logApiUsage("resend");
   } catch (err) {
-    console.error("Falha ao enviar email de rejeição:", err);
+    console.error("Failed to send rejection email:", err);
   }
 }

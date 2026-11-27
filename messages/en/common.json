@@ -10,7 +10,8 @@
     "events": "Events & Gatherings",
     "glossary": "Glossary",
     "contact": "Contact",
-    "admin": "Admin Dashboard"
+    "admin": "Admin Dashboard",
+    "share": "Share the Site"
   },
   "badges": {
     "official": "Verified Review",
@@ -60,5 +61,26 @@
     "returnHome": "Back to Home",
     "openMap": "Explore Map"
   },
-  "imageUnavailable": "No image available yet."
+  "imageUnavailable": "No image available yet.",
+  "emails": {
+    "approved": {
+      "subject": "Your review has been approved",
+      "body": "Good news! Your review has been approved and is now public.",
+      "cta": "See your review"
+    },
+    "rejected": {
+      "subject": "Your review was not approved",
+      "body": "Your recent review did not meet our publication guidelines and was not approved.",
+      "reasonLabel": "Reason:",
+      "retry": "You are welcome to submit a new review at any time."
+    }
+  },
+  "languageSwitcher": "Change language",
+  "error": {
+    "badge": "Something went wrong",
+    "title": "A misstep in the kitchen",
+    "description": "This page could not be loaded. Please try again in a moment.",
+    "retry": "Try again",
+    "home": "Back to Home"
+  }
 }

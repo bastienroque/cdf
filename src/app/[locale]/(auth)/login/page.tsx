@@ -8,7 +8,7 @@ import {
 } from "@/components/form/form-field";
 import { getTranslations } from "next-intl/server";
 import { LogIn, KeyRound, Mail, Shield } from "lucide-react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { PasswordInput } from "@/components/auth/password-input";
 import { Metadata } from "next";
 

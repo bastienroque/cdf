@@ -12,10 +12,16 @@ import { AccountMenu } from "./account-menu";
 interface MobileNavProps {
   currentLocale: string;
   isLoggedIn: boolean;
-  role: string | null;
+  isAdmin: boolean;
+  isSuperAdmin: boolean;
 }
 
-export function MobileNav({ currentLocale, isLoggedIn, role }: MobileNavProps) {
+export function MobileNav({
+  currentLocale,
+  isLoggedIn,
+  isAdmin,
+  isSuperAdmin,
+}: MobileNavProps) {
   const [open, setOpen] = useState(false);
   const t = useTranslations("common.nav");
 
@@ -51,19 +57,22 @@ export function MobileNav({ currentLocale, isLoggedIn, role }: MobileNavProps) {
         <div className="fixed left-0 right-0 top-16.25 bottom-0 z-50 w-screen max-w-full bg-background px-6 py-6 overflow-y-auto flex flex-col justify-between animate-in fade-in slide-in-from-bottom-2 duration-200">
           <div className="space-y-4 pb-10">
             {/* Admin Section (If applicable) */}
-            {role === "admin" && (
+            {isAdmin && (
               <div className="space-y-2 border-b border-border pb-4">
-                <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-amber-600/80">
+                <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-amber-600">
                   Admin Codex
                 </div>
-                <AdminNavMenu onNavigate={() => setOpen(false)} />
+                <AdminNavMenu
+                  isSuperAdmin={isSuperAdmin}
+                  onNavigate={() => setOpen(false)}
+                />
               </div>
             )}
 
             {/* Language Switcher & Account Section */}
             <div className="flex items-center justify-between border-b border-border pb-4 pt-1">
               <LocaleSwitcher currentLocale={currentLocale} />
-              {role === "admin" && (
+              {isAdmin && (
                 <AccountMenu
                   locale={currentLocale}
                   isLoggedIn={isLoggedIn}
@@ -79,7 +88,7 @@ export function MobileNav({ currentLocale, isLoggedIn, role }: MobileNavProps) {
 
                 return (
                   <div key={group.labelKey} className="space-y-1.5">
-                    <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-amber-600/80 px-1">
+                    <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-amber-600 px-1">
                       {groupLabel}
                     </div>
                     <div className="flex flex-col gap-1.5">

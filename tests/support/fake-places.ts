@@ -17,7 +17,7 @@ export async function installFakePlaces(page: Page) {
     if (!customElements.get("fake-place-autocomplete")) {
       customElements.define("fake-place-autocomplete", FakePlaceAutocomplete);
     }
-    (window as any).google = {
+    (window as unknown as { google: unknown }).google = {
       maps: { importLibrary: async () => ({ PlaceAutocompleteElement: FakePlaceAutocomplete }) },
     };
   });
@@ -30,7 +30,7 @@ export async function selectFakePlace(page: Page, place: FakePlace) {
   await page.evaluate((p) => {
     const el = document.querySelector("fake-place-autocomplete");
     if (!el) throw new Error("fake-place-autocomplete not found: was installFakePlaces() called before goto()?");
-    const event: any = new Event("gmp-select");
+    const event = new Event("gmp-select") as Event & { placePrediction?: unknown };
     event.placePrediction = {
       toPlace: () => ({
         fetchFields: async () => {},

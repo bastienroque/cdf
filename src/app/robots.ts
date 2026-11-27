@@ -1,14 +1,14 @@
 import { MetadataRoute } from "next";
+import { siteUrl } from "@/lib/site-url";
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "";
-
   return {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/admin/", "/*/admin/", "/app/", "/auth/"],
+      // Admin, account and member pages under every language prefix
+      disallow: ["/*/admin", "/*/login", "/*/register", "/*/review"],
     },
-    sitemap: `${baseUrl}/sitemap.xml`,
+    sitemap: `${siteUrl()}/sitemap.xml`,
   };
 }

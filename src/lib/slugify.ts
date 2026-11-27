@@ -1,5 +1,5 @@
 import { db } from "@/db/index";
-import { restaurants } from "@/db/schema";
+import { blogPosts, restaurants } from "@/db/schema";
 import { like } from "drizzle-orm";
 
 export function slugify(input: string): string {
@@ -34,5 +34,21 @@ export async function generateUniqueSlug(
   while (takenSlugs.has(`${base}-${counter}`)) {
     counter++;
   }
+  return `${base}-${counter}`;
+}
+
+// Same idea for blog posts: "my-title", then "my-title-2", "my-title-3"...
+export async function generateUniqueBlogSlug(title: string): Promise<string> {
+  const base = slugify(title) || "post";
+  const existing = await db
+    .select({ slug: blogPosts.slug })
+    .from(blogPosts)
+    .where(like(blogPosts.slug, `${base}%`));
+
+  const taken = new Set(existing.map((r) => r.slug));
+  if (!taken.has(base)) return base;
+
+  let counter = 2;
+  while (taken.has(`${base}-${counter}`)) counter++;
   return `${base}-${counter}`;
 }

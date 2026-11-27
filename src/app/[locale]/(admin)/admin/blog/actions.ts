@@ -10,7 +10,7 @@ import { requireAdmin } from "@/lib/auth/admin";
 import { eq } from "drizzle-orm";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
-import { slugify } from "@/lib/slugify";
+import { generateUniqueBlogSlug } from "@/lib/slugify";
 
 export async function createBlogPost(values: BlogPostFormValues) {
   const adminId = await requireAdmin();
@@ -18,7 +18,7 @@ export async function createBlogPost(values: BlogPostFormValues) {
 
   await db.insert(blogPosts).values({
     title: parsed.title,
-    slug: slugify(parsed.title),
+    slug: await generateUniqueBlogSlug(parsed.title),
     content: parsed.content,
     authorFk: adminId,
     coverImage: parsed.coverImage,
@@ -28,6 +28,7 @@ export async function createBlogPost(values: BlogPostFormValues) {
   });
 
   revalidatePath("/admin/blog");
+  revalidatePath("/[locale]/blog", "page");
   redirect("/admin/blog");
 }
 
@@ -48,6 +49,7 @@ export async function updateBlogPost(id: string, values: BlogPostFormValues) {
     .where(eq(blogPosts.id, id));
 
   revalidatePath("/admin/blog");
+  revalidatePath("/[locale]/blog", "page");
   redirect("/admin/blog");
 }
 

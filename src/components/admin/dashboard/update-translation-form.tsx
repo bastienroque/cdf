@@ -36,11 +36,12 @@ export function UpdateTranslationForm({ item }: { item: CatalogItem }) {
     setSaved(false);
 
     try {
-      await updateCatalogTranslation(item.type, item.id, {
+      const result = await updateCatalogTranslation(item.type, item.id, {
         namePt,
         nameEn: nameEn.trim() || null,
         nameFr: nameFr.trim() || null,
       });
+      if (!result.success) return;
       setSaved(true);
       setTimeout(() => setSaved(false), 3000);
     } finally {

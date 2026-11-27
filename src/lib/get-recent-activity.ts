@@ -22,7 +22,7 @@ export const getTopRestaurants = unstable_cache(
           isNotNull(restaurants.avgScore),
         ),
       )
-      .orderBy(desc(restaurants.avgScore))
+      .orderBy(desc(restaurants.avgScore), desc(restaurants.reviewCount))
       .limit(6);
   },
   ["top-restaurants-homepage"],

@@ -22,7 +22,7 @@ export default function RootNotFound() {
 
           {/* Body */}
           <p className="font-body text-sm text-muted-foreground mb-6 leading-relaxed">
-            The sanctuary, decree, or page you are looking for doesn't exist,
+            The sanctuary, decree, or page you are looking for doesn&apos;t exist,
             has been removed, or was moved to another location.
           </p>
 

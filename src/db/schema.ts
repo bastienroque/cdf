@@ -23,7 +23,7 @@ const authUsers = authSchema.table("users", {
 });
 
 // --- User Profile & RBAC ---
-export const userRoleEnum = pgEnum("user_role", ["admin", "user"]);
+export const userRoleEnum = pgEnum("user_role", ["admin", "user", "super_admin"]);
 
 export const users = pgTable("users", {
   id: uuid("id")
@@ -58,13 +58,21 @@ export const restaurants = pgTable(
       .notNull()
       .default("draft"),
     avgScore: numeric("avg_score"),
+    // Knights' score (official reviews only): drives the ranking
     reviewCount: integer("review_count").notNull().default(0),
+    // Members' reviews: shown beside the Knights' score, never ranked
+    communityAvgScore: numeric("community_avg_score"),
+    communityReviewCount: integer("community_review_count").notNull().default(0),
     createdAt: timestamp("created_at").notNull().defaultNow(),
   },
   (table) => [
     check(
       "avg_score_range",
       sql`${table.avgScore} >= 0 AND ${table.avgScore} <= 10`,
+    ),
+    check(
+      "community_avg_score_range",
+      sql`${table.communityAvgScore} >= 0 AND ${table.communityAvgScore} <= 10`,
     ),
   ],
 );
@@ -139,6 +147,7 @@ export const reviews = pgTable(
           tagIds: string[];
         }[]
       >()
+      .notNull()
       .default([]),
 
     experienceScores: jsonb("experience_scores")
@@ -148,6 +157,7 @@ export const reviews = pgTable(
           score: number;
         }[]
       >()
+      .notNull()
       .default([]),
 
     createdAt: timestamp("created_at").notNull().defaultNow(),
@@ -185,6 +195,19 @@ export const events = pgTable("events", {
   locale: text("locale").notNull(),
   createdAt: timestamp("created_at").notNull().defaultNow(),
 });
+
+// --- Static page content (exists in the database, not used by the app yet) ---
+export const pageContent = pgTable(
+  "page_content",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    pageKey: text("page_key").notNull(),
+    locale: text("locale").notNull(),
+    content: text("content").notNull(),
+    createdAt: timestamp("created_at").notNull().defaultNow(),
+  },
+  (table) => [unique("page_key_locale_unique").on(table.pageKey, table.locale)],
+);
 
 // --- API Logging ---
 export const apiUsageLog = pgTable("api_usage_log", {

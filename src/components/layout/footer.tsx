@@ -5,6 +5,7 @@ import { Link } from "@/i18n/navigation";
 import { CookiePreferencesButton } from "@/components/public/legal/cookie-preference-button";
 import { navGroups } from "@/lib/nav-links";
 import Image from "next/image";
+import { INSTAGRAM_URL } from "@/lib/social-links";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -40,7 +41,7 @@ export function Footer() {
               {t("footer.socialHeader")}
             </h3>
             <a
-              href="https://www.instagram.com/cavaleiros_da_francesinha/"
+              href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
@@ -107,7 +108,7 @@ export function Footer() {
 
       {/* ---- Copyright Notice ---- */}
       <div className="mx-auto mt-12 max-w-7xl border-t border-amber-500/10 pt-6">
-        <p className="font-mono text-xs tracking-wider text-brand-steel/80">
+        <p className="font-mono text-xs tracking-wider text-brand-steel">
           © {year} {t("footer.rights")}
         </p>
       </div>

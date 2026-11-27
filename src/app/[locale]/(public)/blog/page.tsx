@@ -1,6 +1,6 @@
 import { db } from "@/db";
 import { blogPosts } from "@/db/schema";
-import { and, eq, desc, isNotNull } from "drizzle-orm";
+import { and, desc, isNotNull, lte } from "drizzle-orm";
 import { EntityCard } from "@/components/ui/entity-card";
 import { getTranslations } from "next-intl/server";
 import { BookOpen } from "lucide-react";
@@ -21,7 +21,9 @@ export async function generateMetadata({
   };
 }
 
-async function getBlogPosts(locale: string) {
+// Posts are written once, in one language, and shown in every locale.
+// Posts scheduled for a later date stay hidden until then.
+async function getBlogPosts() {
   return db
     .select({
       id: blogPosts.id,
@@ -29,9 +31,12 @@ async function getBlogPosts(locale: string) {
       title: blogPosts.title,
       coverImage: blogPosts.coverImage,
       publishedAt: blogPosts.publishedAt,
+      locale: blogPosts.locale,
     })
     .from(blogPosts)
-    .where(and(eq(blogPosts.locale, locale), isNotNull(blogPosts.publishedAt)))
+    .where(
+      and(isNotNull(blogPosts.publishedAt), lte(blogPosts.publishedAt, new Date())),
+    )
     .orderBy(desc(blogPosts.publishedAt));
 }
 
@@ -43,7 +48,7 @@ export default async function BlogPage({
   const { locale } = await params;
 
   const [rows, t] = await Promise.all([
-    getBlogPosts(locale),
+    getBlogPosts(),
     getTranslations("public.blog"),
   ]);
 
@@ -78,15 +83,18 @@ export default async function BlogPage({
               href={`/blog/${post.slug}`}
               image={post.coverImage}
               title={post.title}
-              meta={
+              meta={[
                 post.publishedAt
                   ? new Date(post.publishedAt).toLocaleDateString(locale, {
                       day: "2-digit",
                       month: "short",
                       year: "numeric",
                     })
-                  : undefined
-              }
+                  : null,
+                post.locale.toUpperCase(),
+              ]
+                .filter(Boolean)
+                .join(" · ")}
             />
           ))}
         </div>

@@ -2,8 +2,9 @@ import { db } from "@/db";
 import { users } from "@/db/schema";
 import { eq } from "drizzle-orm";
 import { createClient } from "../supabase/server";
+import { isAdminRole, isSuperAdminRole, type UserRole } from "./roles";
 
-export async function requireAdmin(): Promise<string> {
+async function currentUserRole(): Promise<{ id: string; role: UserRole | null }> {
   const supabase = await createClient();
   const {
     data: { user },
@@ -20,9 +21,19 @@ export async function requireAdmin(): Promise<string> {
     .where(eq(users.id, user.id))
     .limit(1);
 
-  if (profile?.role !== "admin") {
-    throw new Error("Not authorized.");
-  }
+  return { id: user.id, role: profile?.role ?? null };
+}
 
-  return user.id;
+// Admins and super admins. Returns the user's id.
+export async function requireAdmin(): Promise<string> {
+  const { id, role } = await currentUserRole();
+  if (!isAdminRole(role)) throw new Error("Not authorized.");
+  return id;
+}
+
+// Super admins only (user management). Returns the user's id.
+export async function requireSuperAdmin(): Promise<string> {
+  const { id, role } = await currentUserRole();
+  if (!isSuperAdminRole(role)) throw new Error("Not authorized.");
+  return id;
 }

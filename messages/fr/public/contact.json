@@ -14,7 +14,13 @@
     "messagePlaceholder": "Écrivez votre message ici...",
     "submit": "Envoyer le Message",
     "submitting": "Envoi en cours...",
-    "turnstileRequired": "Veuillez compléter le contrôle de sécurité avant de soumettre."
+    "turnstileRequired": "Veuillez compléter le contrôle de sécurité avant de soumettre.",
+    "errors": {
+      "required": "Veuillez indiquer votre nom, votre email et votre message.",
+      "invalidEmail": "Veuillez saisir une adresse email valide.",
+      "turnstileRequired": "Veuillez compléter la vérification de sécurité avant d'envoyer.",
+      "sendFailed": "Votre message n'a pas pu être envoyé. Veuillez réessayer plus tard."
+    }
   },
   "success": {
     "title": "Message Envoyé",

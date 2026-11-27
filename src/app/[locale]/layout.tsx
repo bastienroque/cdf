@@ -26,7 +26,19 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const messages = await getMessages();
+  const allMessages = await getMessages();
+  // Public pages only ship the translations their client components use.
+  // The admin area adds the rest in its own layout.
+  const { common, auth, public: publicMessages, admin } = allMessages as Record<
+    string,
+    Record<string, unknown>
+  >;
+  const messages = {
+    common,
+    auth,
+    public: publicMessages,
+    admin: { navTrigger: admin.navTrigger, links: admin.links },
+  };
   const consent = await getServerConsent();
 
   return (

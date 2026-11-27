@@ -1,8 +1,9 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 import { Send, CheckCircle2, AlertCircle } from "lucide-react";
+import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
 import {
   FormField,
   TextInput,
@@ -15,13 +16,20 @@ import {
 } from "@/app/[locale]/(public)/contact/actions";
 
 const initialState: ContactFormState = {};
+const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
 export default function ContactForm() {
   const t = useTranslations("public.contact");
+  const turnstileRef = useRef<TurnstileInstance>(null);
   const [state, formAction, isPending] = useActionState(
     sendContactEmail,
     initialState,
   );
+
+  // A Turnstile token is single-use: get a fresh one after a failed attempt.
+  useEffect(() => {
+    if (state.errorKey) turnstileRef.current?.reset();
+  }, [state]);
 
   return (
     <div className="rounded-sm border border-amber-500/30 bg-card p-4 md:p-6 sm:p-8">
@@ -37,12 +45,25 @@ export default function ContactForm() {
         </div>
       ) : (
         <form action={formAction} className="space-y-6">
-          {state.error && (
-            <div className="flex items-center gap-2 rounded-sm border border-red-500/40 bg-red-500/10 p-4 font-mono text-xs text-red-500">
+          {state.errorKey && (
+            <div
+              role="alert"
+              className="flex items-center gap-2 rounded-sm border border-red-500/40 bg-red-500/10 p-4 font-mono text-xs text-red-500"
+            >
               <AlertCircle className="h-4 w-4 shrink-0" />
-              <span>{state.error}</span>
+              <span>{t(`form.errors.${state.errorKey}`)}</span>
             </div>
           )}
+
+          {/* Honeypot field, hidden from people and screen readers */}
+          <input
+            type="text"
+            name="website"
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            className="hidden"
+          />
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
             <FormField label={`${t("form.name")} *`}>
@@ -92,6 +113,14 @@ export default function ContactForm() {
               />
             )}
           </FormField>
+
+          {TURNSTILE_SITE_KEY && (
+            <Turnstile
+              ref={turnstileRef}
+              siteKey={TURNSTILE_SITE_KEY}
+              options={{ theme: "auto" }}
+            />
+          )}
 
           <PrimaryButton
             type="submit"

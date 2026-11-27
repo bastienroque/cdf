@@ -1,6 +1,6 @@
 import { db } from "@/db";
-import { ingredients, tags, restaurants, reviews, users } from "@/db/schema";
-import { eq, and, desc, inArray } from "drizzle-orm";
+import { ingredients, tags, restaurants, reviews, users, events } from "@/db/schema";
+import { eq, and, asc, desc, gt, gte, inArray, isNotNull, lt, or, count } from "drizzle-orm";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getLocale, getTranslations } from "next-intl/server";
@@ -13,6 +13,10 @@ import {
   type FormattedReview,
 } from "@/components/public/restaurant/restaurant-reviews";
 import { getLocalizedName } from "@/lib/utils";
+import { safeJsonLd } from "@/lib/escape-html";
+import { reviewScore } from "@/lib/restaurant-review-score";
+import { Link } from "@/i18n/navigation";
+import { Calendar, Trophy } from "lucide-react";
 
 const priceLabels = ["€", "€€", "€€€", "€€€€"];
 
@@ -63,6 +67,8 @@ async function getRestaurantReviews(
       photos: reviews.photos,
       isOfficial: reviews.isOfficial,
       visitDate: reviews.visitDate,
+      pricePaid: reviews.pricePaid,
+      francesinhaType: reviews.francesinhaType,
       authorName: users.display_name,
       ingredientEvaluations: reviews.ingredientEvaluations,
       experienceScores: reviews.experienceScores,
@@ -196,11 +202,55 @@ async function getRestaurantReviews(
       photos: r.photos ?? [],
       isOfficial: r.isOfficial,
       visitDate: r.visitDate,
+      pricePaid: r.pricePaid ? Number(r.pricePaid) : null,
+      francesinhaType: r.francesinhaType,
+      score: reviewScore(r.ingredientEvaluations, r.experienceScores),
       authorName: r.authorName,
       ingredientScores,
       experienceScores,
     };
   });
+}
+
+const LEADERBOARD_PAGE_SIZE = 24;
+
+// Position on the leaderboard, using the same order: Knights' score, then
+// number of reviews, then name. Null when the restaurant has no score yet.
+async function getLeaderboardRank(r: {
+  avgScore: string | null;
+  reviewCount: number;
+  name: string;
+}): Promise<number | null> {
+  if (r.avgScore === null) return null;
+  const [{ ahead }] = await db
+    .select({ ahead: count() })
+    .from(restaurants)
+    .where(
+      and(
+        eq(restaurants.status, "published"),
+        isNotNull(restaurants.avgScore),
+        or(
+          gt(restaurants.avgScore, r.avgScore),
+          and(eq(restaurants.avgScore, r.avgScore), gt(restaurants.reviewCount, r.reviewCount)),
+          and(
+            eq(restaurants.avgScore, r.avgScore),
+            eq(restaurants.reviewCount, r.reviewCount),
+            lt(restaurants.name, r.name),
+          ),
+        ),
+      ),
+    );
+  return ahead + 1;
+}
+
+// Upcoming events hosted at this restaurant
+async function getUpcomingEvents(restaurantId: string) {
+  return db
+    .select({ id: events.id, title: events.title, date: events.date })
+    .from(events)
+    .where(and(eq(events.restaurantFk, restaurantId), gte(events.date, new Date())))
+    .orderBy(asc(events.date))
+    .limit(3);
 }
 
 export async function generateMetadata({
@@ -247,6 +297,11 @@ export default async function RestaurantDetailPage({
     getTranslations("public.restaurantDetails"),
   ]);
 
+  const [rank, upcomingEvents] = await Promise.all([
+    getLeaderboardRank(restaurant),
+    getUpcomingEvents(restaurant.id),
+  ]);
+
   const restaurantReviews = await getRestaurantReviews(restaurant.id, locale, {
     unknownIngredient: t("unknownIngredient"),
     experience: {
@@ -276,15 +331,27 @@ export default async function RestaurantDetailPage({
     image: restaurant.photos ?? [],
   };
 
-  const metaLine = `${restaurant.city} · ${
-    priceLabels[restaurant.priceRange - 1]
-  }${restaurant.avgScore ? ` · ${restaurant.avgScore}/10` : ""}`;
+  // Knights' score first; the community score appears beside it once members
+  // have published reviews (it never affects the ranking).
+  const metaLine = [
+    restaurant.city,
+    priceLabels[restaurant.priceRange - 1],
+    restaurant.avgScore ? t("knightsScore", { score: restaurant.avgScore }) : null,
+    restaurant.communityReviewCount > 0 && restaurant.communityAvgScore
+      ? t("communityScore", {
+          score: restaurant.communityAvgScore,
+          count: restaurant.communityReviewCount,
+        })
+      : null,
+  ]
+    .filter(Boolean)
+    .join(" · ");
 
   return (
     <div className="mx-auto max-w-4xl px-6 py-12">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
       />
 
       <RestaurantHeader
@@ -292,6 +359,35 @@ export default async function RestaurantDetailPage({
         metaLine={metaLine}
         verifiedLabel={t("verifiedTag")}
       />
+
+      {(rank !== null || upcomingEvents.length > 0) && (
+        <div className="-mt-4 mb-8 flex flex-wrap gap-2">
+          {rank !== null && (
+            <Link
+              href={
+                rank > LEADERBOARD_PAGE_SIZE
+                  ? `/leaderboard?page=${Math.ceil(rank / LEADERBOARD_PAGE_SIZE)}`
+                  : "/leaderboard"
+              }
+              className="focus-ring inline-flex items-center gap-2 rounded-sm border border-amber-500/40 bg-amber-500/10 px-3 py-1.5 font-mono text-xs font-semibold uppercase tracking-wider text-amber-600 hover:bg-amber-500/20"
+            >
+              <Trophy className="h-3.5 w-3.5" />
+              {t("leaderboardRank", { rank })}
+            </Link>
+          )}
+          {upcomingEvents.map((e) => (
+            <Link
+              key={e.id}
+              href={`/events/${e.id}`}
+              className="focus-ring inline-flex items-center gap-2 rounded-sm border border-border bg-card px-3 py-1.5 font-mono text-xs uppercase tracking-wider text-foreground hover:border-amber-500/40"
+            >
+              <Calendar className="h-3.5 w-3.5 text-amber-600" />
+              {new Date(e.date).toLocaleDateString(locale, { day: "2-digit", month: "short" })} ·{" "}
+              {e.title}
+            </Link>
+          ))}
+        </div>
+      )}
 
       <RestaurantGallery photos={restaurant.photos} name={restaurant.name} />
 
@@ -318,7 +414,10 @@ export default async function RestaurantDetailPage({
           noDecrees: t("noDecrees"),
           officialDecree: t("officialDecree"),
           communityScroll: t("communityScroll"),
+          price: t("reviewPrice"),
+          score: t("reviewScore"),
         }}
+        locale={locale}
       />
     </div>
   );

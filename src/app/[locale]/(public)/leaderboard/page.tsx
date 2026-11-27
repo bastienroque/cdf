@@ -1,11 +1,12 @@
 import { getTranslations } from "next-intl/server";
 import { db } from "@/db";
 import { restaurants } from "@/db/schema";
-import { eq, desc, count, isNotNull, and } from "drizzle-orm";
+import { eq, asc, desc, count, isNotNull, and } from "drizzle-orm";
 import { Link } from "@/i18n/navigation";
 import { Badge } from "@/components/ui/badge";
 import { Trophy, Crown } from "lucide-react";
 import { Metadata } from "next";
+import { Pagination } from "@/components/ui/pagination";
 
 const PAGE_SIZE = 24;
 const priceLabels = ["€", "€€", "€€€", "€€€€"];
@@ -45,7 +46,11 @@ async function getLeaderboard(page: number) {
       })
       .from(restaurants)
       .where(whereCondition)
-      .orderBy(desc(restaurants.avgScore))
+      .orderBy(
+        desc(restaurants.avgScore),
+        desc(restaurants.reviewCount),
+        asc(restaurants.name),
+      )
       .limit(PAGE_SIZE)
       .offset(offset),
 
@@ -66,7 +71,7 @@ export default async function LeaderboardPage({
 }: LeaderboardPageProps) {
   const { locale } = await params;
   const { page: pageParam } = await searchParams;
-  const page = Math.max(1, Number(pageParam) || 1);
+  const page = Math.max(1, Math.floor(Number(pageParam)) || 1);
   const { rows, totalPages } = await getLeaderboard(page);
 
   const t = await getTranslations({ locale, namespace: "public.leaderboard" });
@@ -114,9 +119,9 @@ export default async function LeaderboardPage({
                     {rank === 1 ? (
                       <Crown className="h-5 w-5 text-amber-500" />
                     ) : rank === 2 ? (
-                      <span className="text-amber-600/80">II</span>
+                      <span className="text-amber-600">II</span>
                     ) : rank === 3 ? (
-                      <span className="text-amber-700/70">III</span>
+                      <span className="text-amber-800">III</span>
                     ) : (
                       <span className="font-mono text-sm text-muted-foreground">
                         #{rank}
@@ -149,27 +154,12 @@ export default async function LeaderboardPage({
         </ol>
       )}
 
-      {/* ---- Pagination ---- */}
-      {totalPages > 1 && (
-        <div className="mt-12 flex items-center justify-center gap-2">
-          {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => {
-            const isActive = p === page;
-            return (
-              <Link
-                key={p}
-                href={`/leaderboard?page=${p}`}
-                className={`focus-ring rounded-sm px-4 py-2 font-mono text-xs uppercase tracking-widest transition-all ${
-                  isActive
-                    ? "bg-amber-500 text-black font-semibold"
-                    : "border border-border bg-background text-foreground hover:bg-muted"
-                }`}
-              >
-                {p}
-              </Link>
-            );
-          })}
-        </div>
-      )}
+      <Pagination
+        page={page}
+        totalPages={totalPages}
+        pathname="/leaderboard"
+        label={t("paginationLabel")}
+      />
     </div>
   );
 }

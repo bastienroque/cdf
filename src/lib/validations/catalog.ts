@@ -9,3 +9,9 @@ export const catalogItemSchema = z.object({
 });
 
 export type CatalogItemFormValues = z.infer<typeof catalogItemSchema>;
+
+export const catalogTranslationSchema = z.object({
+  namePt: z.string().trim().min(1, "Portuguese name is required").max(120),
+  nameEn: z.string().trim().max(120).nullish(),
+  nameFr: z.string().trim().max(120).nullish(),
+});

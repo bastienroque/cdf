@@ -12,6 +12,7 @@ import { createClient } from "@/lib/supabase/server";
 import { eq } from "drizzle-orm";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
+import { storagePathsFromUrls } from "@/lib/storage-paths";
 import { logApiUsage } from "@/lib/log-api-usage";
 
 export async function upsertRestaurant(
@@ -41,41 +42,39 @@ export async function upsertRestaurant(
 
     // 2. Delete removed images from Supabase storage
     if (removedPhotos.length > 0) {
-      const supabase = await createClient();
-      const filePaths = removedPhotos
-        .map((url) => {
-          try {
-            const parsedUrl = new URL(url);
-            const parts = parsedUrl.pathname.split("/restaurant-photos/");
-            return parts[1];
-          } catch {
-            return null;
-          }
-        })
-        .filter((p): p is string => Boolean(p));
-
+      const filePaths = storagePathsFromUrls("restaurant-photos", removedPhotos);
       if (filePaths.length > 0) {
+        const supabase = await createClient();
         await supabase.storage.from("restaurant-photos").remove(filePaths);
       }
     }
 
-    const slug = await generateUniqueSlug(parsed.name, id);
-    await db
-      .update(restaurants)
-      .set({ ...dbValues, slug })
-      .where(eq(restaurants.id, id));
+    // The slug is set once at creation and never changes, so shared links
+    // and search results keep working after a rename.
+    await db.update(restaurants).set(dbValues).where(eq(restaurants.id, id));
   } else {
     const slug = await generateUniqueSlug(parsed.name);
     await db.insert(restaurants).values({ ...dbValues, slug });
-    await logApiUsage("google_places");
   }
 
   revalidatePath("/admin/restaurants");
+  revalidatePath("/[locale]", "layout");
   redirect("/admin/restaurants");
 }
 
 export async function deleteRestaurant(id: string) {
   await requireAdmin();
+
+  // Collect photo URLs before the rows disappear
+  const [restaurant] = await db
+    .select({ photos: restaurants.photos })
+    .from(restaurants)
+    .where(eq(restaurants.id, id))
+    .limit(1);
+  const reviewRows = await db
+    .select({ photos: reviews.photos })
+    .from(reviews)
+    .where(eq(reviews.restaurantFk, id));
 
   await db.transaction(async (tx) => {
     // 1. Delete dependent reviews first to satisfy foreign key constraints
@@ -85,5 +84,27 @@ export async function deleteRestaurant(id: string) {
     await tx.delete(restaurants).where(eq(restaurants.id, id));
   });
 
+  // 3. Remove the photos from storage (after the database delete succeeded)
+  const supabase = await createClient();
+  const restaurantPaths = storagePathsFromUrls("restaurant-photos", restaurant?.photos ?? []);
+  const reviewPaths = storagePathsFromUrls(
+    "review-photos",
+    reviewRows.flatMap((r) => r.photos ?? []),
+  );
+  if (restaurantPaths.length > 0) {
+    await supabase.storage.from("restaurant-photos").remove(restaurantPaths);
+  }
+  if (reviewPaths.length > 0) {
+    await supabase.storage.from("review-photos").remove(reviewPaths);
+  }
+
   revalidatePath("/admin/restaurants");
+  revalidatePath("/[locale]", "layout");
+}
+
+// Called by the address search after each Google Places details request,
+// so the dashboard counts real Places calls.
+export async function recordPlacesLookup() {
+  await requireAdmin();
+  await logApiUsage("google_places");
 }

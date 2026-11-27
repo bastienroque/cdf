@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { Globe } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const locales = [
   { code: "pt", label: "PT" },
@@ -15,6 +16,7 @@ export function LocaleSwitcher({ currentLocale }: { currentLocale: string }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const router = useRouter();
+  const t = useTranslations("common");
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -33,7 +35,9 @@ export function LocaleSwitcher({ currentLocale }: { currentLocale: string }) {
   function switchTo(locale: string) {
     setIsOpen(false);
     if (locale === currentLocale) return;
-    router.replace(pathname, { locale });
+    // Keep the current filters (?city=…&sort=…) when changing language
+    const query = Object.fromEntries(new URLSearchParams(window.location.search));
+    router.replace({ pathname, query }, { locale });
   }
 
   return (
@@ -48,7 +52,7 @@ export function LocaleSwitcher({ currentLocale }: { currentLocale: string }) {
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
         className="flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-foreground bg-muted/50 hover:bg-muted border border-border rounded-sm px-3 py-1.5 transition-colors cursor-pointer"
-        aria-label="Language switcher"
+        aria-label={t("languageSwitcher")}
         aria-expanded={isOpen}
       >
         <Globe className="h-3.5 w-3.5 text-amber-500" />

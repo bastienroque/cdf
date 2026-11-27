@@ -10,7 +10,8 @@
     "events": "Eventos e Encontros",
     "glossary": "Glossário",
     "contact": "Contacto",
-    "admin": "Painel de Administração"
+    "admin": "Painel de Administração",
+    "share": "Partilhar o site"
   },
   "badges": {
     "official": "Avaliação Verificada",
@@ -60,5 +61,26 @@
     "returnHome": "Voltar ao Início",
     "openMap": "Explorar o Mapa"
   },
-  "imageUnavailable": "Sem imagem disponível."
+  "imageUnavailable": "Sem imagem disponível.",
+  "emails": {
+    "approved": {
+      "subject": "A sua avaliação foi aprovada",
+      "body": "Boas notícias! A sua avaliação foi aprovada e já está visível publicamente.",
+      "cta": "Ver a avaliação"
+    },
+    "rejected": {
+      "subject": "A sua avaliação não foi aprovada",
+      "body": "A sua avaliação recente não cumpriu os critérios de publicação e não foi aprovada.",
+      "reasonLabel": "Motivo:",
+      "retry": "Pode submeter uma nova avaliação a qualquer momento."
+    }
+  },
+  "languageSwitcher": "Mudar de idioma",
+  "error": {
+    "badge": "Algo correu mal",
+    "title": "Um percalço na cozinha",
+    "description": "Não foi possível carregar esta página. Tente novamente dentro de momentos.",
+    "retry": "Tentar de novo",
+    "home": "Voltar ao início"
+  }
 }

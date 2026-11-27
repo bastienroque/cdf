@@ -1,18 +1,33 @@
 {
   "tag": "Controlo de Acessos",
   "title": "Gestão de Utilizadores",
-  "subtitle": "Ver contas registadas, gerir funções administrativas e inspecionar datas de adesão.",
+  "subtitle": "Veja todas as contas, altere funções de administração e suspenda ou reative contas.",
   "table": {
     "headers": {
       "user": "Utilizador",
       "role": "Função",
       "joined": "Data de Adesão",
-      "actions": "Ações"
+      "actions": "Ações",
+      "status": "Estado",
+      "lastSignIn": "Último acesso"
     }
   },
   "roles": {
     "admin": "Administrador",
-    "user": "Membro"
+    "user": "Membro",
+    "super_admin": "Super administrador"
   },
-  "empty": "Nenhum utilizador registado encontrado."
+  "empty": "Nenhum utilizador registado encontrado.",
+  "status": {
+    "active": "Ativa",
+    "suspended": "Suspensa"
+  },
+  "actions": {
+    "saveRole": "Guardar",
+    "suspend": "Suspender",
+    "reactivate": "Reativar",
+    "confirmSuspend": "Suspender {name}? Não poderá iniciar sessão até a conta ser reativada."
+  },
+  "you": "Você",
+  "authError": "Não foi possível carregar os emails e datas de acesso. Verifique a chave de serviço."
 }

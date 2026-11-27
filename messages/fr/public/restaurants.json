@@ -9,7 +9,7 @@
   "sortAsc": "Score : Plus bas → Plus haut",
   "filterButton": "Filtrer",
   "empty": "Aucun restaurant trouvé dans les catacumbas.",
-  "searchPlaceholder": "Rechercher des tavernes par nom ou ville...",
+  "searchPlaceholder": "Nom ou ville...",
   "filterScore": "Score Minimum",
   "filterPrice": "Gamme de Prix",
   "noReviewsYet": "Aucun avis enregistré",
@@ -23,5 +23,10 @@
     "cheese": "Bouclier Fondu",
     "sauce": "Sauce Secrète",
     "potatoes": "Frites Dorées"
-  }
+  },
+  "filtering": "Filtrage...",
+  "cityAria": "Filtrer les restaurants par ville",
+  "priceAria": "Filtrer les restaurants par prix",
+  "sortAria": "Trier les restaurants par note",
+  "paginationLabel": "Pages des restaurants"
 }

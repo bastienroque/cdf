@@ -1,6 +1,6 @@
 import { db } from "@/db";
 import { blogPosts } from "@/db/schema";
-import { and, eq, isNotNull } from "drizzle-orm";
+import { and, eq, isNotNull, lte } from "drizzle-orm";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
@@ -22,8 +22,8 @@ export default async function BlogPostPage({
       .where(
         and(
           eq(blogPosts.slug, slug),
-          eq(blogPosts.locale, locale),
           isNotNull(blogPosts.publishedAt),
+          lte(blogPosts.publishedAt, new Date()),
         ),
       )
       .limit(1),
@@ -41,7 +41,7 @@ export default async function BlogPostPage({
     : null;
 
   return (
-    <article className="mx-auto max-w-4xl px-6 py-12">
+    <article lang={post.locale} className="mx-auto max-w-4xl px-6 py-12">
       {/* ---- Back Action ---- */}
       <div className="mb-8">
         <Link

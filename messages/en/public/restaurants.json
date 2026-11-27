@@ -9,7 +9,7 @@
   "sortAsc": "Score: Lowest → Highest",
   "filterButton": "Filter",
   "empty": "No taverns found in the catacombs.",
-  "searchPlaceholder": "Search taverns by name or city...",
+  "searchPlaceholder": "Name or city...",
   "filterScore": "Minimum Score",
   "filterPrice": "Price Range",
   "noReviewsYet": "No reviews yet",
@@ -23,5 +23,10 @@
     "cheese": "Melted Shield",
     "sauce": "Secret Gravy",
     "potatoes": "Golden Chips"
-  }
+  },
+  "filtering": "Filtering...",
+  "cityAria": "Filter restaurants by city",
+  "priceAria": "Filter restaurants by price range",
+  "sortAria": "Sort restaurants by score",
+  "paginationLabel": "Restaurant pages"
 }
