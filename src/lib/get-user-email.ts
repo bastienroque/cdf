@@ -1,13 +1,6 @@
-import { createClient } from "@supabase/supabase-js";
+import { createAdminClient } from "@/lib/supabase/admin";
 import { safeLocale } from "@/lib/safe-redirect";
 import type { Locale } from "@/i18n/config";
-
-function createAdminClient() {
-  return createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY!,
-  );
-}
 
 // Email address and preferred language (saved at sign-up) of an account.
 export async function getUserContact(

@@ -15,10 +15,11 @@ import {
 } from "@/components/ui/navigation-menu";
 
 interface AdminNavMenuProps {
+  isSuperAdmin?: boolean;
   onNavigate?: () => void;
 }
 
-export function AdminNavMenu({ onNavigate }: AdminNavMenuProps) {
+export function AdminNavMenu({ isSuperAdmin = false, onNavigate }: AdminNavMenuProps) {
   const [openValue, setOpenValue] = useState<string | null>(null);
   const pathname = usePathname();
   const t = useTranslations("admin");
@@ -43,7 +44,9 @@ export function AdminNavMenu({ onNavigate }: AdminNavMenuProps) {
 
           <NavigationMenuContent>
             <ul className="flex flex-col gap-1 p-1 w-55 bg-popover overflow-hidden">
-              {adminLinks.map((link) => {
+              {adminLinks
+                .filter((link) => !link.superAdminOnly || isSuperAdmin)
+                .map((link) => {
                 const isActive = pathname === link.href;
 
                 return (

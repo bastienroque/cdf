@@ -23,7 +23,7 @@ const authUsers = authSchema.table("users", {
 });
 
 // --- User Profile & RBAC ---
-export const userRoleEnum = pgEnum("user_role", ["admin", "user"]);
+export const userRoleEnum = pgEnum("user_role", ["admin", "user", "super_admin"]);
 
 export const users = pgTable("users", {
   id: uuid("id")

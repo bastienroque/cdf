@@ -1,18 +1,33 @@
 {
   "tag": "Access Control",
   "title": "User Management",
-  "subtitle": "View registered accounts, manage administrative roles, and inspect membership dates.",
+  "subtitle": "See every account, change admin roles, and suspend or reactivate accounts.",
   "table": {
     "headers": {
       "user": "User",
       "role": "Role",
       "joined": "Joined Date",
-      "actions": "Actions"
+      "actions": "Actions",
+      "status": "Status",
+      "lastSignIn": "Last sign-in"
     }
   },
   "roles": {
     "admin": "Administrator",
-    "user": "Member"
+    "user": "Member",
+    "super_admin": "Super administrator"
   },
-  "empty": "No registered users found."
+  "empty": "No registered users found.",
+  "status": {
+    "active": "Active",
+    "suspended": "Suspended"
+  },
+  "actions": {
+    "saveRole": "Save",
+    "suspend": "Suspend",
+    "reactivate": "Reactivate",
+    "confirmSuspend": "Suspend {name}? They won't be able to sign in until you reactivate the account."
+  },
+  "you": "You",
+  "authError": "Account emails and sign-in dates could not be loaded. Check the service role key."
 }

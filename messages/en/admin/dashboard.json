@@ -5,7 +5,8 @@
     "restaurants": "Restaurants",
     "reviews": "Reviews",
     "blog": "Blog",
-    "events": "Events"
+    "events": "Events",
+    "users": "Users"
   },
   "dashboard": {
     "subtitle": "Command Center",

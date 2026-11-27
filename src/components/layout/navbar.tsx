@@ -10,6 +10,7 @@ import { AdminNavMenu } from "./admin-nav-menu";
 import { LocaleSwitcher } from "./locale-switcher";
 import { AccountMenu } from "./account-menu";
 import { MobileNav } from "./mobile-nav";
+import { isAdminRole, isSuperAdminRole } from "@/lib/auth/roles";
 
 export async function Navbar({ locale }: { locale: string }) {
   const supabase = await createClient();
@@ -31,6 +32,9 @@ export async function Navbar({ locale }: { locale: string }) {
 
     role = profile?.role ?? null;
   }
+
+  const isAdmin = isAdminRole(role);
+  const isSuperAdmin = isSuperAdminRole(role);
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background px-6 py-3">
@@ -60,10 +64,10 @@ export async function Navbar({ locale }: { locale: string }) {
 
         {/* Right Side Controls */}
         <div className="flex items-center gap-4">
-          {role === "admin" && (
+          {isAdmin && (
             <div className="hidden md:flex items-center gap-4">
               <div className="h-5 w-px bg-border" />
-              <AdminNavMenu />
+              <AdminNavMenu isSuperAdmin={isSuperAdmin} />
             </div>
           )}
           <div className="hidden md:block">
@@ -71,7 +75,7 @@ export async function Navbar({ locale }: { locale: string }) {
           </div>
 
           {/* Desktop Account Menu */}
-          {role === "admin" && (
+          {isAdmin && (
             <div className="hidden md:block">
               <AccountMenu locale={locale} isLoggedIn={isLoggedIn} />
             </div>
@@ -82,7 +86,8 @@ export async function Navbar({ locale }: { locale: string }) {
             <MobileNav
               currentLocale={locale}
               isLoggedIn={isLoggedIn}
-              role={role}
+              isAdmin={isAdmin}
+              isSuperAdmin={isSuperAdmin}
             />
           </div>
         </div>
