@@ -14,5 +14,7 @@
     "service": "Service",
     "digestion": "Digestion",
     "vibe": "Vibe"
-  }
+  },
+  "knightsScore": "{score}/10",
+  "communityScore": "Community {score}/10 ({count, plural, =1 {# review} other {# reviews}})"
 }

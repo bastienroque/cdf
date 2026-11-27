@@ -58,13 +58,21 @@ export const restaurants = pgTable(
       .notNull()
       .default("draft"),
     avgScore: numeric("avg_score"),
+    // Knights' score (official reviews only): drives the ranking
     reviewCount: integer("review_count").notNull().default(0),
+    // Members' reviews: shown beside the Knights' score, never ranked
+    communityAvgScore: numeric("community_avg_score"),
+    communityReviewCount: integer("community_review_count").notNull().default(0),
     createdAt: timestamp("created_at").notNull().defaultNow(),
   },
   (table) => [
     check(
       "avg_score_range",
       sql`${table.avgScore} >= 0 AND ${table.avgScore} <= 10`,
+    ),
+    check(
+      "community_avg_score_range",
+      sql`${table.communityAvgScore} >= 0 AND ${table.communityAvgScore} <= 10`,
     ),
   ],
 );

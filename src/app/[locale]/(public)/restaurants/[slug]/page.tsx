@@ -277,9 +277,21 @@ export default async function RestaurantDetailPage({
     image: restaurant.photos ?? [],
   };
 
-  const metaLine = `${restaurant.city} · ${
-    priceLabels[restaurant.priceRange - 1]
-  }${restaurant.avgScore ? ` · ${restaurant.avgScore}/10` : ""}`;
+  // Knights' score first; the community score appears beside it once members
+  // have published reviews (it never affects the ranking).
+  const metaLine = [
+    restaurant.city,
+    priceLabels[restaurant.priceRange - 1],
+    restaurant.avgScore ? t("knightsScore", { score: restaurant.avgScore }) : null,
+    restaurant.communityReviewCount > 0 && restaurant.communityAvgScore
+      ? t("communityScore", {
+          score: restaurant.communityAvgScore,
+          count: restaurant.communityReviewCount,
+        })
+      : null,
+  ]
+    .filter(Boolean)
+    .join(" · ");
 
   return (
     <div className="mx-auto max-w-4xl px-6 py-12">
