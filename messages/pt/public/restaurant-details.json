@@ -16,5 +16,8 @@
     "vibe": "Ambiente"
   },
   "knightsScore": "{score}/10",
-  "communityScore": "Comunidade {score}/10 ({count, plural, =1 {# avaliação} other {# avaliações}})"
+  "communityScore": "Comunidade {score}/10 ({count, plural, =1 {# avaliação} other {# avaliações}})",
+  "leaderboardRank": "#{rank} na classificação",
+  "reviewPrice": "Pago",
+  "reviewScore": "Pontuação da avaliação"
 }

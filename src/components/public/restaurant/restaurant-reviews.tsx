@@ -14,6 +14,9 @@ export interface FormattedReview {
   photos?: string[];
   isOfficial: boolean;
   visitDate: string | null;
+  pricePaid: number | null;
+  francesinhaType: string | null;
+  score: number | null;
   authorName: string;
   ingredientScores: FormattedReviewScore[];
   experienceScores: FormattedReviewScore[];
@@ -27,10 +30,16 @@ interface RestaurantReviewsProps {
     noDecrees: string;
     officialDecree: string;
     communityScroll: string;
+    price: string;
+    score: string;
   };
+  locale: string;
 }
 
-export function RestaurantReviews({ reviews, labels }: RestaurantReviewsProps) {
+export function RestaurantReviews({ reviews, labels, locale }: RestaurantReviewsProps) {
+  const formatPrice = (value: number) =>
+    new Intl.NumberFormat(locale, { style: "currency", currency: "EUR" }).format(value);
+
   return (
     <div className="mt-12 border-t border-border/60 pt-8">
       <div className="mb-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-2">
@@ -56,7 +65,8 @@ export function RestaurantReviews({ reviews, labels }: RestaurantReviewsProps) {
           {reviews.map((review) => (
             <div
               key={review.id}
-              className="rounded-sm border border-amber-500/20 bg-card p-4 md:p-6 transition-all hover:border-amber-500/40"
+              id={`review-${review.id}`}
+              className="scroll-mt-24 rounded-sm border border-amber-500/20 bg-card p-4 md:p-6 transition-all hover:border-amber-500/40"
             >
               <div className="mb-3 flex flex-col md:flex-row items-start md:items-center justify-between gap-2">
                 <div className="flex items-center gap-2">
@@ -77,6 +87,28 @@ export function RestaurantReviews({ reviews, labels }: RestaurantReviewsProps) {
                     : labels.communityScroll}
                 </Badge>
               </div>
+
+              {/* Score, price paid and Francesinha type */}
+              {(review.score !== null || review.pricePaid !== null || review.francesinhaType) && (
+                <div className="mb-3 flex flex-wrap items-center gap-2 font-mono text-xs uppercase tracking-wider">
+                  {review.score !== null && (
+                    <span className="rounded-sm border border-amber-500/40 bg-amber-500/10 px-2 py-0.5 font-bold text-amber-600">
+                      <span className="sr-only">{labels.score} </span>
+                      {review.score.toFixed(1)}/10
+                    </span>
+                  )}
+                  {review.pricePaid !== null && (
+                    <span className="rounded-sm border border-border bg-muted/50 px-2 py-0.5 text-foreground">
+                      {labels.price} {formatPrice(review.pricePaid)}
+                    </span>
+                  )}
+                  {review.francesinhaType && (
+                    <span className="text-muted-foreground normal-case tracking-normal">
+                      {review.francesinhaType}
+                    </span>
+                  )}
+                </div>
+              )}
 
               {review.text && (
                 <p className="font-body text-sm leading-relaxed text-foreground/90 mb-4">
@@ -155,7 +187,11 @@ export function RestaurantReviews({ reviews, labels }: RestaurantReviewsProps) {
               {review.visitDate && (
                 <span className="flex items-center gap-1 mt-4 font-mono text-xs text-muted-foreground">
                   <Calendar className="h-3.5 w-3.5" />
-                  {review.visitDate}
+                  {new Date(review.visitDate).toLocaleDateString(locale, {
+                    day: "2-digit",
+                    month: "long",
+                    year: "numeric",
+                  })}
                 </span>
               )}
             </div>
