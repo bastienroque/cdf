@@ -41,7 +41,13 @@
   /* Muted surface (light neutral) vs. muted text (steel) — two
      different jobs, kept as a proper pair rather than one shared token */
   --color-muted: #f0ece3;
-  --color-muted-foreground: var(--color-brand-steel);
+  /* Darker than brand-steel so secondary text meets WCAG AA (4.5:1) on
+     every light surface; brand-steel stays for borders and dark areas. */
+  --color-muted-foreground: #5c6166;
+
+  /* amber-600 is only used for text on light/amber-tinted surfaces.
+     Tailwind's default (#e17100) is ~2.7:1 there; this shade is 5.4:1+. */
+  --color-amber-600: #9a4500;
 
   /* Deliberately a different red from brand-red — destructive actions
      must read as visually distinct from primary actions */

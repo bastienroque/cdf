@@ -35,7 +35,9 @@ export function LocaleSwitcher({ currentLocale }: { currentLocale: string }) {
   function switchTo(locale: string) {
     setIsOpen(false);
     if (locale === currentLocale) return;
-    router.replace(pathname, { locale });
+    // Keep the current filters (?city=…&sort=…) when changing language
+    const query = Object.fromEntries(new URLSearchParams(window.location.search));
+    router.replace({ pathname, query }, { locale });
   }
 
   return (

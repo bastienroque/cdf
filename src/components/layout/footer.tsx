@@ -107,7 +107,7 @@ export function Footer() {
 
       {/* ---- Copyright Notice ---- */}
       <div className="mx-auto mt-12 max-w-7xl border-t border-amber-500/10 pt-6">
-        <p className="font-mono text-xs tracking-wider text-brand-steel/80">
+        <p className="font-mono text-xs tracking-wider text-brand-steel">
           © {year} {t("footer.rights")}
         </p>
       </div>

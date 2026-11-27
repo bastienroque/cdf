@@ -119,9 +119,9 @@ export default async function LeaderboardPage({
                     {rank === 1 ? (
                       <Crown className="h-5 w-5 text-amber-500" />
                     ) : rank === 2 ? (
-                      <span className="text-amber-600/80">II</span>
+                      <span className="text-amber-600">II</span>
                     ) : rank === 3 ? (
-                      <span className="text-amber-700/70">III</span>
+                      <span className="text-amber-800">III</span>
                     ) : (
                       <span className="font-mono text-sm text-muted-foreground">
                         #{rank}

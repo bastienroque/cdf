@@ -59,7 +59,7 @@ export function MobileNav({
             {/* Admin Section (If applicable) */}
             {isAdmin && (
               <div className="space-y-2 border-b border-border pb-4">
-                <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-amber-600/80">
+                <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-amber-600">
                   Admin Codex
                 </div>
                 <AdminNavMenu
@@ -88,7 +88,7 @@ export function MobileNav({
 
                 return (
                   <div key={group.labelKey} className="space-y-1.5">
-                    <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-amber-600/80 px-1">
+                    <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-amber-600 px-1">
                       {groupLabel}
                     </div>
                     <div className="flex flex-col gap-1.5">
