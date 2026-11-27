@@ -14,7 +14,13 @@
     "messagePlaceholder": "Write your message here...",
     "submit": "Send Message",
     "submitting": "Sending...",
-    "turnstileRequired": "Please complete the security check before submitting."
+    "turnstileRequired": "Please complete the security check before submitting.",
+    "errors": {
+      "required": "Please fill in your name, email and message.",
+      "invalidEmail": "Please enter a valid email address.",
+      "turnstileRequired": "Please complete the security check before submitting.",
+      "sendFailed": "Your message could not be sent. Please try again later."
+    }
   },
   "success": {
     "title": "Message Sent",

@@ -37,3 +37,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# auth state and local backups (never commit)
+/tests/.auth/
+/capture/
+*.dump
+
+# playwright
+/test-results/
+/playwright-report/

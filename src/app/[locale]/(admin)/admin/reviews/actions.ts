@@ -3,7 +3,10 @@
 import { db } from "@/db";
 import { reviews, ingredients, tags } from "@/db/schema";
 import { reviewSchema, type ReviewFormValues } from "@/lib/validations/review";
-import { catalogItemSchema } from "@/lib/validations/catalog";
+import {
+  catalogItemSchema,
+  catalogTranslationSchema,
+} from "@/lib/validations/catalog";
 import { requireAdmin } from "@/lib/auth/admin";
 import { eq, like } from "drizzle-orm";
 import { redirect } from "next/navigation";
@@ -290,15 +293,21 @@ export async function updateCatalogTranslation(
 ) {
   await requireAdmin();
 
-  const isComplete = Boolean(data.namePt && data.nameEn && data.nameFr);
+  const validated = catalogTranslationSchema.safeParse(data);
+  if (!validated.success) {
+    return { success: false, errors: validated.error.flatten().fieldErrors };
+  }
+
+  const { namePt, nameEn, nameFr } = validated.data;
+  const isComplete = Boolean(namePt && nameEn && nameFr);
   const targetTable = getCatalogTable(type);
 
   await db
     .update(targetTable)
     .set({
-      namePt: data.namePt,
-      nameEn: data.nameEn || null,
-      nameFr: data.nameFr || null,
+      namePt,
+      nameEn: nameEn || null,
+      nameFr: nameFr || null,
       translationStatus: isComplete ? "complete" : "pending",
     })
     .where(eq(targetTable.id, id));

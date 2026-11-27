@@ -13,6 +13,7 @@ import {
   type FormattedReview,
 } from "@/components/public/restaurant/restaurant-reviews";
 import { getLocalizedName } from "@/lib/utils";
+import { safeJsonLd } from "@/lib/escape-html";
 
 const priceLabels = ["€", "€€", "€€€", "€€€€"];
 
@@ -284,7 +285,7 @@ export default async function RestaurantDetailPage({
     <div className="mx-auto max-w-4xl px-6 py-12">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
       />
 
       <RestaurantHeader

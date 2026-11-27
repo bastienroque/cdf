@@ -18,7 +18,7 @@ export function FileUploadButton({
       <input
         ref={inputRef}
         type="file"
-        accept="image/*"
+        accept="image/jpeg,image/png,image/webp"
         className="hidden"
         disabled={disabled}
         onChange={(e) => {
