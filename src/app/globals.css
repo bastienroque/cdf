@@ -121,9 +121,9 @@
   color: #1a1d20 !important;
 }
 
-/* Phones: iOS zooms the whole page when a form field's text is under 16px,
-   so fields never go below that on small screens (unlayered, so it wins
-   over smaller text utilities). */
+/* Phones: one consistent text size for form fields (unlayered, so it wins
+   over text utilities). Chosen at 14px; note that iOS zooms the page when
+   a focused field's text is under 16px. */
 @media (max-width: 767px) {
   input:not([type="checkbox"]):not([type="radio"]),
   select,
