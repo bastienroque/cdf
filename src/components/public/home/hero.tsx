@@ -19,7 +19,7 @@ export function Hero({
   mapAction,
 }: HeroProps) {
   return (
-    <section className="relative overflow-hidden flex flex-col items-center gap-6 border-b border-border/60 px-6 py-28 text-center bg-linear-to-b from-background via-muted/20 to-background">
+    <section className="relative overflow-hidden flex flex-col items-start gap-6 border-b border-border/60 px-6 py-20 text-left md:items-center md:py-28 md:text-center bg-linear-to-b from-background via-muted/20 to-background">
       {/* Background Knight Watermark */}
       <div className="absolute inset-0 pointer-events-none flex items-start justify-center opacity-[0.25] dark:opacity-[0.18] select-none">
         <Image
@@ -44,7 +44,7 @@ export function Hero({
         {subtitle}
       </p>
 
-      <div className="relative z-10 flex flex-wrap justify-center gap-4 mt-2">
+      <div className="relative z-10 flex flex-wrap justify-start gap-4 mt-2 md:justify-center">
         <CustomButton href="/restaurants" className="w-fit">
           {exploreAction}
         </CustomButton>

@@ -74,7 +74,7 @@ export default async function RestaurantsPage({
       .select()
       .from(restaurants)
       .where(where)
-      .orderBy(orderByClause, asc(restaurants.name))
+      .orderBy(orderByClause, desc(restaurants.reviewCount), asc(restaurants.name))
       .limit(PAGE_SIZE)
       .offset((page - 1) * PAGE_SIZE),
     db.select({ total: count() }).from(restaurants).where(where),

@@ -13,7 +13,7 @@ interface MapTeaserProps {
 export function MapTeaser({ labels }: MapTeaserProps) {
   return (
     <section className="px-6 py-12">
-      <div className="mx-auto flex max-w-5xl flex-col items-center gap-4 rounded-sm border border-amber-500/20 bg-brand-dark p-6 md:p-12 text-center shadow-xl">
+      <div className="mx-auto flex max-w-5xl flex-col items-start gap-4 rounded-sm border border-amber-500/20 bg-brand-dark p-6 text-left shadow-xl md:items-center md:p-12 md:text-center">
         <Award className="h-8 w-8 text-amber-500 mb-1" />
         <h2 className="font-display text-2xl sm:text-3xl font-bold text-brand-light">
           {labels.title}

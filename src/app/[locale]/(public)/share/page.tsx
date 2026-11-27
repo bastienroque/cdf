@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getLocale, getTranslations } from "next-intl/server";
 import { ShareCard } from "@/components/public/share/share-card";
+import { INSTAGRAM_URL } from "@/lib/social-links";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("public.share");
@@ -46,6 +47,15 @@ export default async function SharePage() {
             shareText: t("shareText"),
           }}
         />
+
+        <a
+          href={INSTAGRAM_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="focus-ring mt-6 inline-flex items-center gap-2 rounded-sm border border-amber-500/30 bg-amber-500/10 px-5 py-2.5 font-mono text-xs font-semibold uppercase tracking-widest text-amber-600 transition-colors hover:bg-amber-500 hover:text-black print:hidden"
+        >
+          {t("instagram")}
+        </a>
       </div>
     </section>
   );

@@ -25,7 +25,7 @@ export default async function AboutPage() {
   return (
     <div className="mx-auto max-w-7xl px-6 py-12 flex flex-col gap-12">
       {/* Header Banner */}
-      <div className="border-b border-border/60 pb-8 text-center sm:text-left">
+      <div className="border-b border-border/60 pb-8">
         <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-3.5 py-1 font-mono text-xs uppercase tracking-widest text-amber-600">
           <Scroll className="h-3.5 w-3.5" />
           <span>{t("tag")}</span>

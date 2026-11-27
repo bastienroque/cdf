@@ -14,7 +14,7 @@ interface CtaBandProps {
 
 export function CtaBand({ isAuthenticated, labels }: CtaBandProps) {
   return (
-    <section className="border-t border-border px-6 py-20 text-center">
+    <section className="border-t border-border px-6 py-20 text-left md:text-center">
       {isAuthenticated ? (
         <>
           <h2 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-foreground">

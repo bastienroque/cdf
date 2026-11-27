@@ -14,6 +14,7 @@ const STATIC_PATHS = [
   "/events",
   "/about",
   "/contact",
+  "/share",
   "/privacy",
 ];
 

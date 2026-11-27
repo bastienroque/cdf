@@ -28,6 +28,7 @@ export const navGroups: NavGroup[] = [
     labelKey: "about",
     links: [
       { href: "/about", labelKey: "about" },
+      { href: "/share", labelKey: "share" },
       { href: "/contact", labelKey: "contact" },
     ],
   },

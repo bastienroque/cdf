@@ -9,7 +9,7 @@
   "sortAsc": "Score: Lowest → Highest",
   "filterButton": "Filter",
   "empty": "No taverns found in the catacombs.",
-  "searchPlaceholder": "Search taverns by name or city...",
+  "searchPlaceholder": "Name or city...",
   "filterScore": "Minimum Score",
   "filterPrice": "Price Range",
   "noReviewsYet": "No reviews yet",

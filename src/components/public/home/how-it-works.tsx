@@ -13,7 +13,7 @@ export function HowItWorks({ labels }: HowItWorksProps) {
   return (
     <section className="border-y border-border/60 bg-muted/40 px-6 py-20">
       <div className="mx-auto max-w-5xl">
-        <div className="mb-10 text-center">
+        <div className="mb-10 text-left md:text-center">
           <span className="text-xs font-mono uppercase tracking-widest text-muted-foreground">
             {labels.tag}
           </span>
