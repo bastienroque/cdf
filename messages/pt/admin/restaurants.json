@@ -44,7 +44,7 @@
     "actions": {
       "edit": "Editar",
       "delete": "Eliminar",
-      "confirmDelete": "Eliminar \"{name}\"? Esta ação não pode ser revertida."
+      "confirmDelete": "Eliminar \"{name}\"? As avaliações e fotos também serão eliminadas. Esta ação não pode ser anulada."
     },
     "empty": "Nenhum restaurante encontrado no diretório."
   },

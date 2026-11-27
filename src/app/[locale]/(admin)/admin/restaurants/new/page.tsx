@@ -1,4 +1,5 @@
 import { RestaurantForm } from "@/components/admin/restaurant/restaurant-form";
+import { GoogleMapsScript } from "@/components/admin/google-maps-script";
 import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import { ArrowLeft, Utensils } from "lucide-react";
@@ -45,6 +46,7 @@ export default async function NewRestaurantPage({
 
       {/* Form Container */}
       <div className="rounded-sm border border-amber-500/30 bg-card p-4 sm:p-8">
+        <GoogleMapsScript />
         <RestaurantForm />
       </div>
     </div>

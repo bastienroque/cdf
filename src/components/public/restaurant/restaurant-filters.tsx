@@ -18,6 +18,10 @@ interface RestaurantFiltersProps {
     sortDesc: string;
     sortAsc: string;
     searchPlaceholder: string;
+    filtering: string;
+    cityAria: string;
+    priceAria: string;
+    sortAria: string;
   };
 }
 
@@ -46,6 +50,7 @@ export function RestaurantFilters({
         } else {
           params.delete("q");
         }
+        params.delete("page");
 
         startTransition(() => {
           router.replace(`${pathname}?${params.toString()}`);
@@ -63,6 +68,8 @@ export function RestaurantFilters({
     } else {
       params.delete(key);
     }
+    // A new filter starts again from page 1
+    params.delete("page");
 
     startTransition(() => {
       router.replace(`${pathname}?${params.toString()}`);
@@ -73,7 +80,7 @@ export function RestaurantFilters({
     <div className="mb-10 flex flex-col gap-3 rounded-sm border border-amber-500/30 bg-card p-4 relative">
       {isPending && (
         <div className="absolute right-4 top-4 font-mono text-[10px] text-amber-500 uppercase tracking-widest animate-pulse">
-          Filtering...
+          {t.filtering}
         </div>
       )}
 
@@ -88,7 +95,7 @@ export function RestaurantFilters({
         <select
           defaultValue={currentCity ?? ""}
           onChange={(e) => updateParam("city", e.target.value)}
-          aria-label="Filter restaurants by city"
+          aria-label={t.cityAria}
           className="focus-ring rounded-sm border border-border bg-background px-3 py-2 font-mono text-xs uppercase tracking-wider text-foreground transition-colors hover:border-amber-500/40"
         >
           <option value="">{t.allCities}</option>
@@ -103,7 +110,7 @@ export function RestaurantFilters({
         <select
           defaultValue={currentPrice ?? ""}
           onChange={(e) => updateParam("price", e.target.value)}
-          aria-label="Filter restaurants by price range"
+          aria-label={t.priceAria}
           className="focus-ring rounded-sm border border-border bg-background px-3 py-2 font-mono text-xs uppercase tracking-wider text-foreground transition-colors hover:border-amber-500/40"
         >
           <option value="">{t.anyPrice}</option>
@@ -119,7 +126,7 @@ export function RestaurantFilters({
           <select
             defaultValue={currentSort}
             onChange={(e) => updateParam("sort", e.target.value)}
-            aria-label="Sort restaurants by score"
+            aria-label={t.sortAria}
             className="focus-ring appearance-none rounded-sm border border-amber-500/30 bg-amber-500/10 pl-8 pr-3 py-2 font-mono text-xs font-semibold uppercase tracking-wider text-amber-600 transition-colors hover:bg-amber-500/20 cursor-pointer"
           >
             <option value="desc">{t.sortDesc}</option>
@@ -142,6 +149,7 @@ export function RestaurantFilters({
             value={searchVal}
             onChange={(e) => setSearchVal(e.target.value)}
             placeholder={t.searchPlaceholder}
+            aria-label={t.searchPlaceholder}
             className="w-full rounded-sm border border-border bg-background py-2 pl-9 pr-4 font-mono text-xs text-foreground placeholder:text-muted-foreground focus:border-amber-500 focus:outline-none"
           />
         </div>

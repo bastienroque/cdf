@@ -44,7 +44,7 @@
     "actions": {
       "edit": "Modifier",
       "delete": "Supprimer",
-      "confirmDelete": "Supprimer \"{name}\" ? Cette action est irréversible."
+      "confirmDelete": "Supprimer « {name} » ? Ses avis et ses photos seront aussi supprimés. Cette action est irréversible."
     },
     "empty": "Aucun restaurant trouvé dans le répertoire."
   },

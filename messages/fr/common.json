@@ -60,5 +60,19 @@
     "returnHome": "Retour à l'accueil",
     "openMap": "Explorer la carte"
   },
-  "imageUnavailable": "Aucune image disponible."
+  "imageUnavailable": "Aucune image disponible.",
+  "emails": {
+    "approved": {
+      "subject": "Votre avis a été approuvé",
+      "body": "Bonne nouvelle ! Votre avis a été approuvé et il est maintenant public.",
+      "cta": "Voir votre avis"
+    },
+    "rejected": {
+      "subject": "Votre avis n'a pas été approuvé",
+      "body": "Votre avis récent ne respectait pas nos critères de publication et n'a pas été approuvé.",
+      "reasonLabel": "Motif :",
+      "retry": "Vous pouvez soumettre un nouvel avis à tout moment."
+    }
+  },
+  "languageSwitcher": "Changer de langue"
 }

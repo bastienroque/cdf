@@ -1,12 +1,15 @@
 import { getTranslations } from "next-intl/server";
 import { db } from "@/db";
 import { restaurants } from "@/db/schema";
-import { and, eq, asc, desc, ilike, or } from "drizzle-orm";
+import { and, count, eq, asc, desc, ilike, or, sql } from "drizzle-orm";
 import { EntityCard } from "@/components/ui/entity-card";
 import { Shield } from "lucide-react";
 import { RestaurantFilters } from "@/components/public/restaurant/restaurant-filters";
 import { Metadata } from "next";
 import { ScoreBadge } from "@/components/public/restaurant/score-badge";
+import { Pagination } from "@/components/ui/pagination";
+
+const PAGE_SIZE = 24;
 
 const priceLabels = ["€", "€€", "€€€", "€€€€"];
 
@@ -32,6 +35,7 @@ interface RestaurantsPageProps {
     price?: string;
     sort?: string;
     q?: string;
+    page?: string;
   }>;
 }
 
@@ -40,7 +44,8 @@ export default async function RestaurantsPage({
   searchParams,
 }: RestaurantsPageProps) {
   const { locale } = await params;
-  const { city, price, sort, q } = await searchParams;
+  const { city, price, sort, q, page: pageParam } = await searchParams;
+  const page = Math.max(1, Math.floor(Number(pageParam)) || 1);
 
   const t = await getTranslations({ locale, namespace: "public.restaurants" });
 
@@ -56,19 +61,31 @@ export default async function RestaurantsPage({
     );
   }
 
+  // "desc" = best first. Restaurants without a score always come last.
   const orderByClause =
     currentSort === "desc"
-      ? asc(restaurants.avgScore)
-      : desc(restaurants.avgScore);
+      ? sql`${restaurants.avgScore} DESC NULLS LAST`
+      : sql`${restaurants.avgScore} ASC NULLS LAST`;
 
-  const [results, cities] = await Promise.all([
+  const where = and(...conditions);
+
+  const [results, [{ total }], cities] = await Promise.all([
     db
       .select()
       .from(restaurants)
-      .where(and(...conditions))
-      .orderBy(orderByClause),
-    db.selectDistinct({ city: restaurants.city }).from(restaurants),
+      .where(where)
+      .orderBy(orderByClause, asc(restaurants.name))
+      .limit(PAGE_SIZE)
+      .offset((page - 1) * PAGE_SIZE),
+    db.select({ total: count() }).from(restaurants).where(where),
+    // Only cities that have a published restaurant
+    db
+      .selectDistinct({ city: restaurants.city })
+      .from(restaurants)
+      .where(eq(restaurants.status, "published"))
+      .orderBy(asc(restaurants.city)),
   ]);
+  const totalPages = Math.ceil(total / PAGE_SIZE);
 
   return (
     <div className="mx-auto max-w-7xl px-6 py-12">
@@ -100,7 +117,11 @@ export default async function RestaurantsPage({
           anyPrice: t("anyPrice"),
           sortDesc: t("sortDesc"),
           sortAsc: t("sortAsc"),
-          searchPlaceholder: "Search by restaurant name or city...",
+          searchPlaceholder: t("searchPlaceholder"),
+          filtering: t("filtering"),
+          cityAria: t("cityAria"),
+          priceAria: t("priceAria"),
+          sortAria: t("sortAria"),
         }}
       />
 
@@ -130,6 +151,14 @@ export default async function RestaurantsPage({
           ))}
         </div>
       )}
+
+      <Pagination
+        page={page}
+        totalPages={totalPages}
+        pathname="/restaurants"
+        query={{ city, price, sort, q }}
+        label={t("paginationLabel")}
+      />
     </div>
   );
 }

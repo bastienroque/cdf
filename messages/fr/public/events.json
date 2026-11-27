@@ -8,5 +8,6 @@
     "location": "Emplacement",
     "date": "Date & Heure",
     "venue": "Lieu Hôte"
-  }
+  },
+  "pastTitle": "Événements passés"
 }

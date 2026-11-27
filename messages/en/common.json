@@ -60,5 +60,19 @@
     "returnHome": "Back to Home",
     "openMap": "Explore Map"
   },
-  "imageUnavailable": "No image available yet."
+  "imageUnavailable": "No image available yet.",
+  "emails": {
+    "approved": {
+      "subject": "Your review has been approved",
+      "body": "Good news! Your review has been approved and is now public.",
+      "cta": "See your review"
+    },
+    "rejected": {
+      "subject": "Your review was not approved",
+      "body": "Your recent review did not meet our publication guidelines and was not approved.",
+      "reasonLabel": "Reason:",
+      "retry": "You are welcome to submit a new review at any time."
+    }
+  },
+  "languageSwitcher": "Change language"
 }

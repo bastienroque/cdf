@@ -23,5 +23,10 @@
     "cheese": "Escudo Derretido",
     "sauce": "Molho Secreto",
     "potatoes": "Batatas Douradas"
-  }
+  },
+  "filtering": "A filtrar...",
+  "cityAria": "Filtrar restaurantes por cidade",
+  "priceAria": "Filtrar restaurantes por preço",
+  "sortAria": "Ordenar restaurantes por pontuação",
+  "paginationLabel": "Páginas de restaurantes"
 }

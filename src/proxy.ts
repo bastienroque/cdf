@@ -1,12 +1,19 @@
 import createMiddleware from "next-intl/middleware";
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
+import { defaultLocale, locales, type Locale } from "@/i18n/config";
 
+// First visit: the browser's language if it is PT, EN or FR, otherwise English.
+// After that, the NEXT_LOCALE cookie keeps the visitor's choice.
 const intlMiddleware = createMiddleware({
-  locales: ["pt", "en", "fr"],
-  defaultLocale: "pt",
+  locales,
+  defaultLocale,
   localePrefix: "always",
+  localeDetection: true,
 });
+
+const isLocale = (value: string | undefined): value is Locale =>
+  locales.includes(value as Locale);
 
 export default async function proxy(request: NextRequest) {
   // 1. Run intlMiddleware first
@@ -53,12 +60,9 @@ export default async function proxy(request: NextRequest) {
 
   const pathname = request.nextUrl.pathname;
   const segments = pathname.split("/").filter(Boolean);
-  const locale = ["pt", "en", "fr"].includes(segments[0]) ? segments[0] : "pt";
+  const locale = isLocale(segments[0]) ? segments[0] : defaultLocale;
   const pathWithoutLocale =
-    "/" +
-    (["pt", "en", "fr"].includes(segments[0])
-      ? segments.slice(1).join("/")
-      : segments.join("/"));
+    "/" + (isLocale(segments[0]) ? segments.slice(1) : segments).join("/");
 
   const isAdminRoute = pathWithoutLocale.startsWith("/admin");
   const isAppRoute = pathWithoutLocale.startsWith("/review");

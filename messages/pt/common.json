@@ -60,5 +60,19 @@
     "returnHome": "Voltar ao Início",
     "openMap": "Explorar o Mapa"
   },
-  "imageUnavailable": "Sem imagem disponível."
+  "imageUnavailable": "Sem imagem disponível.",
+  "emails": {
+    "approved": {
+      "subject": "A sua avaliação foi aprovada",
+      "body": "Boas notícias! A sua avaliação foi aprovada e já está visível publicamente.",
+      "cta": "Ver a avaliação"
+    },
+    "rejected": {
+      "subject": "A sua avaliação não foi aprovada",
+      "body": "A sua avaliação recente não cumpriu os critérios de publicação e não foi aprovada.",
+      "reasonLabel": "Motivo:",
+      "retry": "Pode submeter uma nova avaliação a qualquer momento."
+    }
+  },
+  "languageSwitcher": "Mudar de idioma"
 }

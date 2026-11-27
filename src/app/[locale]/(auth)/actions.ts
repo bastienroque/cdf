@@ -46,6 +46,7 @@ export async function signUp(formData: FormData) {
     options: {
       data: {
         display_name: username,
+        locale, // used to email the user in their language
       },
     },
   });

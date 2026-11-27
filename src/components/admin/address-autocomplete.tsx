@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useId } from "react";
 import { FieldError } from "@/components/form/form-field";
+import { recordPlacesLookup } from "@/app/[locale]/(admin)/admin/restaurants/actions";
 
 type PlaceSelection = {
   name: string;
@@ -96,6 +97,7 @@ export function AddressAutocomplete({
           "websiteURI",
         ],
       });
+      recordPlacesLookup().catch(() => {});
 
       const components = place.addressComponents ?? [];
       const city =
