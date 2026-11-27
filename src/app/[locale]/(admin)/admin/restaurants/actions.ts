@@ -49,17 +49,16 @@ export async function upsertRestaurant(
       }
     }
 
-    const slug = await generateUniqueSlug(parsed.name, id);
-    await db
-      .update(restaurants)
-      .set({ ...dbValues, slug })
-      .where(eq(restaurants.id, id));
+    // The slug is set once at creation and never changes, so shared links
+    // and search results keep working after a rename.
+    await db.update(restaurants).set(dbValues).where(eq(restaurants.id, id));
   } else {
     const slug = await generateUniqueSlug(parsed.name);
     await db.insert(restaurants).values({ ...dbValues, slug });
   }
 
   revalidatePath("/admin/restaurants");
+  revalidatePath("/[locale]", "layout");
   redirect("/admin/restaurants");
 }
 

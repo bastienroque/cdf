@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { getUserContact } from "@/lib/get-user-email";
 import { escapeHtml } from "@/lib/escape-html";
 import { logApiUsage } from "@/lib/log-api-usage";
+import { siteUrl } from "@/lib/site-url";
 
 const FROM = `Cavaleiros da Francesinha <${
   process.env.REVIEW_EMAIL_FROM || "no-reply@cavaleirosdafrancesinha.com"
@@ -16,9 +17,6 @@ function getResendClient(): Resend | null {
   return new Resend(process.env.RESEND_API_KEY);
 }
 
-function siteUrl(): string {
-  return (process.env.NEXT_PUBLIC_SITE_URL || "https://cavaleirosdafrancesinha.com").replace(/\/$/, "");
-}
 
 export async function sendReviewApprovedEmail(
   authorId: string,
