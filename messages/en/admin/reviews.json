@@ -94,5 +94,6 @@
   "visited": "visited {date}",
   "submitted": "Submitted {date}",
   "view": "View",
-  "paginationLabel": "Review pages"
+  "paginationLabel": "Review pages",
+  "published": "Published {date}"
 }

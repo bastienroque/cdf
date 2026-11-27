@@ -10,14 +10,12 @@ import {
   Check,
   X,
   Plus,
-  ShieldCheck,
   Search,
   Pencil,
   ExternalLink,
 } from "lucide-react";
 import { CustomButton } from "@/components/ui/custom-button";
 import { Pagination } from "@/components/ui/pagination";
-import { reviewScore } from "@/lib/restaurant-review-score";
 
 const PAGE_SIZE = 20;
 const STATUSES = ["all", "pending", "published", "rejected"] as const;
@@ -79,14 +77,9 @@ export default async function AdminReviewsPage({
       .select({
         id: reviews.id,
         status: reviews.status,
-        isOfficial: reviews.isOfficial,
         visitDate: reviews.visitDate,
-        pricePaid: reviews.pricePaid,
-        francesinhaType: reviews.francesinhaType,
         text: reviews.text,
         createdAt: reviews.createdAt,
-        ingredientEvaluations: reviews.ingredientEvaluations,
-        experienceScores: reviews.experienceScores,
         restaurantName: restaurants.name,
         restaurantSlug: restaurants.slug,
         authorName: users.display_name,
@@ -139,7 +132,7 @@ export default async function AdminReviewsPage({
       : null;
 
   const chip = (active: boolean) =>
-    `inline-flex items-center gap-1.5 rounded-sm border px-2.5 py-1 font-mono text-[11px] uppercase transition-colors ${
+    `inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-sm border px-2.5 py-1 font-mono text-[11px] uppercase transition-colors ${
       active
         ? "border-amber-500 bg-amber-500/15 text-amber-600 font-bold"
         : "border-border bg-card text-muted-foreground hover:border-amber-500/40"
@@ -166,7 +159,7 @@ export default async function AdminReviewsPage({
 
       {/* Filters */}
       <div className="flex flex-col gap-3 rounded-sm border border-border/60 bg-card p-3 lg:flex-row lg:items-center lg:justify-between">
-        <div className="flex flex-wrap gap-1.5" role="group" aria-label={t("statusFilterLabel")}>
+        <div className="-mx-3 flex gap-1.5 overflow-x-auto px-3 pb-1 lg:mx-0 lg:flex-wrap lg:overflow-visible lg:px-0 lg:pb-0" role="group" aria-label={t("statusFilterLabel")}>
           {STATUSES.map((s) => (
             <Link
               key={s}
@@ -181,7 +174,7 @@ export default async function AdminReviewsPage({
           ))}
         </div>
 
-        <div className="flex flex-wrap items-center gap-1.5">
+        <div className="-mx-3 flex items-center gap-1.5 overflow-x-auto px-3 pb-1 lg:mx-0 lg:flex-wrap lg:overflow-visible lg:px-0 lg:pb-0">
           {TYPES.map((ty) => (
             <Link
               key={ty}
@@ -212,7 +205,7 @@ export default async function AdminReviewsPage({
             defaultValue={q}
             placeholder={t("searchPlaceholder")}
             aria-label={t("searchPlaceholder")}
-            className="w-full rounded-sm border border-border bg-background py-1.5 pl-8 pr-3 font-mono text-xs text-foreground placeholder:text-muted-foreground focus:border-amber-500 focus:outline-none"
+            className="h-11 w-full rounded-sm border border-border bg-background pl-8 pr-3 font-body lg:h-auto lg:py-1.5 lg:font-mono lg:text-xs text-foreground placeholder:text-muted-foreground focus:border-amber-500 focus:outline-none"
           />
         </form>
       </div>
@@ -231,12 +224,11 @@ export default async function AdminReviewsPage({
       ) : (
         <ul className="grid grid-cols-1 gap-2.5 lg:grid-cols-2">
           {data.map((r) => {
-            const score = reviewScore(r.ingredientEvaluations, r.experienceScores);
-            const meta = [
-              r.authorName ?? t("anonymousKnight"),
+            const dates = [
               r.visitDate && t("visited", { date: formatDate(r.visitDate) ?? "" }),
-              r.pricePaid && `${Number(r.pricePaid).toFixed(2)} €`,
-              r.francesinhaType,
+              r.status === "published"
+                ? t("published", { date: formatDate(r.createdAt) ?? "" })
+                : t("submitted", { date: formatDate(r.createdAt) ?? "" }),
             ].filter(Boolean);
 
             return (
@@ -244,42 +236,19 @@ export default async function AdminReviewsPage({
                 key={r.id}
                 className="flex flex-col gap-2 rounded-sm border border-border/60 bg-card p-3"
               >
-                <div className="flex items-start justify-between gap-3">
-                  <div className="min-w-0">
-                    <div className="flex items-center gap-2">
-                      <span
-                        className={`h-2 w-2 shrink-0 rounded-full ${STATUS_STYLE[r.status]}`}
-                        aria-hidden="true"
-                      />
-                      <span className="truncate font-display text-base font-semibold text-foreground">
-                        {r.restaurantName ?? t("unknownRestaurant")}
-                      </span>
-                      {r.isOfficial && (
-                        <ShieldCheck
-                          className="h-3.5 w-3.5 shrink-0 text-amber-600"
-                          aria-label={t("officialBadge")}
-                        />
-                      )}
-                    </div>
-                    <p className="mt-0.5 truncate font-mono text-[11px] text-muted-foreground">
-                      <span className="sr-only">{tCommon(`status.${r.status}`)} · </span>
-                      {meta.join(" · ")}
-                    </p>
-                  </div>
-                  {score !== null && (
-                    <span className="shrink-0 rounded-sm border border-amber-500/30 bg-amber-500/10 px-1.5 py-0.5 font-mono text-xs font-bold text-amber-600">
-                      {score.toFixed(1)}
-                    </span>
-                  )}
+                <div className="min-w-0">
+                  <p className="truncate font-display text-base font-semibold text-foreground">
+                    <span className="sr-only">{tCommon(`status.${r.status}`)}: </span>
+                    {r.restaurantName ?? t("unknownRestaurant")}
+                  </p>
+                  <p className="truncate font-body text-sm text-muted-foreground">
+                    {r.authorName ?? t("anonymousKnight")}
+                  </p>
                 </div>
-
-                {r.text && (
-                  <p className="line-clamp-2 font-body text-sm text-foreground/80">{r.text}</p>
-                )}
 
                 <div className="flex flex-wrap items-center justify-between gap-2 border-t border-border/40 pt-2">
                   <span className="font-mono text-[11px] text-muted-foreground">
-                    {t("submitted", { date: formatDate(r.createdAt) ?? "" })}
+                    {dates.join(" · ")}
                   </span>
                   <div className="flex flex-wrap items-center gap-1.5">
                     {r.status === "pending" && (

@@ -83,7 +83,7 @@ export function RestaurantFilters({
   const activeCount =
     (currentCity ? 1 : 0) + (currentPrice ? 1 : 0) + (currentSort === "asc" ? 1 : 0);
   const selectClass =
-    "focus-ring w-full min-w-0 rounded-sm border border-border bg-background px-3 py-2 font-mono text-xs uppercase tracking-wider text-foreground transition-colors hover:border-amber-500/40 md:w-auto";
+    "focus-ring h-11 w-full min-w-0 rounded-sm border border-border bg-background px-3 font-mono text-xs uppercase text-foreground transition-colors hover:border-amber-500/40 md:h-auto md:w-auto md:py-2 md:tracking-wider";
 
   return (
     <div className="relative mb-8 flex flex-col gap-3 rounded-sm border border-amber-500/30 bg-card p-3 md:mb-10 md:p-4">
@@ -103,7 +103,7 @@ export function RestaurantFilters({
             onChange={(e) => setSearchVal(e.target.value)}
             placeholder={t.searchPlaceholder}
             aria-label={t.searchPlaceholder}
-            className="w-full rounded-sm border border-border bg-background py-2 pl-9 pr-3 font-mono text-xs text-foreground placeholder:text-muted-foreground focus:border-amber-500 focus:outline-none"
+            className="h-11 w-full rounded-sm border border-border bg-background pl-9 pr-3 font-body md:h-auto md:py-2 md:font-mono md:text-xs text-foreground placeholder:text-muted-foreground focus:border-amber-500 focus:outline-none"
           />
         </div>
         <button
@@ -111,7 +111,7 @@ export function RestaurantFilters({
           onClick={() => setFiltersOpen((open) => !open)}
           aria-expanded={filtersOpen}
           aria-controls="restaurant-filter-controls"
-          className="focus-ring inline-flex shrink-0 items-center gap-1.5 rounded-sm border border-amber-500/30 bg-amber-500/10 px-3 py-2 font-mono text-xs font-semibold uppercase tracking-wider text-amber-600 md:hidden"
+          className="focus-ring inline-flex h-11 shrink-0 items-center gap-1.5 rounded-sm border border-amber-500/30 bg-amber-500/10 px-3 font-mono text-xs font-semibold uppercase tracking-wider text-amber-600 md:hidden"
         >
           <SlidersHorizontal className="h-3.5 w-3.5" />
           <span>{t.filterLabel.replace(/:\s*$/, "")}</span>
@@ -166,7 +166,7 @@ export function RestaurantFilters({
             defaultValue={currentSort}
             onChange={(e) => updateParam("sort", e.target.value)}
             aria-label={t.sortAria}
-            className="focus-ring w-full appearance-none rounded-sm border border-amber-500/30 bg-amber-500/10 pl-8 pr-3 py-2 font-mono text-xs font-semibold uppercase tracking-wider text-amber-600 transition-colors hover:bg-amber-500/20 cursor-pointer md:w-auto"
+            className="focus-ring h-11 w-full appearance-none rounded-sm border border-amber-500/30 bg-amber-500/10 pl-8 pr-3 font-mono md:h-auto md:py-2 text-xs font-semibold uppercase md:tracking-wider text-amber-600 transition-colors hover:bg-amber-500/20 cursor-pointer md:w-auto"
           >
             <option value="desc">{t.sortDesc}</option>
             <option value="asc">{t.sortAsc}</option>

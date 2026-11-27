@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getLocale, getTranslations } from "next-intl/server";
 import { ShareCard } from "@/components/public/share/share-card";
 import { INSTAGRAM_URL } from "@/lib/social-links";
+import { siteUrl } from "@/lib/site-url";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("public.share");
@@ -15,11 +16,11 @@ export default async function SharePage() {
   const t = await getTranslations("public.share");
   const locale = await getLocale();
 
-  const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "").replace(/\/$/, "");
-  const homeUrl = `${siteUrl}/${locale}`;
+  const homeUrl = `${siteUrl()}/${locale}`;
 
-  // Different utm_source values let you tell QR scans from shared links in analytics
-  const qrUrl = `${homeUrl}?utm_source=qr&utm_medium=offline&utm_campaign=share_page`;
+  // Scanning the QR code opens the Instagram profile; the Share button
+  // shares the website (tagged so shared links show up in analytics).
+  const qrUrl = INSTAGRAM_URL;
   const shareUrl = `${homeUrl}?utm_source=share&utm_medium=social&utm_campaign=share_page`;
 
   return (
@@ -38,7 +39,7 @@ export default async function SharePage() {
         <ShareCard
           qrUrl={qrUrl}
           shareUrl={shareUrl}
-          displayUrl={homeUrl.replace(/^https?:\/\//, "")}
+          displayUrl={INSTAGRAM_URL.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}
           labels={{
             scanHint: t("scanHint"),
             qrAlt: t("qrAlt"),

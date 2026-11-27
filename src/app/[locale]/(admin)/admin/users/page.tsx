@@ -66,7 +66,7 @@ export default async function AdminUsersPage({
               </span>
             )}
           </span>
-          <span className="font-mono text-xs text-muted-foreground">
+          <span className="break-all font-mono text-xs text-muted-foreground">
             {account?.email ?? "—"}
           </span>
         </div>,
@@ -76,7 +76,7 @@ export default async function AdminUsersPage({
             {t(`roles.${p.role}`)}
           </Badge>
         ) : (
-          <form key="role" action={setUserRole.bind(null, p.id)} className="flex items-center gap-2">
+          <form key="role" action={setUserRole.bind(null, p.id)} className="flex flex-wrap items-center gap-2">
             <select
               name="role"
               defaultValue={p.role}
@@ -147,7 +147,7 @@ export default async function AdminUsersPage({
         </p>
       )}
 
-      <div className="overflow-x-auto">
+      <div className="md:overflow-x-auto">
         <AdminTable
           headers={[
             t("table.headers.user"),

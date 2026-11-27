@@ -94,5 +94,6 @@
   "visited": "visite le {date}",
   "submitted": "Soumis le {date}",
   "view": "Voir",
-  "paginationLabel": "Pages des avis"
+  "paginationLabel": "Pages des avis",
+  "published": "Publié le {date}"
 }
