@@ -78,5 +78,21 @@
       "confirmReject": "Rejeitar esta avaliação? Esta ação não pode ser revertida."
     },
     "empty": "Sem avaliações comunitárias pendentes de moderação."
-  }
+  },
+  "statusFilterLabel": "Filtrar por estado",
+  "type": {
+    "all": "Todos os tipos",
+    "official": "Oficiais",
+    "community": "Comunidade"
+  },
+  "sort": {
+    "newest": "Mais recentes",
+    "oldest": "Mais antigas"
+  },
+  "searchPlaceholder": "Restaurante, autor ou texto",
+  "resultCount": "{count, plural, =0 {Nenhuma avaliação} =1 {# avaliação} other {# avaliações}}",
+  "visited": "visita a {date}",
+  "submitted": "Submetida a {date}",
+  "view": "Ver",
+  "paginationLabel": "Páginas de avaliações"
 }

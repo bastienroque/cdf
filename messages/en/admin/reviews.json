@@ -78,5 +78,21 @@
       "confirmReject": "Reject this review? This cannot be undone."
     },
     "empty": "No pending community reviews awaiting moderation."
-  }
+  },
+  "statusFilterLabel": "Filter by status",
+  "type": {
+    "all": "All types",
+    "official": "Official",
+    "community": "Community"
+  },
+  "sort": {
+    "newest": "Newest first",
+    "oldest": "Oldest first"
+  },
+  "searchPlaceholder": "Restaurant, author or text",
+  "resultCount": "{count, plural, =0 {No reviews} =1 {# review} other {# reviews}}",
+  "visited": "visited {date}",
+  "submitted": "Submitted {date}",
+  "view": "View",
+  "paginationLabel": "Review pages"
 }

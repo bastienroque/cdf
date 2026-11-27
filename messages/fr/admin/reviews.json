@@ -78,5 +78,21 @@
       "confirmReject": "Rejeter cet avis ? Cette action est irréversible."
     },
     "empty": "Aucun avis communautaire en attente de modération."
-  }
+  },
+  "statusFilterLabel": "Filtrer par statut",
+  "type": {
+    "all": "Tous les types",
+    "official": "Officiels",
+    "community": "Communauté"
+  },
+  "sort": {
+    "newest": "Plus récents",
+    "oldest": "Plus anciens"
+  },
+  "searchPlaceholder": "Restaurant, auteur ou texte",
+  "resultCount": "{count, plural, =0 {Aucun avis} =1 {# avis} other {# avis}}",
+  "visited": "visite le {date}",
+  "submitted": "Soumis le {date}",
+  "view": "Voir",
+  "paginationLabel": "Pages des avis"
 }
