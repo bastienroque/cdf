@@ -1,12 +1,13 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import type { MapPin } from "./base-map";
 
 // Dynamic import to prevent SSR window/document execution errors in Leaflet
 export const RestaurantsClusterMap = dynamic(
   () =>
     import("./base-map").then((m) => {
-      return function ClusterMapWrapper({ pins }: { pins: any[] }) {
+      return function ClusterMapWrapper({ pins }: { pins: MapPin[] }) {
         return (
           <m.BaseMap
             pins={pins}

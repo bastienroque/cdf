@@ -1,8 +1,9 @@
 import { Link } from "@/i18n/navigation";
 import { Badge } from "@/components/ui/badge";
+import type { getRecentReviews } from "@/lib/get-recent-activity";
 
 interface RecentActivityProps {
-  reviews: any[];
+  reviews: Awaited<ReturnType<typeof getRecentReviews>>;
   labels: {
     tag: string;
     title: string;

@@ -74,5 +74,12 @@
       "retry": "Pode submeter uma nova avaliação a qualquer momento."
     }
   },
-  "languageSwitcher": "Mudar de idioma"
+  "languageSwitcher": "Mudar de idioma",
+  "error": {
+    "badge": "Algo correu mal",
+    "title": "Um percalço na cozinha",
+    "description": "Não foi possível carregar esta página. Tente novamente dentro de momentos.",
+    "retry": "Tentar de novo",
+    "home": "Voltar ao início"
+  }
 }

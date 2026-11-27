@@ -74,5 +74,12 @@
       "retry": "You are welcome to submit a new review at any time."
     }
   },
-  "languageSwitcher": "Change language"
+  "languageSwitcher": "Change language",
+  "error": {
+    "badge": "Something went wrong",
+    "title": "A misstep in the kitchen",
+    "description": "This page could not be loaded. Please try again in a moment.",
+    "retry": "Try again",
+    "home": "Back to Home"
+  }
 }

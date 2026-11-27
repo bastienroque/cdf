@@ -170,7 +170,7 @@ export default async function AdminReviewsPage({
 
                   {r.text && (
                     <p className="font-body text-sm text-foreground/90 line-clamp-2 italic">
-                      "{r.text}"
+                      &ldquo;{r.text}&rdquo;
                     </p>
                   )}
                   {r.createdAt && (

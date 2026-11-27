@@ -74,5 +74,12 @@
       "retry": "Vous pouvez soumettre un nouvel avis à tout moment."
     }
   },
-  "languageSwitcher": "Changer de langue"
+  "languageSwitcher": "Changer de langue",
+  "error": {
+    "badge": "Une erreur est survenue",
+    "title": "Un faux pas en cuisine",
+    "description": "Cette page n'a pas pu être chargée. Veuillez réessayer dans un instant.",
+    "retry": "Réessayer",
+    "home": "Retour à l'accueil"
+  }
 }

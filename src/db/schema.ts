@@ -139,6 +139,7 @@ export const reviews = pgTable(
           tagIds: string[];
         }[]
       >()
+      .notNull()
       .default([]),
 
     experienceScores: jsonb("experience_scores")
@@ -148,6 +149,7 @@ export const reviews = pgTable(
           score: number;
         }[]
       >()
+      .notNull()
       .default([]),
 
     createdAt: timestamp("created_at").notNull().defaultNow(),
@@ -185,6 +187,19 @@ export const events = pgTable("events", {
   locale: text("locale").notNull(),
   createdAt: timestamp("created_at").notNull().defaultNow(),
 });
+
+// --- Static page content (exists in the database, not used by the app yet) ---
+export const pageContent = pgTable(
+  "page_content",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    pageKey: text("page_key").notNull(),
+    locale: text("locale").notNull(),
+    content: text("content").notNull(),
+    createdAt: timestamp("created_at").notNull().defaultNow(),
+  },
+  (table) => [unique("page_key_locale_unique").on(table.pageKey, table.locale)],
+);
 
 // --- API Logging ---
 export const apiUsageLog = pgTable("api_usage_log", {
